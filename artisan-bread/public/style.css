@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap");
+/*font family setting*/
+html {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+
+.highlightText {
+  color: #e27d60 !important;
+}
+
+.logoText {
+  font-family: "Lobster Two", cursive;
+  font-size: 1.5rem;
+  color: #e27d60 !important;
+}
+
+.subText {
+  font-family: "Montserrat", sans-serif !important;
+  color: grey;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+/*text color setting*/
+
+.primaryColor {
+  color: #e27d60 !important;
+}
+
+.secondaryColor {
+  color: #85dcb8 !important;
+}
+
+.accentOneColor {
+  color: #e8a87c !important;
+}
+
+.accentTwoColor {
+  color: #c38d9e !important;
+}
+
+.accentThreeColor {
+  color: #41b3a3 !important;
+}
+
+/*background color setting*/
+
+.primaryBgColor {
+  background-color: #e27d60;
+}
+
+.secondaryBgColor {
+  background-color: #85dcb8 !important;
+}
+
+.accentOneBgColor {
+  background-color: #e8a87c !important;
+}
+
+.accentTwoBgColor {
+  background-color: #c38d9e !important;
+}
+
+.accentThreeBgColor {
+  background-color: #41b3a3 !important;
+}
+
+.customBtn {
+  border-radius: 3rem;
+  border: 2px solid;
+  font-weight: 400;
+  padding: 0.3rem 1rem;
+}
+
+.customBtnPrimary {
+  color: white;
+  background-color: #e27d60;
+}
+
+.customBtnPrimary:hover {
+  color: #e27d60;
+  background-color: white;
+}
+
+.customBtnAccentThree {
+  color: white;
+  background-color: #41b3a3;
+}
+
+.customBtnAccentThree:hover {
+  color: #41b3a3;
+  background-color: white;
+}
+
+.customBtnAccentTwo {
+  color: white;
+  background-color: #c38d9e;
+}
+
+.customBtnAccentTwo:hover {
+  color: #c38d9e;
+  background-color: white;
+}
+
+.customBtnRed {
+  color: white;
+  background-color: rgb(189, 3, 3);
+}
+
+.customBtnRed:hover {
+  color: rgb(189, 3, 3);
+  background-color: white;
+}
