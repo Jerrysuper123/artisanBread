@@ -13,8 +13,12 @@ html {
 
 .logoText {
   font-family: "Lobster Two", cursive;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #e27d60 !important;
+  /* border-radius: 3rem;
+  width: 3rem;
+  height: 3rem;
+  background-color:#8AA6bf; */
 }
 
 .subText {
@@ -34,45 +38,45 @@ h4 {
 /*text color setting*/
 
 .primaryColor {
-  color: #e27d60 !important;
+  color: #D98e04 !important;
 }
 
 .secondaryColor {
-  color: #85dcb8 !important;
+  color: #04bdad !important;
 }
 
 .accentOneColor {
-  color: #e8a87c !important;
+  color: #8AA6bf !important;
 }
 
 .accentTwoColor {
-  color: #c38d9e !important;
+  color: #F2cb05 !important;
 }
 
 .accentThreeColor {
-  color: #41b3a3 !important;
+  color: #f15e1a !important;
 }
 
 /*background color setting*/
 
 .primaryBgColor {
-  background-color: #e27d60;
+  background-color: #D98e04;
 }
 
 .secondaryBgColor {
-  background-color: #85dcb8 !important;
+  background-color: #04bdad !important;
 }
 
 .accentOneBgColor {
-  background-color: #e8a87c !important;
+  background-color: #8AA6bf !important;
 }
 
 .accentTwoBgColor {
-  background-color: #c38d9e !important;
+  background-color: #F2cb05 !important;
 }
 
 .accentThreeBgColor {
-  background-color: #41b3a3 !important;
+  background-color: #f15e1a !important;
 }
 
 .customBtn {
@@ -84,40 +88,20 @@ h4 {
 
 .customBtnPrimary {
   color: white;
-  background-color: #e27d60;
+  background-color: #D98e04;
 }
 
 .customBtnPrimary:hover {
-  color: #e27d60;
+  color: #D98e04;
   background-color: white;
 }
 
-.customBtnAccentThree {
+.customBtnSecondary {
   color: white;
-  background-color: #41b3a3;
+  background-color: #04bdad;
 }
 
-.customBtnAccentThree:hover {
-  color: #41b3a3;
-  background-color: white;
-}
-
-.customBtnAccentTwo {
-  color: white;
-  background-color: #c38d9e;
-}
-
-.customBtnAccentTwo:hover {
-  color: #c38d9e;
-  background-color: white;
-}
-
-.customBtnRed {
-  color: white;
-  background-color: rgb(189, 3, 3);
-}
-
-.customBtnRed:hover {
-  color: rgb(189, 3, 3);
+.customBtnSecondary:hover {
+  color: #04bdad;
   background-color: white;
 }

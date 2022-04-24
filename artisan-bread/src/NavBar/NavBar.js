@@ -1,12 +1,20 @@
 import React from "react";
+import "./style.css";
+import grain from "../images/grain.png"
 
 export default function Navbar(){
     return(<React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand d-flex flex-column" href="#">
     {/* <i class="fa-solid fa-bath"></i> */}
-    artisan bread
+    <img
+    className="iconImage"
+    src={grain} alt="icon"/>
+    <span className="accentThreeColor logoText">
+    Artisan
+    </span>
+    <span className="accentOneColor logoSubText">BREAD</span>
     </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>

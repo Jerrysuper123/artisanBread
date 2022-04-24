@@ -5,7 +5,7 @@ import "./style.css";
 export default function Footer(props) {
   return (
     <footer
-      className="page-footer font-small blue pt-4"
+      className="page-footer font-small blue pt-4 secondaryBgColor"
       style={{
         display: props.display,
       }}
