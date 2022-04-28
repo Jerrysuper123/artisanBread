@@ -6,7 +6,6 @@ html {
   font-family: "Montserrat", sans-serif !important;
 }
 
-
 .highlightText {
   color: #e27d60 !important;
 }
@@ -38,7 +37,7 @@ h4 {
 /*text color setting*/
 
 .primaryColor {
-  color: #D98e04 !important;
+  color: #d98e04 !important;
 }
 
 .secondaryColor {
@@ -46,11 +45,11 @@ h4 {
 }
 
 .accentOneColor {
-  color: #8AA6bf !important;
+  color: #8aa6bf !important;
 }
 
 .accentTwoColor {
-  color: #F2cb05 !important;
+  color: #f2cb05 !important;
 }
 
 .accentThreeColor {
@@ -60,7 +59,7 @@ h4 {
 /*background color setting*/
 
 .primaryBgColor {
-  background-color: #D98e04;
+  background-color: #d98e04;
 }
 
 .secondaryBgColor {
@@ -68,11 +67,11 @@ h4 {
 }
 
 .accentOneBgColor {
-  background-color: #8AA6bf !important;
+  background-color: #8aa6bf !important;
 }
 
 .accentTwoBgColor {
-  background-color: #F2cb05 !important;
+  background-color: #f2cb05 !important;
 }
 
 .accentThreeBgColor {
@@ -88,11 +87,11 @@ h4 {
 
 .customBtnPrimary {
   color: white;
-  background-color: #D98e04;
+  background-color: #d98e04;
 }
 
 .customBtnPrimary:hover {
-  color: #D98e04;
+  color: #d98e04;
   background-color: white;
 }
 
@@ -103,5 +102,15 @@ h4 {
 
 .customBtnSecondary:hover {
   color: #04bdad;
+  background-color: white;
+}
+
+.customBtnAccentThree {
+  color: white;
+  background-color: #f15e1a;
+}
+
+.customBtnAccentThree:hover {
+  color: #f15e1a;
   background-color: white;
 }

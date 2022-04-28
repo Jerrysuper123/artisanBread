@@ -20,6 +20,19 @@ function App() {
   useEffect(() => {
     fetchAllProducts();
   }, []);
+
+  const [cart, setCart] = useState([]);
+
+  const fetchCart = async () => {
+    let response = await axios.get(BASE_URL + "cart");
+    console.log(response.data);
+    setCart(response.data);
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
@@ -41,9 +54,46 @@ function App() {
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">${p.price}</p>
-                  <a href="#" className="btn btn-primary">
+                  <button className="customBtn customBtnSecondary">
                     Add to cart
-                  </a>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <h1>cart page</h1>
+      <section className="container-fluid p-3">
+        <div className="row d-flex justify-content-center gy-3 gx-3">
+          {cart.map((c) => {
+            return (
+              <div key={c.id} className="card col-4" style={{ width: "18rem" }}>
+                {c.product.image_url ? (
+                  <img
+                    src={c.product.image_url}
+                    className="card-img-top"
+                    alt={c.product.name}
+                  />
+                ) : null}
+
+                <div className="card-body">
+                  <h5 className="card-title">{c.product.name}</h5>
+                  <p className="card-text">Price: ${c.product.price}</p>
+                  <section>
+                    <span>Quantity: {c.quantity}</span>
+                    <button
+                      href="#"
+                      className="ms-3 customBtn customBtnSecondary"
+                    >
+                      Update
+                    </button>
+                  </section>
+
+                  <button href="#" className="customBtn customBtnAccentThree">
+                    Remove
+                  </button>
                 </div>
               </div>
             );
