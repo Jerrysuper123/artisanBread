@@ -10,7 +10,7 @@ export default function Navbar() {
           {/* icon */}
           <a className="navbar-brand d-flex flex-column" href="#">
             {/* <i class="fa-solid fa-bath"></i> */}
-            <img className="iconImage" src={grain} alt="icon" />
+            {/* <img className="iconImage" src={grain} alt="icon" /> */}
             <span className="accentThreeColor logoText">Artisan</span>
             <span className="accentOneColor logoSubText">BREAD</span>
           </a>
