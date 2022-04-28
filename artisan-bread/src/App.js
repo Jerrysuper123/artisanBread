@@ -82,16 +82,23 @@ function App() {
                   <h5 className="card-title">{c.product.name}</h5>
                   <p className="card-text">Price: ${c.product.price}</p>
                   <section>
-                    <span>Quantity: {c.quantity}</span>
-                    <button
-                      href="#"
-                      className="ms-3 customBtn customBtnSecondary"
-                    >
+                    <span>
+                      <label>Quantity:</label>
+                      {/* {c.quantity} */}
+                      <input
+                        className="form-control d-inline ms-1"
+                        style={{ width: "3rem" }}
+                        value={c.quantity}
+                        name="cartQuantity"
+                      />
+                    </span>
+
+                    <button className="customBtn customBtnSecondary">
                       Update
                     </button>
                   </section>
 
-                  <button href="#" className="customBtn customBtnAccentThree">
+                  <button className="mt-2 customBtn customBtnAccentThree">
                     Remove
                   </button>
                 </div>
