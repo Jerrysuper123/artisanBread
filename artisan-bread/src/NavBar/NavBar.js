@@ -7,7 +7,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 
 export default function Navbar() {
-  const [cartShowStatus, setCartShowStatus] = useState("none");
+  // const [cartShowStatus, setCartShowStatus] = useState("none");
   const [userActive, setUserActive] = useState("login");
   const showSignUpPage = () => {
     setUserActive("signup");
@@ -16,13 +16,13 @@ export default function Navbar() {
   const showLoginPage = () => {
     setUserActive("login");
   };
-  const changeCartShowStatus = () => {
-    if (cartShowStatus === "none") {
-      setCartShowStatus("block");
-    } else {
-      setCartShowStatus("none");
-    }
-  };
+  // const changeCartShowStatus = () => {
+  //   if (cartShowStatus === "none") {
+  //     setCartShowStatus("block");
+  //   } else {
+  //     setCartShowStatus("none");
+  //   }
+  // };
   return (
     <React.Fragment>
       {/* modal */}
@@ -133,7 +133,11 @@ export default function Navbar() {
 
             {/* click cart button to show and unshow the cart */}
 
-            <section onClick={changeCartShowStatus}>
+            <section
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+            >
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
                 3+
@@ -144,17 +148,24 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* cart floating page */}
-      <section className="cartFloatingPage" style={{ display: cartShowStatus }}>
-        <div onClick={changeCartShowStatus}>
-          <i class="fa-solid fa-xmark"></i>
+      {/* cart page */}
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
-        <h1 className="cartTitle">Cart page</h1>
-
-        <div className="cartBody">
-          <p>body</p>
-        </div>
-      </section>
+        <div class="offcanvas-body">...</div>
+      </div>
     </React.Fragment>
   );
 }
