@@ -25,14 +25,6 @@ export default function Navbar() {
   };
   return (
     <React.Fragment>
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button>
       {/* modal */}
       <div
         className="modal fade"
