@@ -3,9 +3,19 @@ import "./style.css";
 // import grain from "../images/grain.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from "../RegisterPage/RegisterPage";
 
 export default function Navbar() {
   const [cartShowStatus, setCartShowStatus] = useState("none");
+  const [userActive, setUserActive] = useState("login");
+  const showSignUpPage = () => {
+    setUserActive("signup");
+  };
+
+  const showLoginPage = () => {
+    setUserActive("login");
+  };
   const changeCartShowStatus = () => {
     if (cartShowStatus === "none") {
       setCartShowStatus("block");
@@ -15,6 +25,48 @@ export default function Navbar() {
   };
   return (
     <React.Fragment>
+      <button
+        type="button"
+        className="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Launch demo modal
+      </button>
+      {/* modal */}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div className="modal-body">
+              {userActive === "login" ? <LoginPage /> : <RegisterPage />}
+
+              <p class="mt-3 pt-3 border-top">
+                {userActive === "login" ? (
+                  <section>
+                    <div>New Users?</div>
+                    <div onClick={showSignUpPage}>Sign up</div>
+                  </section>
+                ) : (
+                  <section onClick={showLoginPage}>Log in</section>
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           {/* icon */}
@@ -64,7 +116,13 @@ export default function Navbar() {
                 </div>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <div className="dropdown-item">Login</div>
+                    <div
+                      className="dropdown-item"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Login
+                    </div>
                   </li>
                   <li>
                     <div className="dropdown-item">Register</div>
