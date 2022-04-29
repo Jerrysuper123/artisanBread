@@ -1,15 +1,25 @@
-.navbar{
+.navbar {
     background-color: white !important;
 }
 
-.iconImage{
+.iconImage {
     width: 1.5rem;
-    margin-bottom:-1.3rem;
+    margin-bottom: -1.3rem;
     margin-left: 5rem;
 }
 
-.logoSubText{
+.logoSubText {
     font-size: 0.8rem;
     font-weight: 600;
     margin-top: -0.8rem;
+}
+
+.cartFloatingPage {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    z-index: 3;
+    width: 16rem;
 }

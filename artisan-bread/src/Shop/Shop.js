@@ -216,7 +216,8 @@ export default function Shop() {
         description: "asds",
         flavour_id: 1,
         type_id: 1,
-        image_url: "",
+        image_url:
+          "http://res.cloudinary.com/dzpqaf348/image/upload/v1651042657/zojbctdeqfkielvnweqx.jpg",
         flavour: {
           id: 1,
           flavour: "sweet",

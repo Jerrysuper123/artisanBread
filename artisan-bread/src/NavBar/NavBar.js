@@ -2,8 +2,17 @@ import React from "react";
 import "./style.css";
 // import grain from "../images/grain.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [cartShowStatus, setCartShowStatus] = useState("none");
+  const changeCartShowStatus = () => {
+    if (cartShowStatus === "none") {
+      setCartShowStatus("block");
+    } else {
+      setCartShowStatus("none");
+    }
+  };
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,30 +53,25 @@ export default function Navbar() {
               </li>
 
               <li className="nav-item dropdown">
-                <a
+                <div
                   className="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   <i className="fa-solid fa-user"></i>
-                </a>
+                </div>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <div className="dropdown-item" href="#">
-                      Login
-                    </div>
+                    <div className="dropdown-item">Login</div>
                   </li>
                   <li>
-                    <div className="dropdown-item" href="#">
-                      Register
-                    </div>
+                    <div className="dropdown-item">Register</div>
                   </li>
 
                   <li>
-                    <div className="dropdown-item" href="#">
+                    <div className="dropdown-item">
                       <Link to="/myaccount">My account</Link>
                     </div>
                   </li>
@@ -75,7 +79,11 @@ export default function Navbar() {
               </li>
             </ul>
             {/* cart */}
-            <section>
+            {/* crollable modal */}
+
+            {/* click cart button to show and unshow the cart */}
+
+            <section onClick={changeCartShowStatus}>
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
                 3+
@@ -85,6 +93,18 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* cart floating page */}
+      <section className="cartFloatingPage" style={{ display: cartShowStatus }}>
+        <div onClick={changeCartShowStatus}>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1 className="cartTitle">Cart page</h1>
+
+        <div className="cartBody">
+          <p>body</p>
+        </div>
+      </section>
     </React.Fragment>
   );
 }
