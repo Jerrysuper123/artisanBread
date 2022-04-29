@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-import grain from "../images/grain.png";
+// import grain from "../images/grain.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -8,12 +9,14 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           {/* icon */}
-          <a className="navbar-brand d-flex flex-column" href="#">
-            {/* <i class="fa-solid fa-bath"></i> */}
-            {/* <img className="iconImage" src={grain} alt="icon" /> */}
-            <span className="accentThreeColor logoText">Artisan</span>
-            <span className="accentOneColor logoSubText">BREAD</span>
-          </a>
+          <Link to="/">
+            <div className="navbar-brand d-flex flex-column">
+              {/* <i class="fa-solid fa-bath"></i> */}
+              {/* <img className="iconImage" src={grain} alt="icon" /> */}
+              <span className="accentThreeColor logoText">Artisan</span>
+              <span className="accentOneColor logoSubText">BREAD</span>
+            </div>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -29,15 +32,15 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
-                  Shop
-                </a>
+                <div className="nav-link" aria-current="page" href="#">
+                  <Link to="/shop">Shop</Link>
+                </div>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <div className="nav-link" href="#">
                   Delivery
-                </a>
+                </div>
               </li>
 
               <li className="nav-item dropdown">
@@ -53,14 +56,20 @@ export default function Navbar() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <div className="dropdown-item" href="#">
                       Login
-                    </a>
+                    </div>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <div className="dropdown-item" href="#">
                       Register
-                    </a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="dropdown-item" href="#">
+                      <Link to="/myaccount">My account</Link>
+                    </div>
                   </li>
                 </ul>
               </li>

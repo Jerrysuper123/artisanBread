@@ -1,0 +1,10 @@
+import React from "react";
+
+export default function Landing() {
+  return (
+    <React.Fragment>
+      <h1>Landing</h1>
+      <p>blala</p>
+    </React.Fragment>
+  );
+}
