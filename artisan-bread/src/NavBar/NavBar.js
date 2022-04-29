@@ -29,7 +29,7 @@ export default function Navbar() {
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -44,7 +44,7 @@ export default function Navbar() {
             <div className="modal-body">
               {userActive === "login" ? <LoginPage /> : <RegisterPage />}
 
-              <p class="mt-3 pt-3 border-top">
+              <p className="mt-3 pt-3 border-top">
                 {userActive === "login" ? (
                   <section>
                     <div>New Users?</div>
@@ -150,21 +150,21 @@ export default function Navbar() {
 
       {/* cart page */}
       <div
-        class="offcanvas offcanvas-end"
+        className="offcanvas offcanvas-end"
         tabindex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
       >
-        <div class="offcanvas-header">
+        <div className="offcanvas-header">
           <h5 id="offcanvasRightLabel">Offcanvas right</h5>
           <button
             type="button"
-            class="btn-close text-reset"
+            className="btn-close text-reset"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">...</div>
+        <div className="offcanvas-body">...</div>
       </div>
     </React.Fragment>
   );

@@ -1,9 +1,18 @@
 // for shop page
 import { BASE_URL } from "../util";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
+import ProductContext from "../ProductContext";
+// import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
+import { useNavigate } from "react-router-dom";
 export default function Shop() {
+  let context = useContext(ProductContext);
+
+  const navigate = useNavigate();
+  const fetchProductDetailsPage = (productId) => {
+    navigate(`/productdetails/${productId}`);
+  };
+  // console.log("context get product", context.getProducts());
   // for shop page
   const [products, setProducts] = useState([
     {
@@ -319,9 +328,16 @@ export default function Shop() {
       {/* for shop page */}
       <section className="container-fluid p-3">
         <div className="row d-flex justify-content-center gy-3 gx-3">
-          {products.map((p) => {
+          {context.getProducts().map((p) => {
             return (
-              <div key={p.id} className="card col-4" style={{ width: "18rem" }}>
+              <div
+                onClick={() => {
+                  fetchProductDetailsPage(p.id);
+                }}
+                key={p.id}
+                className="card col-4"
+                style={{ width: "18rem" }}
+              >
                 {p.image_url ? (
                   <img
                     src={p.image_url}
@@ -351,7 +367,7 @@ export default function Shop() {
       <h1>cart page</h1>
       <section className="container-fluid p-3">
         <div className="row d-flex justify-content-center gy-3 gx-3">
-          {cart.map((c) => {
+          {context.getCart().map((c) => {
             return (
               <div key={c.id} className="card col-4" style={{ width: "18rem" }}>
                 {c.product.image_url ? (
