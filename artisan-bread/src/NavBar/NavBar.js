@@ -16,13 +16,6 @@ export default function Navbar() {
   const showLoginPage = () => {
     setUserActive("login");
   };
-  // const changeCartShowStatus = () => {
-  //   if (cartShowStatus === "none") {
-  //     setCartShowStatus("block");
-  //   } else {
-  //     setCartShowStatus("none");
-  //   }
-  // };
   return (
     <React.Fragment>
       {/* modal */}
@@ -149,23 +142,6 @@ export default function Navbar() {
       </nav>
 
       {/* cart page */}
-      <div
-        className="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel"
-      >
-        <div className="offcanvas-header">
-          <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-          <button
-            type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body">...</div>
-      </div>
     </React.Fragment>
   );
 }
