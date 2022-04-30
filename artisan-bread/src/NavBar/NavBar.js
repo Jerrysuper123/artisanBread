@@ -139,7 +139,7 @@ export default function Navbar(props) {
             >
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                {context.getCartQuantity()}
+                {context.cartQuantity}
                 <span className="visually-hidden">unread messages</span>
               </span>
             </section>

@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
 
 export default function Shop() {
-  let context = useContext(ProductContext);
-
   const navigate = useNavigate();
   const fetchProductDetailsPage = (productId) => {
     navigate(`/productdetails/${productId}`);
@@ -29,14 +27,19 @@ export default function Shop() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  useEffect(() => {
-    setCart(context.getCart());
-  }, [context.changeCartStatus]);
+  // useEffect(() => {
+  //   setCart(context.getCart());
+  // }, [context.changeCartStatus]);
 
   const [subtotal, setsubtotal] = useState({
     subQuantity: 0,
     subTotalDollar: 0,
   });
+
+  let { setCartQuantity } = useContext(ProductContext);
+  useEffect(() => {
+    setCartQuantity(subtotal.subQuantity);
+  }, [subtotal]);
 
   const calculateTotalCartQuantity = (cartItems) => {
     let subQuantity = 0;
@@ -47,11 +50,6 @@ export default function Shop() {
     }
     return { subQuantity, subTotalDollar };
   };
-
-  useEffect(() => {
-    context.updateCartQuantity(subtotal.subQuantity);
-    console.log("shop q", subtotal.subQuantity);
-  }, [subtotal]);
 
   useEffect(() => {
     setsubtotal(calculateTotalCartQuantity(cart));
@@ -76,7 +74,7 @@ export default function Shop() {
   };
   // when CRUD on cart db has been triggered, we retrieve cartData again
   useEffect(() => {
-    // fetchCart();
+    fetchCart();
   }, [changeCartStatus]);
 
   const addToCart = async (productId) => {
@@ -84,7 +82,7 @@ export default function Shop() {
     console.log(response);
 
     if (response) {
-      context.changedCart();
+      changedCart();
     }
   };
 
@@ -92,7 +90,7 @@ export default function Shop() {
     let response = await axios.get(BASE_URL + "cart/" + productId + "/remove");
     console.log(response);
     if (response) {
-      context.changedCart();
+      changedCart();
     }
   };
 
@@ -119,7 +117,7 @@ export default function Shop() {
     });
     // console.log(response);
     if (response) {
-      context.changedCart();
+      changedCart();
     }
   };
 
@@ -129,7 +127,7 @@ export default function Shop() {
       {/* for shop page */}
       <section className="container-fluid p-3">
         <div className="row d-flex justify-content-center gy-3 gx-3">
-          {context.getProducts().map((p) => {
+          {products.map((p) => {
             return (
               <div key={p.id} className="card col-4" style={{ width: "18rem" }}>
                 {p.image_url ? (
