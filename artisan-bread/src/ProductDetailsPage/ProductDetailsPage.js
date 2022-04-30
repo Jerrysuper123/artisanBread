@@ -10,7 +10,7 @@ export default function ProductDetailsPage(props) {
 
   const fetchProduct = () => {
     let tempProduct = context.getProductByID(productID);
-    console.log("temp", tempProduct);
+    // console.log("temp", tempProduct);
     setProduct(tempProduct);
   };
 

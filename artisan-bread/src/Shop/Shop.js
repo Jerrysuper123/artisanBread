@@ -36,10 +36,14 @@ export default function Shop() {
     subTotalDollar: 0,
   });
 
-  let { setCartQuantity } = useContext(ProductContext);
+  let context = useContext(ProductContext);
   useEffect(() => {
-    setCartQuantity(subtotal.subQuantity);
+    context.setCartQuantity(subtotal.subQuantity);
   }, [subtotal]);
+
+  useEffect(() => {
+    context.setProducts(products);
+  }, [products]);
 
   const calculateTotalCartQuantity = (cartItems) => {
     let subQuantity = 0;
@@ -140,7 +144,14 @@ export default function Shop() {
                     alt={p.name}
                   />
                 ) : null}
-
+                <button
+                  className="customBtn customBtnSecondary"
+                  onClick={() => {
+                    addToCart(p.id);
+                  }}
+                >
+                  Add to cart
+                </button>
                 <div className="card-body">
                   <section
                     onClick={() => {
@@ -150,15 +161,6 @@ export default function Shop() {
                     <h5 className="card-title">{p.name}</h5>
                     <p className="card-text">${p.price}</p>
                   </section>
-
-                  <button
-                    className="customBtn customBtnSecondary"
-                    onClick={() => {
-                      addToCart(p.id);
-                    }}
-                  >
-                    Add to cart
-                  </button>
                 </div>
               </div>
             );

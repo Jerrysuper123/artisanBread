@@ -16,8 +16,19 @@ import "./App.css";
 
 function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
+  const [products, setProducts] = useState([]);
 
-  const context = { cartQuantity, setCartQuantity };
+  const getProductByID = (productID) => {
+    return products.filter((p) => p.id === parseInt(productID))[0];
+  };
+
+  const context = {
+    cartQuantity,
+    setCartQuantity,
+    products,
+    setProducts,
+    getProductByID,
+  };
 
   return (
     <div className="App">
