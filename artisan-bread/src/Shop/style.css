@@ -25,9 +25,21 @@
 }
 
 .checkOutBtn:hover {
-    transform: scale(1.01);
+    background-color: white;
+    color: rgb(12, 12, 12);
 }
 
 .cartCard {
     border: none !important;
+}
+.cartBtn {
+    background-color: #04bdad;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+}
+
+.cartBtn:hover {
+    background-color: #32b0a5;
+    /* color: white; */
 }

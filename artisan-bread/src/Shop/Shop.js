@@ -199,7 +199,7 @@ export default function Shop() {
                     className="cartCard card d-flex flex-row"
                     style={{ width: "19rem" }}
                   >
-                    <section style={{ width: "8rem" }}>
+                    <section className="mt-3" style={{ width: "7rem" }}>
                       {c.product.image_url ? (
                         <img
                           // width={{ width: "5rem" }}
@@ -232,22 +232,30 @@ export default function Shop() {
                         </section>
 
                         {/* {c.quantity} */}
-                        <button
-                          onClick={() => {
-                            updateCartQuantity(c.product.id, c.id);
-                          }}
-                        >
-                          Update
-                        </button>
-                        <input
-                          className="form-control d-inline ms-1"
-                          type="text"
-                          style={{ width: "3rem" }}
-                          value={newCartQuantity[c.id]}
-                          // placeholder="quantity"
-                          name={c.id}
-                          onChange={updateFormField}
-                        />
+
+                        <section className="d-flex justify-content-between">
+                          <div>
+                            <label>QTY:</label>
+                            <input
+                              className="form-control d-inline ms-1"
+                              type="text"
+                              style={{ width: "2.5rem" }}
+                              value={newCartQuantity[c.id]}
+                              // placeholder="QTY"
+                              name={c.id}
+                              onChange={updateFormField}
+                            />
+                          </div>
+
+                          <button
+                            className="cartBtn"
+                            onClick={() => {
+                              updateCartQuantity(c.product.id, c.id);
+                            }}
+                          >
+                            update
+                          </button>
+                        </section>
                       </section>
                     </div>
                   </div>
