@@ -82,13 +82,23 @@ export default function Shop() {
     fetchCart();
   }, [changeCartStatus]);
 
+  const [addedCartNotification, setAddedCartNotification] = useState("none");
+
   const addToCart = async (productId) => {
     let response = await axios.get(BASE_URL + "cart/" + productId + "/add");
-    console.log(response);
+    // console.log(response);
+    setAddedCartNotification("block");
 
     if (response) {
       changedCart();
+      setTimeout(() => {
+        setAddedCartNotification("none");
+      }, 1000);
     }
+  };
+
+  const closeToast = () => {
+    setAddedCartNotification("none");
   };
 
   const removeCart = async (productId) => {
@@ -130,7 +140,83 @@ export default function Shop() {
     <React.Fragment>
       <h1>Shop</h1>
       {/* for shop page */}
+      {/* <div
+        className="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div className="toast-header">
+          <img src="..." className="rounded me-2" alt="..." />
+          <strong className="me-auto">Bootstrap</strong>
+          <small className="text-muted">11 mins ago</small>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="toast-body">Hello, world! This is a toast message.</div>
+      </div> */}
+      <section
+        className="shadow cartToast"
+        style={{ display: addedCartNotification }}
+      >
+        <section
+          style={{
+            fontSize: "0.9rem",
+            backgroundColor: "white",
+            color: "grey",
+          }}
+          className="cartToastHeader d-flex justify-content-between p-2 border-bottom"
+        >
+          {/* <h1>this is a toast</h1> */}
+          <span>
+            <i className="fa-solid fa-bell accentThreeColor"></i>
+            <span className="ms-1">notification</span>
+          </span>
+          <span>
+            1 second ago
+            <i className="ms-1 fa-solid fa-x" onClick={closeToast}></i>
+          </span>
+        </section>
+
+        <span style={{ fontSize: "0.9rem" }}>
+          Successfully added to your cart
+        </span>
+
+        <lord-icon
+          src="https://cdn.lordicon.com/rmzhcgbh.json"
+          trigger="loop"
+          style={{ width: "4rem", height: "4rem" }}
+        ></lord-icon>
+      </section>
+
       <section className="container-fluid p-3">
+        <section className="d-flex justify-content-between mb-3">
+          <div>
+            {/* <span>Filter</span> */}
+            <select
+              class="form-select d-inline"
+              aria-label="Default select example"
+            >
+              <option selected>Filter</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div>
+            {/* <span>Sort by</span> */}
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Sort by</option>
+              <option value="1">Alphabetically, A-Z</option>
+              <option value="2">Price, low to high</option>
+              <option value="3">Price, high to low</option>
+            </select>
+          </div>
+        </section>
         <div className="row d-flex justify-content-center gy-3 gx-3">
           {products.map((p) => {
             return (
