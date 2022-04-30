@@ -97,14 +97,6 @@ function App() {
     await setStateData(clone);
   };
 
-  const [changeCartStatus, setChangeCartStatus] = useState(false);
-  const changedCart = () => {
-    if (changeCartStatus === true) {
-      setChangeCartStatus(false);
-    } else {
-      setChangeCartStatus(true);
-    }
-  };
   // when CRUD on cart db has been triggered, we retrieve cartData again
   useEffect(() => {
     fetchCart();
@@ -136,18 +128,20 @@ function App() {
     changedCart: () => {
       console.log("status changed");
       if (stateData.changeCartStatus === true) {
-        let clone = stateData;
-        stateData["changeCartStatus"] = false;
+        let clone = { ...stateData };
+        clone["changeCartStatus"] = false;
         setStateData(clone);
 
         // setChangeCartStatus(false);
       } else {
         // setChangeCartStatus(true);
-        let clone = stateData;
-        stateData["changeCartStatus"] = true;
+        let clone = { ...stateData };
+        clone["changeCartStatus"] = true;
+        console.log("clone", clone);
         setStateData(clone);
       }
     },
+    changeCartStatus: stateData.changeCartStatus,
   };
 
   return (

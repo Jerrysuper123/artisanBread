@@ -10,9 +10,14 @@ import ProductContext from "../ProductContext";
 
 export default function Navbar(props) {
   let context = useContext(ProductContext);
+  const [cartQuantity, setCartQuantity] = useState();
+
   useEffect(() => {
-    console.log("qty changed", props);
-  }, [props]);
+    setCartQuantity(context.getCartQuantity());
+  }, [context.changeCartStatus]);
+  // useEffect(() => {
+  //   console.log("qty changed", props);
+  // }, [props]);
   // const [cartShowStatus, setCartShowStatus] = useState("none");
   const [userActive, setUserActive] = useState("login");
   const showSignUpPage = () => {
@@ -139,7 +144,7 @@ export default function Navbar(props) {
             >
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                {context.getCartQuantity()}
+                {cartQuantity}
                 <span className="visually-hidden">unread messages</span>
               </span>
             </section>

@@ -31,7 +31,7 @@ export default function Shop() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
     setCart(context.getCart());
-  });
+  }, [context.changeCartStatus]);
 
   const [subtotal, setsubtotal] = useState({
     subQuantity: 0,
@@ -76,7 +76,7 @@ export default function Shop() {
   };
   // when CRUD on cart db has been triggered, we retrieve cartData again
   useEffect(() => {
-    fetchCart();
+    // fetchCart();
   }, [changeCartStatus]);
 
   const addToCart = async (productId) => {
@@ -92,7 +92,7 @@ export default function Shop() {
     let response = await axios.get(BASE_URL + "cart/" + productId + "/remove");
     console.log(response);
     if (response) {
-      changedCart();
+      context.changedCart();
     }
   };
 
@@ -119,7 +119,7 @@ export default function Shop() {
     });
     // console.log(response);
     if (response) {
-      changedCart();
+      context.changedCart();
     }
   };
 
