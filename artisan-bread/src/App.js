@@ -70,6 +70,7 @@ function App() {
         },
       },
     ],
+    cartQuantity: 0,
   });
 
   const context = {
@@ -84,13 +85,22 @@ function App() {
     getProductByID: (productId) => {
       return stateData.products.filter((p) => p.id === parseInt(productId))[0];
     },
+
+    updateCartQuantity: (number) => {
+      let clone = stateData;
+      stateData["cartQuantity"] = number;
+      setStateData(clone);
+    },
+    getCartQuantity: () => {
+      return stateData.cartQuantity;
+    },
   };
 
   return (
     <div className="App">
       <ProductContext.Provider value={context}>
         <Router>
-          <Navbar />
+          <Navbar cartQuantity={stateData.cartQuantity} />
           <div class="alert alert-secondary" role="alert">
             CTA and promotion
           </div>

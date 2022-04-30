@@ -29,6 +29,29 @@ export default function Shop() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [subtotal, setsubtotal] = useState({
+    subQuantity: 0,
+    subTotalDollar: 0,
+  });
+
+  const calculateTotalCartQuantity = (cartItems) => {
+    let subQuantity = 0;
+    let subTotalDollar = 0;
+    for (let i of cartItems) {
+      subQuantity = subQuantity + i.quantity;
+      subTotalDollar = subTotalDollar + i.product.price * i.quantity;
+    }
+    return { subQuantity, subTotalDollar };
+  };
+
+  useEffect(() => {
+    context.updateCartQuantity(subtotal.subQuantity);
+  }, [subtotal.quantity]);
+
+  useEffect(() => {
+    setsubtotal(calculateTotalCartQuantity(cart));
+  }, [cart]);
+
   //for fetching cart
   const fetchCart = async () => {
     let response = await axios.get(BASE_URL + "cart");
@@ -147,10 +170,10 @@ export default function Shop() {
         aria-labelledby="offcanvasRightLabel"
       >
         <div className="offcanvas-header">
-          <h5 id="offcanvasRightLabel">
+          <h3 id="offcanvasRightLabel">
             <i class="fa-solid fa-basket-shopping"></i>
-            <span className="ms-2">Your Cart ({cart.length})</span>
-          </h5>
+            <span className="ms-2">Your Cart ({subtotal.subQuantity})</span>
+          </h3>
           <button
             type="button"
             className="btn-close text-reset"
@@ -224,11 +247,13 @@ export default function Shop() {
                 );
               })}
             </div>
-            <h4 className="text-start mt-4">subtotal: $ </h4>
+            <h3 className="text-start mt-4">
+              subtotal: ${subtotal.subTotalDollar}{" "}
+            </h3>
           </section>
           <section>
             <p>Taxes and shipping are calculated at checkout</p>
-            <button>check Out - subtotal</button>
+            <button>check Out - ${subtotal.subTotalDollar}</button>
             <p>All transactions are processed via Strip in a secure manners</p>
             <img
               style={{ width: "20rem" }}

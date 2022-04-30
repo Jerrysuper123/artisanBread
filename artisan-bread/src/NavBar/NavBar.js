@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
+import { useEffect, useContext } from "react";
+import ProductContext from "../ProductContext";
 
 export default function Navbar() {
+  let context = useContext(ProductContext);
+  // useEffect(() => {
+  //   console.log("qty changed", props);
+  // }, [props]);
   // const [cartShowStatus, setCartShowStatus] = useState("none");
   const [userActive, setUserActive] = useState("login");
   const showSignUpPage = () => {
@@ -133,7 +139,7 @@ export default function Navbar() {
             >
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                3+
+                {context.getCartQuantity()}
                 <span className="visually-hidden">unread messages</span>
               </span>
             </section>
