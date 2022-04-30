@@ -6,6 +6,7 @@ import ProductContext from "../ProductContext";
 // import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
+import "./style.css";
 
 export default function Shop() {
   const navigate = useNavigate();
@@ -170,7 +171,7 @@ export default function Shop() {
 
       <div
         className="offcanvas offcanvas-end"
-        tabindex="-1"
+        tabIndex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
       >
@@ -186,15 +187,16 @@ export default function Shop() {
             aria-label="Close"
           ></button>
         </div>
+
         <div className="offcanvas-body">
           {/* <h1>cart page</h1> */}
-          <section className="cartBody container-fluid p-3">
-            <div>
+          <section className="container-fluid">
+            <div className="cartBody">
               {cart.map((c) => {
                 return (
                   <div
                     key={c.id}
-                    className="card d-flex flex-row"
+                    className="cartCard card d-flex flex-row"
                     style={{ width: "19rem" }}
                   >
                     <section style={{ width: "8rem" }}>
@@ -251,14 +253,17 @@ export default function Shop() {
                   </div>
                 );
               })}
+              <h3 className="text-start mt-4">
+                subtotal: ${subtotal.subTotalDollar}{" "}
+              </h3>
             </div>
-            <h3 className="text-start mt-4">
-              subtotal: ${subtotal.subTotalDollar}{" "}
-            </h3>
           </section>
-          <section>
+
+          <section className="cartFooter mt-2 p-2">
             <p>Taxes and shipping are calculated at checkout</p>
-            <button>check Out - ${subtotal.subTotalDollar}</button>
+            <button className="checkOutBtn">
+              check out - ${subtotal.subTotalDollar}
+            </button>
             <p>All transactions are processed via Strip in a secure manners</p>
             <img
               style={{ width: "20rem" }}

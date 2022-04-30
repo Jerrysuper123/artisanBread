@@ -1,0 +1,33 @@
+.cartBody {
+    height: 65vh !important;
+    overflow-y: scroll;
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgb(222, 222, 222);
+}
+
+.offcanvas {
+    background-color: #f2f9ff;
+}
+
+.cartFooter {
+    width: 100%;
+    background-color: white;
+}
+
+.checkOutBtn {
+    background-color: rgb(12, 12, 12);
+    color: white;
+    width: 100%;
+    padding: 0.7rem 0;
+    border-radius: 1rem;
+}
+
+.checkOutBtn:hover {
+    transform: scale(1.01);
+}
+
+.cartCard {
+    border: none !important;
+}
