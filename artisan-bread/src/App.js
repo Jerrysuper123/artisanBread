@@ -97,9 +97,31 @@ function App() {
     await setStateData(clone);
   };
 
+  const calculateTotalCartQuantity = (cartItems) => {
+    let subQuantity = 0;
+    let subTotalDollar = 0;
+    for (let i of cartItems) {
+      subQuantity = subQuantity + i.quantity;
+      subTotalDollar = subTotalDollar + i.product.price * i.quantity;
+    }
+    return { subQuantity, subTotalDollar };
+  };
+
+  const updateCartQuantity = () => {
+    let quantity = calculateTotalCartQuantity(stateData.cart)["subQuantity"];
+    let clone = stateData;
+    clone["cartQuantity"] = quantity;
+    setStateData(clone);
+  };
+
+  useEffect(() => {
+    updateCartQuantity();
+  }, [stateData.cart]);
+
   // when CRUD on cart db has been triggered, we retrieve cartData again
   useEffect(() => {
     fetchCart();
+    // updateCartQuantity();
   }, [stateData.changeCartStatus]);
 
   const context = {

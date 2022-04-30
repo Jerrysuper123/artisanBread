@@ -10,11 +10,6 @@ import ProductContext from "../ProductContext";
 
 export default function Navbar(props) {
   let context = useContext(ProductContext);
-  const [cartQuantity, setCartQuantity] = useState();
-
-  useEffect(() => {
-    setCartQuantity(context.getCartQuantity());
-  }, [context.changeCartStatus]);
   // useEffect(() => {
   //   console.log("qty changed", props);
   // }, [props]);
@@ -144,7 +139,7 @@ export default function Navbar(props) {
             >
               <i className="me-2 fa-solid fa-basket-shopping"></i>
               <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                {cartQuantity}
+                {context.getCartQuantity()}
                 <span className="visually-hidden">unread messages</span>
               </span>
             </section>
