@@ -29,6 +29,10 @@ export default function Shop() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  useEffect(() => {
+    setCart(context.getCart());
+  });
+
   const [subtotal, setsubtotal] = useState({
     subQuantity: 0,
     subTotalDollar: 0,
@@ -46,7 +50,8 @@ export default function Shop() {
 
   useEffect(() => {
     context.updateCartQuantity(subtotal.subQuantity);
-  }, [subtotal.quantity]);
+    console.log("shop q", subtotal.subQuantity);
+  }, [subtotal]);
 
   useEffect(() => {
     setsubtotal(calculateTotalCartQuantity(cart));
@@ -79,7 +84,7 @@ export default function Shop() {
     console.log(response);
 
     if (response) {
-      changedCart();
+      context.changedCart();
     }
   };
 
@@ -124,7 +129,7 @@ export default function Shop() {
       {/* for shop page */}
       <section className="container-fluid p-3">
         <div className="row d-flex justify-content-center gy-3 gx-3">
-          {products.map((p) => {
+          {context.getProducts().map((p) => {
             return (
               <div key={p.id} className="card col-4" style={{ width: "18rem" }}>
                 {p.image_url ? (

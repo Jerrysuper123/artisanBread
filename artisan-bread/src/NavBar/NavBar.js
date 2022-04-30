@@ -8,11 +8,11 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import { useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
 
-export default function Navbar() {
+export default function Navbar(props) {
   let context = useContext(ProductContext);
-  // useEffect(() => {
-  //   console.log("qty changed", props);
-  // }, [props]);
+  useEffect(() => {
+    console.log("qty changed", props);
+  }, [props]);
   // const [cartShowStatus, setCartShowStatus] = useState("none");
   const [userActive, setUserActive] = useState("login");
   const showSignUpPage = () => {

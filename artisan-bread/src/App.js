@@ -71,7 +71,44 @@ function App() {
       },
     ],
     cartQuantity: 0,
+    changeCartStatus: false,
   });
+
+  const fetchAllProducts = async () => {
+    let response = await axios.get(BASE_URL + "products");
+    // console.log(response.data);
+    let clone = stateData;
+    clone["products"] = response.data;
+    await setStateData(clone);
+    // await setProducts(response.data);
+  };
+
+  /*for local development only */
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
+
+  //for fetching cart
+  const fetchCart = async () => {
+    let response = await axios.get(BASE_URL + "cart");
+    // console.log(response.data);
+    let clone = stateData;
+    clone["cart"] = response.data;
+    await setStateData(clone);
+  };
+
+  const [changeCartStatus, setChangeCartStatus] = useState(false);
+  const changedCart = () => {
+    if (changeCartStatus === true) {
+      setChangeCartStatus(false);
+    } else {
+      setChangeCartStatus(true);
+    }
+  };
+  // when CRUD on cart db has been triggered, we retrieve cartData again
+  useEffect(() => {
+    fetchCart();
+  }, [stateData.changeCartStatus]);
 
   const context = {
     getProducts: () => {
@@ -86,13 +123,30 @@ function App() {
       return stateData.products.filter((p) => p.id === parseInt(productId))[0];
     },
 
-    updateCartQuantity: (number) => {
+    updateCartQuantity: async (number) => {
+      console.log("app js", number);
       let clone = stateData;
       stateData["cartQuantity"] = number;
-      setStateData(clone);
+      await setStateData(clone);
     },
     getCartQuantity: () => {
       return stateData.cartQuantity;
+    },
+
+    changedCart: () => {
+      console.log("status changed");
+      if (stateData.changeCartStatus === true) {
+        let clone = stateData;
+        stateData["changeCartStatus"] = false;
+        setStateData(clone);
+
+        // setChangeCartStatus(false);
+      } else {
+        // setChangeCartStatus(true);
+        let clone = stateData;
+        stateData["changeCartStatus"] = true;
+        setStateData(clone);
+      }
     },
   };
 
@@ -104,7 +158,6 @@ function App() {
           <div class="alert alert-secondary" role="alert">
             CTA and promotion
           </div>
-
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route
