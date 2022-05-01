@@ -3,6 +3,7 @@ import Navbar from "./NavBar/NavBar";
 import Shop from "./Shop/Shop";
 import Landing from "./Landing/Landing";
 import MyAccount from "./MyAccount/MyAccount";
+import CheckoutPage from "./CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
@@ -17,6 +18,7 @@ import "./App.css";
 function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [products, setProducts] = useState([]);
+  const [stripeSessionInfo, setStripeSessionInfo] = useState({});
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -28,6 +30,8 @@ function App() {
     products,
     setProducts,
     getProductByID,
+    stripeSessionInfo,
+    setStripeSessionInfo,
   };
 
   return (
@@ -41,6 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route
               path="/productdetails/:productID"
               element={<ProductDetailsPage />}
