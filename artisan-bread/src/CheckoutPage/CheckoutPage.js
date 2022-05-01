@@ -11,7 +11,4 @@ export default async function CheckoutPage() {
   const stripePromise = loadStripe(publishableKey);
   const stripe = await stripePromise;
   stripe.redirectToCheckout(sessionIdObj);
-  //   console.log("-----------checkout");
-  //   console.log(sessionIdObj);
-  //   console.log(publishableKey);
 }
