@@ -1,9 +1,84 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import axios from "axios";
-import ProductContext from "../ProductContext";
 
-export default function FilterPage() {
-  const { setProducts } = useContext(ProductContext);
+import { BASE_URL } from "../util";
+import { useState } from "react";
+
+export default function FilterPage(props) {
+  //   const { setProducts } = useContext(ProductContext);
+  const [allTypes, setAllTypes] = useState([]);
+  const [allFlavours, setAllFlavours] = useState([]);
+  const [allIngredients, setAllIngredients] = useState([]);
+  //   const [allIng]
+
+  const [selectedTypeId, setSelectedTypeId] = useState("0");
+  const handleSelectedType = (e) => {
+    setSelectedTypeId(e.target.value);
+  };
+
+  const [selectedFlavourId, setSelectedFlavourId] = useState("0");
+  const handleSelectedFlavour = (e) => {
+    setSelectedFlavourId(e.target.value);
+  };
+
+  const [ingredientIds, setIngredientIds] = useState([]);
+  const handleSelectedIngredientIds = (e) => {
+    let targetId = parseInt(e.target.value);
+
+    let clone = ingredientIds.slice();
+
+    if (!clone.includes(targetId)) {
+      clone.push(targetId);
+      //   setIngredientIds(clone);
+    } else {
+      console.log("unselected", targetId);
+      clone = clone.filter((id) => {
+        return id !== targetId;
+      });
+      //   console.log(clone);
+    }
+    setIngredientIds(clone);
+  };
+
+  useEffect(() => {
+    search();
+  }, [selectedTypeId, selectedFlavourId, ingredientIds]);
+
+  const search = async () => {
+    // console.log("set type id", selectedTypeId);
+    let response = await axios.post(BASE_URL + "search", {
+      typeId: selectedTypeId,
+      flavourId: selectedFlavourId,
+      ingredientIds: ingredientIds,
+    });
+    // console.log(response.data.products);
+    props.setProducts(response.data.products);
+  };
+
+  const fetchAllTypes = async () => {
+    let response = await axios.get(BASE_URL + "search/alltypes");
+    // console.log(response.data);
+    setAllTypes(response.data.allTypes);
+  };
+
+  const fetchAllFlavours = async () => {
+    let response = await axios.get(BASE_URL + "search/allflavours");
+    // console.log(response.data);
+    setAllFlavours(response.data.allFlavours);
+  };
+
+  const fetchAllIngredients = async () => {
+    let response = await axios.get(BASE_URL + "search/allingredients");
+    // console.log(response.data);
+    setAllIngredients(response.data.allIngredients);
+  };
+
+  useEffect(() => {
+    fetchAllTypes();
+    fetchAllFlavours();
+    fetchAllIngredients();
+  }, []);
+
   return (
     <React.Fragment>
       <button
@@ -36,20 +111,46 @@ export default function FilterPage() {
         <div className="offcanvas-body d-flex flex-column justify-content-around">
           <div>
             <h6>Type:</h6>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={selectedTypeId}
+              onChange={handleSelectedType}
+            >
+              <option value="0">all types</option>
+              {allTypes.length !== 0
+                ? allTypes.map((t) => {
+                    return (
+                      <option key={t.id} value={t.id}>
+                        {t.type}
+                      </option>
+                    );
+                  })
+                : null}
+
+              {/* <option value="1">One</option>
               <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="3">Three</option> */}
             </select>
           </div>
           <div>
             <h6>Flavour:</h6>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={selectedFlavourId}
+              onChange={handleSelectedFlavour}
+            >
+              <option value="0">all flavours</option>
+              {allFlavours.length !== 0
+                ? allFlavours.map((f) => {
+                    return (
+                      <option key={f.id} value={f.id}>
+                        {f.flavour}
+                      </option>
+                    );
+                  })
+                : null}
             </select>
           </div>
           <div>
@@ -60,27 +161,27 @@ export default function FilterPage() {
               aria-label="Basic checkbox toggle button group"
             >
               <div>
-                <input
-                  type="checkbox"
-                  class="btn-check"
-                  id="btncheck1"
-                  autocomplete="off"
-                />
-                <label className="btn btn-outline-primary" for="btncheck1">
-                  Checkbox 1
-                </label>
-              </div>
-
-              <div>
-                <input
-                  type="checkbox"
-                  class="btn-check"
-                  id="btncheck2"
-                  autocomplete="off"
-                />
-                <label className="btn btn-outline-primary" for="btncheck2">
-                  Checkbox 2
-                </label>
+                {allIngredients.map((i) => {
+                  return (
+                    <React.Fragment key={i.id}>
+                      <div className="text-left">
+                        <input
+                          type="checkbox"
+                          // class="btn-check"
+                          id={i.id}
+                          // autocomplete="off"
+                          value={i.id}
+                          name={i.flavour}
+                          checked={ingredientIds.includes(i.id)}
+                          onChange={handleSelectedIngredientIds}
+                        />
+                        <label className="ms-2" htmlFor={i.id}>
+                          {i.ingredient}
+                        </label>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -194,7 +194,7 @@ export default function Shop() {
               <option value="2">Two</option>
               <option value="3">Three</option>
             </select> */}
-            <FilterPage />
+            <FilterPage setProducts={setProducts} />
           </div>
 
           <span className="filterSearchInput d-flex align-items-center">
