@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
 import FilterPage from "../FilterPage/FilterPage";
+import SearchProduct from "../SearchProduct/SearchProduct";
 // import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
@@ -197,18 +198,9 @@ export default function Shop() {
             <FilterPage setProducts={setProducts} />
           </div>
 
-          <span className="filterSearchInput d-flex align-items-center">
-            <i className="fa-solid fa-magnifying-glass"></i>
-            <input
-              className="me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              name="searchString"
-              // value={this.state.searchString}
-              // onChange={this.searchEventByString}
-            />
-          </span>
+          <div>
+            <SearchProduct />
+          </div>
 
           <div>
             {/* <span>Sort by</span> */}

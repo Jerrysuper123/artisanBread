@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
-
+import ProductContext from "../ProductContext";
 import { BASE_URL } from "../util";
 import { useState } from "react";
 
 export default function FilterPage(props) {
-  //   const { setProducts } = useContext(ProductContext);
+  const { searchString } = useContext(ProductContext);
   const [allTypes, setAllTypes] = useState([]);
   const [allFlavours, setAllFlavours] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
@@ -42,14 +42,15 @@ export default function FilterPage(props) {
 
   useEffect(() => {
     search();
-  }, [selectedTypeId, selectedFlavourId, ingredientIds]);
+  }, [selectedTypeId, selectedFlavourId, ingredientIds, searchString]);
 
   const search = async () => {
     // console.log("set type id", selectedTypeId);
     let response = await axios.post(BASE_URL + "search", {
+      name: searchString === "" ? null : searchString,
       typeId: selectedTypeId,
       flavourId: selectedFlavourId,
-      ingredientIds: ingredientIds,
+      ingredientIds: ingredientIds.length === 0 ? null : ingredientIds,
     });
     // console.log(response.data.products);
     props.setProducts(response.data.products);

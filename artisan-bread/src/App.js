@@ -19,6 +19,7 @@ function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [products, setProducts] = useState([]);
   const [stripeSessionInfo, setStripeSessionInfo] = useState({});
+  const [searchString, setSearchString] = useState("");
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -32,6 +33,8 @@ function App() {
     getProductByID,
     stripeSessionInfo,
     setStripeSessionInfo,
+    searchString,
+    setSearchString,
   };
 
   return (
