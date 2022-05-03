@@ -3,6 +3,7 @@ import { BASE_URL } from "../util";
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
+import FilterPage from "../FilterPage/FilterPage";
 // import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
@@ -184,7 +185,7 @@ export default function Shop() {
         <section className="d-flex justify-content-between mb-3">
           <div>
             {/* <span>Filter</span> */}
-            <select
+            {/* <select
               class="form-select d-inline"
               aria-label="Default select example"
             >
@@ -192,8 +193,23 @@ export default function Shop() {
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-            </select>
+            </select> */}
+            <FilterPage />
           </div>
+
+          <span className="filterSearchInput d-flex align-items-center">
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input
+              className="me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="searchString"
+              // value={this.state.searchString}
+              // onChange={this.searchEventByString}
+            />
+          </span>
+
           <div>
             {/* <span>Sort by</span> */}
             <select class="form-select" aria-label="Default select example">
