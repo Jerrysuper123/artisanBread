@@ -26,7 +26,7 @@ export default function Navbar(props) {
   return (
     <React.Fragment>
       {/* modal */}
-      <div
+      {/* <div
         className="modal fade"
         id="exampleModal"
         tabIndex="-1"
@@ -57,7 +57,7 @@ export default function Navbar(props) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -112,16 +112,14 @@ export default function Navbar(props) {
                 </div>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <div
-                      className="dropdown-item"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Login
+                    <div className="dropdown-item">
+                      <Link to="/login">Login</Link>
                     </div>
                   </li>
                   <li>
-                    <div className="dropdown-item">Register</div>
+                    <div className="dropdown-item">
+                      <Link to="/register">Register</Link>
+                    </div>
                   </li>
 
                   <li>

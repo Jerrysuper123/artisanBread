@@ -7,6 +7,8 @@ import CheckoutPage from "./CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
+import LoginPage from "./LoginPage/LoginPage";
+import RegisterPage from "./RegisterPage/RegisterPage";
 import React, { useState, useEffect } from "react";
 
 //for context use later
@@ -53,6 +55,8 @@ function App() {
           </div>
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route

@@ -39,6 +39,7 @@ export default function RegisterPage() {
               value="Register"
             />
           </div>
+          <section>Already have an account? Log in here</section>
         </div>
       </main>
     </React.Fragment>
