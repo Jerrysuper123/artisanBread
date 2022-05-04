@@ -20,6 +20,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [stripeSessionInfo, setStripeSessionInfo] = useState({});
   const [searchString, setSearchString] = useState("");
+  const [logInUserInfo, setLogInUserInfo] = useState({});
+  const [accessToken, setAccessToken] = useState("");
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -35,6 +37,10 @@ function App() {
     setStripeSessionInfo,
     searchString,
     setSearchString,
+    logInUserInfo,
+    setLogInUserInfo,
+    accessToken,
+    setAccessToken,
   };
 
   return (

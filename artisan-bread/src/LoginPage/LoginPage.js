@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./style.css";
 import axios from "axios";
 import { BASE_URL } from "../util";
 import { useEffect } from "react";
+import ProductContext from "../ProductContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setLogInUserInfo, accessToken, setAccessToken } =
+    useContext(ProductContext);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -25,8 +28,6 @@ export default function LoginPage() {
     setAccessToken(response.data.accessToken);
   };
 
-  const [accessToken, setAccessToken] = useState("");
-
   //when first load, get the accessToken in localStorage
   useEffect(() => {
     const accessToken = JSON.parse(localStorage.getItem("accessToken"));
@@ -42,6 +43,22 @@ export default function LoginPage() {
 
   //use this when user log out
   //removeItem(): This technique is used to delete an item from localStorage based on its key.
+
+  //if there is accessToken, fetch user profile information
+  const fetchProfileInfo = async () => {
+    if (accessToken !== "") {
+      let response = await axios.get(BASE_URL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      setLogInUserInfo(response.data);
+    }
+  };
+
+  useEffect(() => {
+    fetchProfileInfo();
+  }, [accessToken]);
 
   return (
     <React.Fragment>

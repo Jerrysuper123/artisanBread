@@ -10,10 +10,6 @@ import ProductContext from "../ProductContext";
 
 export default function Navbar(props) {
   let context = useContext(ProductContext);
-  // useEffect(() => {
-  //   console.log("qty changed", props);
-  // }, [props]);
-  // const [cartShowStatus, setCartShowStatus] = useState("none");
   const [userActive, setUserActive] = useState("login");
   const showSignUpPage = () => {
     setUserActive("signup");
@@ -21,6 +17,11 @@ export default function Navbar(props) {
 
   const showLoginPage = () => {
     setUserActive("login");
+  };
+
+  const logOut = () => {
+    context.setLogInUserInfo({});
+    context.setAccessToken("");
   };
   return (
     <React.Fragment>
@@ -84,17 +85,16 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <div className="nav-link" aria-current="page" href="#">
+                <div className="nav-link" aria-current="page">
                   <Link to="/shop">Shop</Link>
                 </div>
               </li>
 
               <li className="nav-item">
-                <div className="nav-link" href="#">
-                  Delivery
-                </div>
+                <div className="nav-link">Delivery</div>
               </li>
 
+              {/* start of my account */}
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
@@ -103,7 +103,12 @@ export default function Navbar(props) {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i className="fa-solid fa-user"></i>
+                  <span>
+                    {context.logInUserInfo.username
+                      ? context.logInUserInfo.username
+                      : null}
+                  </span>
+                  <i className="ms-1 fa-solid fa-user"></i>
                 </div>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
@@ -125,6 +130,12 @@ export default function Navbar(props) {
                     </div>
                   </li>
                 </ul>
+              </li>
+              {/* finish of my account */}
+              <li className="nav-item" onClick={logOut}>
+                <div className="nav-link">
+                  {context.logInUserInfo.username ? "Log out" : null}
+                </div>
               </li>
             </ul>
             {/* cart */}
