@@ -160,10 +160,15 @@ export default function Shop() {
   };
 
   const getStripeSessionInfo = async () => {
-    let response = await axios.get(BASE_URL + "checkout");
-    console.log(response.data);
-    context.setStripeSessionInfo(response.data);
-    navigate("/checkout");
+    if (context.accessToken !== "") {
+      let response = await axios.get(
+        BASE_URL + "checkout",
+        getHTTPHeaders(context.accessToken)
+      );
+      // console.log(response.data);
+      context.setStripeSessionInfo(response.data);
+      navigate("/checkout");
+    }
   };
 
   return (

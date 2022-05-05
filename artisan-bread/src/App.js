@@ -2,7 +2,7 @@ import Footer from "./Footer/Footer";
 import Navbar from "./NavBar/NavBar";
 import Shop from "./Shop/Shop";
 import Landing from "./Landing/Landing";
-import MyAccount from "./MyAccount/MyAccount";
+import MyOrder from "./MyOrder/MyOrder";
 import CheckoutPage from "./CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -65,7 +65,7 @@ function App() {
                   path="/productdetails/:productID"
                   element={<ProductDetailsPage />}
                 />
-                <Route path="/myaccount" element={<MyAccount />} />
+                <Route path="/order" element={<MyOrder />} />
               </React.Fragment>
             ) : (
               // if user is not log in trying to access above page, redirect to
