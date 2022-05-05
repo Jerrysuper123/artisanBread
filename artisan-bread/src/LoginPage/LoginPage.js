@@ -1,13 +1,21 @@
 import React, { useState, useContext } from "react";
 import "./style.css";
 import axios from "axios";
-import { BASE_URL } from "../util";
+import { BASE_URL, getHTTPHeaders } from "../util";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
 import { useNavigate, Link } from "react-router-dom";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
   const { logInUserInfo, setLogInUserInfo, accessToken, setAccessToken } =
     useContext(ProductContext);
   const navigate = useNavigate();
@@ -23,11 +31,10 @@ export default function LoginPage() {
   //if there is accessToken, fetch user profile information
   const fetchProfileInfo = async () => {
     if (accessToken !== "") {
-      let response = await axios.get(BASE_URL + "users/profile", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+      let response = await axios.get(
+        BASE_URL + "users/profile",
+        getHTTPHeaders(accessToken)
+      );
       await setLogInUserInfo(response.data);
     }
   };
@@ -38,14 +45,6 @@ export default function LoginPage() {
       navigate("/shop");
     }
   }, [logInUserInfo]);
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
 
   //fetch user accessToken when user clicked Login button
   const fetchAccessToken = async () => {

@@ -68,7 +68,7 @@ function App() {
                 <Route path="/myaccount" element={<MyAccount />} />
               </React.Fragment>
             ) : (
-              // if user is not log in trying to access above page, redirect to loginPage
+              // if user is not log in trying to access above page, redirect to
               <Route path="/:anything" element={<LoginPage />} />
             )}
           </Routes>

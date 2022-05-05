@@ -1,5 +1,5 @@
 // for shop page
-import { BASE_URL } from "../util";
+import { BASE_URL, getHTTPHeaders } from "../util";
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
@@ -64,11 +64,16 @@ export default function Shop() {
 
   //for fetching cart
   const fetchCart = async () => {
-    let response = await axios.get(BASE_URL + "cart");
-    // console.log(response.data);
-    // let clone = stateData;
-    // clone["cart"] = response.data;
-    await setCart(response.data);
+    if (context.accessToken !== "") {
+      let response = await axios.get(
+        BASE_URL + "cart",
+        getHTTPHeaders(context.accessToken)
+      );
+      // console.log(response.data);
+      // let clone = stateData;
+      // clone["cart"] = response.data;
+      await setCart(response.data);
+    }
   };
 
   const [changeCartStatus, setChangeCartStatus] = useState(false);
@@ -87,15 +92,20 @@ export default function Shop() {
   const [addedCartNotification, setAddedCartNotification] = useState("none");
 
   const addToCart = async (productId) => {
-    let response = await axios.get(BASE_URL + "cart/" + productId + "/add");
-    // console.log(response);
-    setAddedCartNotification("block");
+    if (context.accessToken !== "") {
+      let response = await axios.get(
+        BASE_URL + "cart/" + productId + "/add",
+        getHTTPHeaders(context.accessToken)
+      );
+      // console.log(response);
+      setAddedCartNotification("block");
 
-    if (response) {
-      changedCart();
-      setTimeout(() => {
-        setAddedCartNotification("none");
-      }, 1000);
+      if (response) {
+        changedCart();
+        setTimeout(() => {
+          setAddedCartNotification("none");
+        }, 1000);
+      }
     }
   };
 
@@ -104,10 +114,15 @@ export default function Shop() {
   };
 
   const removeCart = async (productId) => {
-    let response = await axios.get(BASE_URL + "cart/" + productId + "/remove");
-    console.log(response);
-    if (response) {
-      changedCart();
+    if (context.accessToken !== "") {
+      let response = await axios.get(
+        BASE_URL + "cart/" + productId + "/remove",
+        getHTTPHeaders(context.accessToken)
+      );
+      console.log(response);
+      if (response) {
+        changedCart();
+      }
     }
   };
 
@@ -126,15 +141,21 @@ export default function Shop() {
   };
 
   const updateCartQuantity = async (productId, cartId) => {
-    let quantity = newCartQuantity[cartId];
-    console.log(newCartQuantity);
-    let url = `${BASE_URL}cart/${productId}/quantity/update`;
-    let response = await axios.post(url, {
-      newQuantity: quantity,
-    });
-    // console.log(response);
-    if (response) {
-      changedCart();
+    if (context.accessToken !== "") {
+      let quantity = newCartQuantity[cartId];
+      console.log(newCartQuantity);
+      let url = `${BASE_URL}cart/${productId}/quantity/update`;
+      let response = await axios.post(
+        url,
+        {
+          newQuantity: quantity,
+        },
+        getHTTPHeaders(context.accessToken)
+      );
+      // console.log(response);
+      if (response) {
+        changedCart();
+      }
     }
   };
 

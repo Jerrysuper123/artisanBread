@@ -1,8 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../util";
+import axios from "axios";
 
 export default function RegisterPage() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPW, setConfirmedPW] = useState("");
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmedPW = (e) => {
+    setConfirmedPW(e.target.value);
+  };
+
+  const navigate = useNavigate();
+  const registerUser = async () => {
+    //only after validation
+    let response = await axios.post(BASE_URL + "users/register", {
+      username: username,
+      password: password,
+      email: email,
+    });
+
+    //notify users that it has been successful, before redirect
+
+    if (response.status === 200) {
+      navigate("/login");
+    }
+
+    //success register, redirect to login page
+  };
+
   return (
     <React.Fragment>
       <main className="d-flex justify-content-center adminFormContainer align-items-center">
@@ -17,27 +57,32 @@ export default function RegisterPage() {
             type="text"
             placeholder="username"
             className="form-control mt-3"
+            onChange={handleUsername}
           />
           <input
             type="text"
             placeholder="email"
             className="form-control mt-3"
+            onChange={handleEmail}
           />
           <input
             type="text"
             placeholder="password"
             className="form-control mt-3"
+            onChange={handlePassword}
           />
           <input
             type="text"
             placeholder="confirm password"
             className="form-control mt-3"
+            onChange={handleConfirmedPW}
           />
           <div class="text-center">
             <input
               type="submit"
               class="mt-3 customBtn customBtnPrimary formBtn"
               value="Register"
+              onClick={registerUser}
             />
           </div>
           <section>Already have an account?</section>
