@@ -57,13 +57,20 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route
-              path="/productdetails/:productID"
-              element={<ProductDetailsPage />}
-            />
-            <Route path="/myaccount" element={<MyAccount />} />
+            {logInUserInfo.username ? (
+              <React.Fragment>
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route
+                  path="/productdetails/:productID"
+                  element={<ProductDetailsPage />}
+                />
+                <Route path="/myaccount" element={<MyAccount />} />
+              </React.Fragment>
+            ) : (
+              // if user is not log in trying to access above page, redirect to loginPage
+              <Route path="/:anything" element={<LoginPage />} />
+            )}
           </Routes>
 
           <Footer />

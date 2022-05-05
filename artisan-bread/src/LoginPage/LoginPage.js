@@ -4,13 +4,35 @@ import axios from "axios";
 import { BASE_URL } from "../util";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { logInUserInfo, setLogInUserInfo, accessToken, setAccessToken } =
     useContext(ProductContext);
   const navigate = useNavigate();
+
+  //when first load, get the accessToken in localStorage if available
+  useEffect(() => {
+    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+    if (accessToken) {
+      setAccessToken(accessToken);
+    }
+  }, []);
+
+  //if there is accessToken, fetch user profile information
+  const fetchProfileInfo = async () => {
+    if (accessToken !== "") {
+      let response = await axios.get(BASE_URL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      await setLogInUserInfo(response.data);
+    }
+  };
+
+  //if there is loginUserinfo, navigate to shop page
   useEffect(() => {
     if (logInUserInfo.username) {
       navigate("/shop");
@@ -25,6 +47,7 @@ export default function LoginPage() {
     setPassword(e.target.value);
   };
 
+  //fetch user accessToken when user clicked Login button
   const fetchAccessToken = async () => {
     try {
       let response = await axios.post(BASE_URL + "users/login", {
@@ -38,33 +61,10 @@ export default function LoginPage() {
     }
   };
 
-  //when first load, get the accessToken in localStorage
-  useEffect(() => {
-    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
-    if (accessToken) {
-      setAccessToken(accessToken);
-    }
-  }, []);
-
-  // only update accessToken when there is a new one
+  // only update accessToken when there is new access token, saved it
   useEffect(() => {
     localStorage.setItem("accessToken", JSON.stringify(accessToken));
   }, [accessToken]);
-
-  //use this when user log out
-  //removeItem(): This technique is used to delete an item from localStorage based on its key.
-
-  //if there is accessToken, fetch user profile information
-  const fetchProfileInfo = async () => {
-    if (accessToken !== "") {
-      let response = await axios.get(BASE_URL + "users/profile", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-      setLogInUserInfo(response.data);
-    }
-  };
 
   useEffect(() => {
     fetchProfileInfo();
@@ -102,7 +102,9 @@ export default function LoginPage() {
           </div>
           <section>
             <div>New Users?</div>
-            <div onClick={() => {}}>Sign up</div>
+            <div>
+              <Link to="/register">Sign up</Link>
+            </div>
           </section>
         </div>
       </main>

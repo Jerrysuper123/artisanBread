@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function RegisterPage() {
   return (
@@ -39,7 +40,8 @@ export default function RegisterPage() {
               value="Register"
             />
           </div>
-          <section>Already have an account? Log in here</section>
+          <section>Already have an account?</section>
+          <Link to="/login">Log in here</Link>
         </div>
       </main>
     </React.Fragment>

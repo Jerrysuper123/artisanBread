@@ -2,65 +2,21 @@ import React from "react";
 import "./style.css";
 // import grain from "../images/grain.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import ProductContext from "../ProductContext";
 
 export default function Navbar(props) {
   let context = useContext(ProductContext);
-  const [userActive, setUserActive] = useState("login");
-  const showSignUpPage = () => {
-    setUserActive("signup");
-  };
-
-  const showLoginPage = () => {
-    setUserActive("login");
-  };
-
   const logOut = () => {
     context.setLogInUserInfo({});
     context.setAccessToken("");
+    //removeItem(): This technique is used to delete an item from localStorage based on its key.
+    localStorage.removeItem("accessToken");
   };
   return (
     <React.Fragment>
-      {/* modal */}
-      {/* <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <div className="modal-body">
-              {userActive === "login" ? <LoginPage /> : <RegisterPage />}
-
-              <p className="mt-3 pt-3 border-top">
-                {userActive === "login" ? (
-                  <section>
-                    <div>New Users?</div>
-                    <div onClick={showSignUpPage}>Sign up</div>
-                  </section>
-                ) : (
-                  <section onClick={showLoginPage}>Log in</section>
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+        <div className="container">
           {/* icon */}
           <Link to="/">
             <div className="navbar-brand d-flex flex-column">
@@ -82,20 +38,26 @@ export default function Navbar(props) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <div className="nav-link" aria-current="page">
-                  <Link to="/shop">Shop</Link>
-                </div>
-              </li>
 
-              <li className="nav-item">
-                <div className="nav-link">Delivery</div>
-              </li>
+          {/* collapsable bar starts here */}
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {context.logInUserInfo.username ? (
+                <React.Fragment>
+                  <li className="nav-item nav-shop">
+                    <div className="nav-link" aria-current="page">
+                      <Link to="/shop">Shop</Link>
+                    </div>
+                  </li>
+
+                  <li className="nav-item nav-delivery">
+                    <div className="nav-link">Delivery</div>
+                  </li>
+                </React.Fragment>
+              ) : null}
 
               {/* start of my account */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown ms-auto me-2">
                 <div
                   className="nav-link dropdown-toggle"
                   id="navbarDropdown"
@@ -129,30 +91,39 @@ export default function Navbar(props) {
                   </li>
                 </ul>
               </li>
-              {/* finish of my account */}
-              <li className="nav-item" onClick={logOut}>
-                <div className="nav-link">
-                  {context.logInUserInfo.username ? "Log out" : null}
-                </div>
+              {/* my account ends here */}
+
+              {/* logout starts */}
+              {context.logInUserInfo.username ? (
+                <li className="nav-item mt-2 me-4" onClick={logOut}>
+                  Logout
+                </li>
+              ) : null}
+              {/* log out ends here */}
+
+              {/* cart starts here */}
+
+              <li
+                className="nav-item mt-1"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                {context.logInUserInfo.username ? (
+                  <React.Fragment>
+                    <i className="mt-2 fa-solid fa-basket-shopping"></i>
+                    <span className="start-100 translate-middle badge rounded-pill bg-danger">
+                      {context.cartQuantity}
+                      <span className="visually-hidden">unread messages</span>
+                    </span>
+                  </React.Fragment>
+                ) : null}
               </li>
+
+              {/* cart ends here */}
             </ul>
-            {/* cart */}
-            {/* crollable modal */}
-
-            {/* click cart button to show and unshow the cart */}
-
-            <section
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"
-            >
-              <i className="me-2 fa-solid fa-basket-shopping"></i>
-              <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                {context.cartQuantity}
-                <span className="visually-hidden">unread messages</span>
-              </span>
-            </section>
           </div>
+          {/* collapsable bar ends here */}
         </div>
       </nav>
 
