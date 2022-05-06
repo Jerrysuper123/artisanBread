@@ -91,7 +91,7 @@ export default function Shop() {
   const [addedCartNotification, setAddedCartNotification] = useState("none");
 
   const addToCart = async (productId) => {
-    console.log("added to cart from details", productId);
+    // console.log("added to cart from details", productId);
     if (context.accessToken !== "") {
       let response = await axios.get(
         BASE_URL + "cart/" + productId + "/add",
@@ -109,9 +109,16 @@ export default function Shop() {
     }
   };
 
+  const isMounted = React.useRef(false);
+
   //add to cart from product details side
   useEffect(() => {
-    addToCart(context.addToCartProductId);
+    // console.log("go to shop");
+    if (!isMounted.current) {
+      isMounted.current = true;
+    } else {
+      addToCart(context.addToCartProductId);
+    }
   }, [context.addToCartProductId]);
 
   const closeToast = () => {

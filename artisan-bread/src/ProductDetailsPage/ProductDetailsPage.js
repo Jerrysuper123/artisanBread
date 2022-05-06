@@ -10,7 +10,7 @@ export default function ProductDetailsPage(props) {
 
   const navigate = useNavigate();
 
-  const fetchProduct = async () => {
+  const fetchProduct = () => {
     //when user load the base url/productDetails/:productId directly
     //there are no products to filter in the first place, so navigate to shop first
     if (!context.products.length) {
@@ -19,12 +19,19 @@ export default function ProductDetailsPage(props) {
     //there is no products at this moment;
     let tempProduct = context.getProductByID(productID);
     // console.log("temp", tempProduct);
-    await setProduct(tempProduct);
+    setProduct(tempProduct);
   };
 
   useEffect(() => {
     fetchProduct();
   }, [productID]);
+
+  //update the productId in context in app.js, so that we could access add to cart function in shop.js
+
+  const addToCart = (productId) => {
+    context.setAddToCartProductId(productId);
+    navigate("/shop");
+  };
 
   return (
     <React.Fragment>
@@ -63,7 +70,7 @@ export default function ProductDetailsPage(props) {
                 <button
                   onClick={() => {
                     // props.addToCart(product.id);
-                    context.setAddToCartProductId(product.id);
+                    addToCart(product.id);
                   }}
                   className="shopCartBtn customBtn detailBtn p-2"
                 >
