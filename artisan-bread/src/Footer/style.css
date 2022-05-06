@@ -1,24 +1,25 @@
-
-
-.page-footer h5{
+.page-footer h5 {
     color: white !important;
     font-size: 1rem;
-
 }
 
-.footer-copyright{
-    color: white  !important;
+.footer-copyright {
+    color: white !important;
     font-size: 0.8rem;
 }
 
-.page-footer a{
+.page-footer a {
     color: white !important;
     text-decoration: none;
     font-size: 0.8rem;
     cursor: not-allowed;
 }
 
-.page-footer p{
+.page-footer p {
     color: white !important;
     font-size: 0.8rem;
+}
+
+.page-footer {
+    background-color: rgb(40, 39, 39);
 }

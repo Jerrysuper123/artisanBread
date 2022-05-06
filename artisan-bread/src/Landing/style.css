@@ -16,7 +16,7 @@
     left: 25vw;
     width: 50%;
     height: 20rem;
-    border-radius: 20rem;
+    /* border-radius: 20rem 20rem 10rem 10rem; */
 }
 
 @media only screen and (max-width: 600px) {
@@ -44,8 +44,8 @@
 }
 
 .cta {
-    background-color: rgb(23, 23, 23);
-    opacity: 0.9;
+    /* background-color: rgb(247, 213, 101);
+    opacity: 0.9; */
     color: white;
 }
 
@@ -207,4 +207,17 @@
     .right {
         left: 0%;
     }
+}
+
+#myVideo {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.videoContainer {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    height: 80vh;
+    background-color: rgb(62, 62, 62);
 }

@@ -50,9 +50,9 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
-          <div class="alert alert-secondary" role="alert">
+          {/* <div class="alert alert-secondary" role="alert">
             CTA and promotion
-          </div>
+          </div> */}
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />

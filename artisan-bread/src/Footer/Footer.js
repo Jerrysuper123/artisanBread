@@ -5,7 +5,7 @@ import "./style.css";
 export default function Footer(props) {
   return (
     <footer
-      className="page-footer font-small blue pt-4 secondaryBgColor"
+      className="page-footer font-small blue pt-4"
       style={{
         display: props.display,
       }}
@@ -14,9 +14,9 @@ export default function Footer(props) {
         <div className="row">
           <div className="col-md-6 mt-md-0 mt-3">
             <section
-              // onClick={() => {
-              //   props.setLandingActive("landing");
-              // }}
+            // onClick={() => {
+            //   props.setLandingActive("landing");
+            // }}
             >
               {/* <img
                 src={walkingIcon}
