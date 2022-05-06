@@ -113,11 +113,12 @@ export default function Shop() {
 
   //add to cart from product details side
   useEffect(() => {
-    // console.log("go to shop");
+    //do not run add to cart the first time when shop component is loaded
     if (!isMounted.current) {
       isMounted.current = true;
     } else {
       addToCart(context.addToCartProductId);
+      context.setAddToCartProductId("");
     }
   }, [context.addToCartProductId]);
 
