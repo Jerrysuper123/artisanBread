@@ -9,8 +9,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState } from "react";
 
 import "./App.css";
 

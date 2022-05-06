@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
 import FilterPage from "../FilterPage/FilterPage";
+import SortProduct from "../SortProduct/SortProduct";
 import SearchProduct from "../SearchProduct/SearchProduct";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
@@ -28,6 +29,7 @@ export default function Shop() {
   }, []);
 
   const [products, setProducts] = useState([]);
+
   const [cart, setCart] = useState([]);
   // useEffect(() => {
   //   setCart(context.getCart());
@@ -42,6 +44,12 @@ export default function Shop() {
   useEffect(() => {
     context.setCartQuantity(subtotal.subQuantity);
   }, [subtotal]);
+
+  useEffect(() => {
+    if (context.products.length) {
+      setProducts(context.products);
+    }
+  }, [context.products]);
 
   useEffect(() => {
     context.setProducts(products);
@@ -232,15 +240,7 @@ export default function Shop() {
 
             <div>
               {/* <span>Sort by</span> */}
-              <select
-                class="form-select sortByOption"
-                aria-label="Default select example"
-              >
-                <option selected>Sort by</option>
-                <option value="1">Alphabetically, A-Z</option>
-                <option value="2">Price, low to high</option>
-                <option value="3">Price, high to low</option>
-              </select>
+              <SortProduct products={products} setProducts={setProducts} />
             </div>
           </section>
 
