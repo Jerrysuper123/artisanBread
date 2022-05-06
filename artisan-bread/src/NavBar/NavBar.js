@@ -46,7 +46,10 @@ export default function Navbar(props) {
                 <React.Fragment>
                   <li className="nav-item nav-shop">
                     <div className="nav-link" aria-current="page">
-                      <Link to="/shop">Shop</Link>
+                      <Link to="/shop">
+                        <i class="fa-solid fa-shop"></i>
+                        <span className="ms-1">Shop</span>
+                      </Link>
                     </div>
                   </li>
                 </React.Fragment>
@@ -92,6 +95,7 @@ export default function Navbar(props) {
               {/* logout starts */}
               {context.logInUserInfo.username ? (
                 <li className="nav-item mt-2 me-4" onClick={logOut}>
+                  {/* <i class="fa-solid fa-arrow-right-from-bracket"></i> */}
                   Logout
                 </li>
               ) : null}
