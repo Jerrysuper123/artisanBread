@@ -1,0 +1,14 @@
+.searchInput {
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+
+.searchInputContainer {
+    border-bottom: 2px solid #d98e04;
+    color: rgb(69, 69, 69);
+}
+
+.sortByOption {
+    background-color: #bfd2e1;
+}

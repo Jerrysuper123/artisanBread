@@ -49,10 +49,6 @@ export default function Navbar(props) {
                       <Link to="/shop">Shop</Link>
                     </div>
                   </li>
-
-                  <li className="nav-item nav-delivery">
-                    <div className="nav-link">Delivery</div>
-                  </li>
                 </React.Fragment>
               ) : null}
 

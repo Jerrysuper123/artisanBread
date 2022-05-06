@@ -5,7 +5,6 @@ import React, { useState, useEffect, useContext } from "react";
 import ProductContext from "../ProductContext";
 import FilterPage from "../FilterPage/FilterPage";
 import SearchProduct from "../SearchProduct/SearchProduct";
-// import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
 import "./style.css";
@@ -92,6 +91,7 @@ export default function Shop() {
   const [addedCartNotification, setAddedCartNotification] = useState("none");
 
   const addToCart = async (productId) => {
+    console.log("added to cart from details", productId);
     if (context.accessToken !== "") {
       let response = await axios.get(
         BASE_URL + "cart/" + productId + "/add",
@@ -108,6 +108,11 @@ export default function Shop() {
       }
     }
   };
+
+  //add to cart from product details side
+  useEffect(() => {
+    addToCart(context.addToCartProductId);
+  }, [context.addToCartProductId]);
 
   const closeToast = () => {
     setAddedCartNotification("none");
@@ -173,7 +178,6 @@ export default function Shop() {
 
   return (
     <React.Fragment>
-      <h1>Shop</h1>
       <section
         className="shadow cartToast"
         style={{ display: addedCartNotification }}
@@ -207,187 +211,188 @@ export default function Shop() {
           style={{ width: "4rem", height: "4rem" }}
         ></lord-icon>
       </section>
+      <main className="mainShopPage">
+        <section className="container-fluid p-3">
+          <section className="container d-flex justify-content-between mb-3 mt-4">
+            <div>
+              <FilterPage setProducts={setProducts} />
+            </div>
 
-      <section className="container-fluid p-3">
-        <section className="d-flex justify-content-between mb-3">
-          <div>
-            {/* <span>Filter</span> */}
-            {/* <select
-              class="form-select d-inline"
-              aria-label="Default select example"
-            >
-              <option selected>Filter</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select> */}
-            <FilterPage setProducts={setProducts} />
-          </div>
+            <div>
+              <SearchProduct />
+            </div>
 
-          <div>
-            <SearchProduct />
-          </div>
-
-          <div>
-            {/* <span>Sort by</span> */}
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Sort by</option>
-              <option value="1">Alphabetically, A-Z</option>
-              <option value="2">Price, low to high</option>
-              <option value="3">Price, high to low</option>
-            </select>
-          </div>
-        </section>
-        <div className="row d-flex justify-content-center gy-3 gx-3">
-          {products.map((p) => {
-            return (
-              <div key={p.id} className="card col-4" style={{ width: "18rem" }}>
-                {p.image_url ? (
-                  <img
-                    onClick={() => {
-                      fetchProductDetailsPage(p.id);
-                    }}
-                    src={p.image_url}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                ) : null}
-                <button
-                  className="customBtn customBtnSecondary"
-                  onClick={() => {
-                    addToCart(p.id);
-                  }}
-                >
-                  Add to cart
-                </button>
-                <div className="card-body">
-                  <section
-                    onClick={() => {
-                      fetchProductDetailsPage(p.id);
-                    }}
-                  >
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">${p.price}</p>
-                  </section>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <div
-        className="offcanvas offcanvas-end"
-        tabIndex="-1"
-        id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel"
-      >
-        <div className="offcanvas-header">
-          <h3 id="offcanvasRightLabel">
-            <i class="fa-solid fa-basket-shopping"></i>
-            <span className="ms-2">Your Cart ({subtotal.subQuantity})</span>
-          </h3>
-          <button
-            type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-
-        <div className="offcanvas-body">
-          {/* <h1>cart page</h1> */}
-          <section className="container-fluid">
-            <div className="cartBody">
-              {cart.map((c) => {
-                return (
-                  <div
-                    key={c.id}
-                    className="cartCard card d-flex flex-row"
-                    style={{ width: "19rem" }}
-                  >
-                    <section className="mt-3" style={{ width: "7rem" }}>
-                      {c.product.image_url ? (
-                        <img
-                          // width={{ width: "5rem" }}
-                          src={c.product.image_url}
-                          className="card-img-top"
-                          alt={c.product.name}
-                        />
-                      ) : null}
-                    </section>
-
-                    <div className="card-body text-start">
-                      <section className="d-flex justify-content-between">
-                        <h5 className="card-title">{c.product.name}</h5>
-
-                        <span
-                          className=""
-                          onClick={() => {
-                            removeCart(c.product.id);
-                          }}
-                        >
-                          <i class="fa-solid fa-trash-can"></i>
-                        </span>
-                      </section>
-
-                      <section>
-                        {/* <label>Quantity:</label> */}
-                        <section className="d-flex justify-content-between">
-                          <p>{c.quantity} items</p>
-                          <p className="card-text">${c.product.price}</p>
-                        </section>
-
-                        {/* {c.quantity} */}
-
-                        <section className="d-flex justify-content-between">
-                          <div>
-                            <label>QTY:</label>
-                            <input
-                              className="form-control d-inline ms-1"
-                              type="text"
-                              style={{ width: "2.5rem" }}
-                              value={newCartQuantity[c.id]}
-                              // placeholder="QTY"
-                              name={c.id}
-                              onChange={updateFormField}
-                            />
-                          </div>
-
-                          <button
-                            className="cartBtn"
-                            onClick={() => {
-                              updateCartQuantity(c.product.id, c.id);
-                            }}
-                          >
-                            update
-                          </button>
-                        </section>
-                      </section>
-                    </div>
-                  </div>
-                );
-              })}
-              <h3 className="text-start mt-4">
-                subtotal: ${subtotal.subTotalDollar}{" "}
-              </h3>
+            <div>
+              {/* <span>Sort by</span> */}
+              <select
+                class="form-select sortByOption"
+                aria-label="Default select example"
+              >
+                <option selected>Sort by</option>
+                <option value="1">Alphabetically, A-Z</option>
+                <option value="2">Price, low to high</option>
+                <option value="3">Price, high to low</option>
+              </select>
             </div>
           </section>
 
-          <section className="cartFooter mt-2 p-2">
-            <p>Taxes and shipping are calculated at checkout</p>
-            <button className="checkOutBtn" onClick={getStripeSessionInfo}>
-              check out - ${subtotal.subTotalDollar}
-            </button>
-            <p>All transactions are processed via Strip in a secure manners</p>
-            <img
-              style={{ width: "20rem" }}
-              src={Stripe}
-              alt="stripe payment methods"
-            />
-          </section>
+          <div className="row d-flex justify-content-center gy-3 gx-3">
+            {products.map((p) => {
+              return (
+                <div
+                  key={p.id}
+                  className="card shopCard col-4"
+                  style={{ width: "18rem" }}
+                >
+                  {p.image_url ? (
+                    <img
+                      onClick={() => {
+                        fetchProductDetailsPage(p.id);
+                      }}
+                      src={p.image_url}
+                      className="card-img-top shopImg"
+                      alt={p.name}
+                    />
+                  ) : null}
+                  <button
+                    className="shopCartBtn customBtn"
+                    onClick={() => {
+                      addToCart(p.id);
+                    }}
+                  >
+                    Add to cart
+                  </button>
+                  <div className="card-body text-center">
+                    <section
+                      onClick={() => {
+                        fetchProductDetailsPage(p.id);
+                      }}
+                    >
+                      <h5 className="card-title">{p.name}</h5>
+                      <p className="card-text">${p.price}</p>
+                    </section>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <div
+          className="offcanvas offcanvas-end"
+          tabIndex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div className="offcanvas-header">
+            <h3 id="offcanvasRightLabel">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span className="ms-2">Your Cart ({subtotal.subQuantity})</span>
+            </h3>
+            <button
+              type="button"
+              className="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div className="offcanvas-body">
+            {/* <h1>cart page</h1> */}
+            <section className="container-fluid">
+              <div className="cartBody">
+                {cart.map((c) => {
+                  return (
+                    <div
+                      key={c.id}
+                      className="cartCard card d-flex flex-row"
+                      style={{ width: "19rem" }}
+                    >
+                      <section className="mt-3" style={{ width: "7rem" }}>
+                        {c.product.image_url ? (
+                          <img
+                            // width={{ width: "5rem" }}
+                            src={c.product.image_url}
+                            className="card-img-top cartImg"
+                            alt={c.product.name}
+                          />
+                        ) : null}
+                      </section>
+
+                      <div className="card-body text-start">
+                        <section className="d-flex justify-content-between">
+                          <h5 className="card-title">{c.product.name}</h5>
+
+                          <span
+                            className=""
+                            onClick={() => {
+                              removeCart(c.product.id);
+                            }}
+                          >
+                            <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                        </section>
+
+                        <section>
+                          {/* <label>Quantity:</label> */}
+                          <section className="d-flex justify-content-between">
+                            <p>{c.quantity} items</p>
+                            <p className="card-text">${c.product.price}</p>
+                          </section>
+
+                          {/* {c.quantity} */}
+
+                          <section className="d-flex justify-content-between">
+                            <div>
+                              <label>QTY:</label>
+                              <input
+                                className="form-control d-inline ms-1"
+                                type="text"
+                                style={{ width: "2.5rem" }}
+                                value={newCartQuantity[c.id]}
+                                // placeholder="QTY"
+                                name={c.id}
+                                onChange={updateFormField}
+                              />
+                            </div>
+
+                            <button
+                              className="cartBtn"
+                              onClick={() => {
+                                updateCartQuantity(c.product.id, c.id);
+                              }}
+                            >
+                              update
+                            </button>
+                          </section>
+                        </section>
+                      </div>
+                    </div>
+                  );
+                })}
+                <h3 className="text-start mt-4">
+                  subtotal: ${subtotal.subTotalDollar}{" "}
+                </h3>
+              </div>
+            </section>
+
+            <section className="cartFooter mt-2 p-2">
+              <p>Taxes and shipping are calculated at checkout</p>
+              <button className="checkOutBtn" onClick={getStripeSessionInfo}>
+                check out - ${subtotal.subTotalDollar}
+              </button>
+              <p>
+                All transactions are processed via Strip in a secure manners
+              </p>
+              <img
+                style={{ width: "20rem" }}
+                src={Stripe}
+                alt="stripe payment methods"
+              />
+            </section>
+          </div>
         </div>
-      </div>
+      </main>
     </React.Fragment>
   );
 }

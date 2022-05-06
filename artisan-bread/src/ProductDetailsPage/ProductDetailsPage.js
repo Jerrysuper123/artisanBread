@@ -1,17 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ProductContext from "../ProductContext";
-/* Hooks only version of ProductDetailsPage */
+import "./style.css";
 export default function ProductDetailsPage(props) {
   const { productID } = useParams();
   const [product, setProduct] = useState({});
 
   const context = useContext(ProductContext);
 
-  const fetchProduct = () => {
+  const navigate = useNavigate();
+
+  const fetchProduct = async () => {
+    //when user load the base url/productDetails/:productId directly
+    //there are no products to filter in the first place, so navigate to shop first
+    if (!context.products.length) {
+      navigate("/shop");
+    }
+    //there is no products at this moment;
     let tempProduct = context.getProductByID(productID);
     // console.log("temp", tempProduct);
-    setProduct(tempProduct);
+    await setProduct(tempProduct);
   };
 
   useEffect(() => {
@@ -20,34 +28,47 @@ export default function ProductDetailsPage(props) {
 
   return (
     <React.Fragment>
-      {/* <h1>Product Details</h1> */}
       {product ? (
-        // <ul>
-        //   <li>ID: {product.id}</li>
-        //   <li>Name: {product.name}</li>
-        //   <li>Cost: {product.price}</li>
-        //   <li>Cost: {product.description}</li>
-        // </ul>
         <main className="container-fluid mb-5">
           <div className="row align-items-center">
             <img
-              className="col-12 col-md-6"
+              className="col-12 col-md-6 productDetailImg"
               src={product.image_url}
               alt={product.id}
             />
             <section className="text-start col-12 col-md-6">
               <h1>{product.name}</h1>
-              <p>${product.price}</p>
-              {product.type ? <p>{product.type.type}</p> : null}
-              {product.flavour ? <p>{product.flavour.flavour}</p> : null}
-              <p>{product.description}</p>
-              {product.ingredient
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <p className="mt-2">${product.price}</p>
+              {product.type ? <p>Type: {product.type.type}</p> : null}
+              {product.flavour ? (
+                <p>Flavour: {product.flavour.flavour}</p>
+              ) : null}
+              <p className="text-secondary productDescription p-3">
+                {product.description}
+              </p>
+              {product.ingredients
                 ? product.ingredients.map((i) => {
-                    return <span key={i.id}>{i.ingredient}</span>;
+                    return (
+                      <span key={i.id} className="me-2">
+                        <i className="fa-solid fa-circle-check me-1"></i>
+                        {i.ingredient}
+                      </span>
+                    );
                   })
                 : null}
-              <div>
-                <button>Add to cart</button>
+              <div className="mt-4">
+                <button
+                  onClick={() => {
+                    // props.addToCart(product.id);
+                    context.setAddToCartProductId(product.id);
+                  }}
+                  className="shopCartBtn customBtn detailBtn p-2"
+                >
+                  Add to cart
+                </button>
               </div>
             </section>
           </div>

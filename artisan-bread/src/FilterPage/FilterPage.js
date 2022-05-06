@@ -83,13 +83,14 @@ export default function FilterPage(props) {
   return (
     <React.Fragment>
       <button
-        className="btn btn-secondary"
+        className="customBtn customBtnLightBlue"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#productFilterPage"
         aria-controls="productFilterPage"
       >
-        Filter
+        <i className="fa-solid fa-filter"></i>
+        <span className="ms-2">Filter</span>
       </button>
 
       <div
@@ -109,7 +110,7 @@ export default function FilterPage(props) {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body d-flex flex-column justify-content-around">
+        <div className="offcanvas-body d-flex flex-column justify-content-evenly">
           <div>
             <h6>Type:</h6>
             <select

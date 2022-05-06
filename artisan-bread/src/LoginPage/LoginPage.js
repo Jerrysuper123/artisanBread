@@ -22,9 +22,9 @@ export default function LoginPage() {
 
   //when first load, get the accessToken in localStorage if available
   useEffect(() => {
-    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
-    if (accessToken) {
-      setAccessToken(accessToken);
+    const accessTokenStored = JSON.parse(localStorage.getItem("accessToken"));
+    if (accessTokenStored) {
+      setAccessToken(accessTokenStored);
     }
   }, []);
 

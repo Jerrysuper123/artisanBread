@@ -10,10 +10,7 @@ import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
 import React, { useState, useEffect } from "react";
-
-//for context use later
-import { BASE_URL } from "./util";
-import axios from "axios";
+import "./App.css";
 
 import "./App.css";
 
@@ -24,6 +21,7 @@ function App() {
   const [searchString, setSearchString] = useState("");
   const [logInUserInfo, setLogInUserInfo] = useState({});
   const [accessToken, setAccessToken] = useState("");
+  const [addToCartProductId, setAddToCartProductId] = useState("");
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -43,6 +41,8 @@ function App() {
     setLogInUserInfo,
     accessToken,
     setAccessToken,
+    addToCartProductId,
+    setAddToCartProductId,
   };
 
   return (
@@ -50,21 +50,20 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
-          {/* <div class="alert alert-secondary" role="alert">
-            CTA and promotion
-          </div> */}
+          <div class="CTAbanner p-1">CTA and promotion</div>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route
+              path="/productdetails/:productID"
+              element={<ProductDetailsPage />}
+            />
+
             {logInUserInfo.username ? (
               <React.Fragment>
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
-                <Route
-                  path="/productdetails/:productID"
-                  element={<ProductDetailsPage />}
-                />
                 <Route path="/order" element={<MyOrder />} />
               </React.Fragment>
             ) : (

@@ -72,3 +72,50 @@
     height: 2.3rem !important;
     border: none !important;
 }
+
+.shopCard {
+    border: none;
+    background-color: transparent !important;
+}
+
+.shopImg {
+    object-fit: cover;
+    object-position: center;
+    height: 19rem;
+    overflow: hidden;
+}
+
+.cartImg {
+    object-fit: cover;
+    object-position: center;
+    height: 10rem;
+    width: 7rem;
+    overflow: hidden;
+}
+
+.shopCartBtn {
+    border-radius: 0rem !important;
+    color: white;
+    background-color: #05a598;
+    /* border: 1px solid grey; */
+    font-weight: 900;
+    border: 1px solid #05a598 !important;
+}
+
+.shopCartBtn:hover {
+    color: #05a598;
+    background-color: white;
+    border: 1px solid white !important;
+}
+
+.card-body {
+    /* background-color: rgb(235, 240, 244); */
+    height: 6rem !important;
+}
+
+.mainShopPage {
+    background-image: url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
