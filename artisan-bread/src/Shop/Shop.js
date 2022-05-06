@@ -101,18 +101,22 @@ export default function Shop() {
   const addToCart = async (productId) => {
     // console.log("added to cart from details", productId);
     if (context.accessToken !== "") {
-      let response = await axios.get(
-        BASE_URL + "cart/" + productId + "/add",
-        getHTTPHeaders(context.accessToken)
-      );
-      // console.log(response);
-      setAddedCartNotification("block");
+      try {
+        let response = await axios.get(
+          BASE_URL + "cart/" + productId + "/add",
+          getHTTPHeaders(context.accessToken)
+        );
+        // console.log(response);
+        setAddedCartNotification("block");
 
-      if (response) {
-        changedCart();
-        setTimeout(() => {
-          setAddedCartNotification("none");
-        }, 1000);
+        if (response) {
+          changedCart();
+          setTimeout(() => {
+            setAddedCartNotification("none");
+          }, 1000);
+        }
+      } catch (e) {
+        console.log(e);
       }
     }
   };
@@ -125,8 +129,10 @@ export default function Shop() {
     if (!isMounted.current) {
       isMounted.current = true;
     } else {
-      addToCart(context.addToCartProductId);
-      context.setAddToCartProductId("");
+      if (context.addToCartProductId !== "") {
+        addToCart(context.addToCartProductId);
+        context.setAddToCartProductId("");
+      }
     }
   }, [context.addToCartProductId]);
 
