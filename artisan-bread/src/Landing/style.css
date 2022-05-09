@@ -6,16 +6,22 @@
     margin-top: -1.3rem;
     font-size: 2rem;
     font-style: italic;
-    width: 3rem;
+    /* width: 3rem; */
     background-color: rgb(255, 255, 255);
+}
+
+.ctaHeader {
+    font-size: 3.3rem;
+    font-weight: 800;
 }
 
 .cta {
     position: absolute;
     top: 23vh;
-    left: 25vw;
-    width: 50%;
+    left: 10vw;
+    width: 80%;
     height: 20rem;
+    color: white;
     /* border-radius: 20rem 20rem 10rem 10rem; */
 }
 
@@ -24,11 +30,11 @@
         position: static;
     }
 
-    .cta {
+    /* .cta {
         position: static;
         width: 100%;
         border-radius: 0;
-    }
+    } */
 }
 
 .carousel-item img {
@@ -41,12 +47,6 @@
 .card-title i {
     font-size: 1.2rem !important;
     color: #e27d60;
-}
-
-.cta {
-    /* background-color: rgb(247, 213, 101);
-    opacity: 0.9; */
-    color: white;
 }
 
 .organizerText {

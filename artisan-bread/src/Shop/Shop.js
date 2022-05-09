@@ -256,8 +256,16 @@ export default function Shop() {
                 <div
                   key={p.id}
                   className="card shopCard col-4"
-                  style={{ width: "18rem" }}
+                  style={{ width: "18rem", height: "23rem" }}
                 >
+                  <span className="productRating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(40)</span>
+                  </span>
                   {p.image_url ? (
                     <img
                       onClick={() => {
@@ -269,12 +277,12 @@ export default function Shop() {
                     />
                   ) : null}
                   <button
-                    className="shopCartBtn customBtn"
+                    className="shopCartBtn customBtn py-2"
                     onClick={() => {
                       addToCart(p.id);
                     }}
                   >
-                    Add to cart
+                    Add to Cart
                   </button>
                   <div className="card-body text-center">
                     <section
@@ -282,8 +290,8 @@ export default function Shop() {
                         fetchProductDetailsPage(p.id);
                       }}
                     >
-                      <h5 className="card-title">{p.name}</h5>
-                      <p className="card-text">${p.price}</p>
+                      <h6 className="cardTitle">{p.name}</h6>
+                      <p className="cardText">${p.price}.00</p>
                     </section>
                   </div>
                 </div>

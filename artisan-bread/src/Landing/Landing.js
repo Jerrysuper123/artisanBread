@@ -9,24 +9,29 @@ export default function Landing(props) {
 
       <div className="banner">
         <section className="videoContainer">
-          {/* <video autoPlay muted loop id="myVideo">
+          <video autoPlay muted loop id="myVideo">
             <source src={making2mb} type="video/mp4" />
-          </video> */}
+          </video>
         </section>
 
         {/* call to action on a map*/}
         <section className="cta p-5 text-center">
-          <h1>whole meal . zero transfat . organic ingreidents</h1>
-          <h1>But better taste</h1>
+          <section className="ctaHeader">
+            <span>Wholemeal </span>
+            <span>. Zero trans-fat</span>
+            <span>. Organic</span>
+          </section>
+          <h1 className="mt-3">But 100% better taste!</h1>
           <h2
             className="my-3"
             style={{
               fontStyle: "italic",
             }}
           >
-            Artisan Bread
+            Artisan Bread offers the best bread in the world
           </h2>
-          <button className="btn btn-danger mt-lg-4">order here</button>
+          <button className="btn btn-secondary mt-lg-4">Log in</button>
+          <button className="ms-2 btn btn-danger mt-lg-4">Shop now</button>
         </section>
       </div>
 
@@ -35,16 +40,16 @@ export default function Landing(props) {
         <section>
           <div className="border-bottom"></div>
           <div className="d-flex justify-content-center">
-            <h3 className="orStatement">Spendid</h3>
+            <h3 className="orStatement px-2">Spendid</h3>
           </div>
         </section>
 
-        <h1>Introducing a better version of the real thing</h1>
+        <h1>Healthier bread with better taste</h1>
         <h5>
-          Introducing a better version of the real thing We marry food science
-          and innovative cooking techniques to produce your daily food staples
-          that taste the same, eat the same, but with only half the carbs, 6x
-          more fibre and 100% natural.
+          We marry good science with our artisanal skills to offer hand-made
+          wholemeal bread, using organic ingredients. Not only all our bread
+          contain zero transfat, they are also carbs guilt-free - our secret
+          recipe to half the carbs without losing the taste.
         </h5>
       </section>
 
@@ -114,120 +119,6 @@ export default function Landing(props) {
       </div>
 
       {/* carousell of products */}
-
-      <main>
-        <article className="attendeeText secondaryBgColor container-fluid p-5">
-          {/* attend events section */}
-          <section
-            className="text-center my-5 text-light
-          d-flex justify-content-center
-          border-bottom
-          "
-          >
-            <h1>ATTEND EVENTS</h1>
-            <h4
-              className="ms-4 pt-3"
-              style={{
-                fontStyle: "italic",
-              }}
-            >
-              Automatically detects your current location and suggests events in
-              the vicinity
-            </h4>
-          </section>
-          <section className="ms-5">
-            <div className="row g-5">
-              <div className="col d-flex justify-content-center">
-                {/* card starts here */}
-                <div
-                  className="card"
-                  style={{ width: "18rem", border: "none" }}
-                >
-                  <img
-                    src="https://github.com/Jerrysuper123/eventfulSources/blob/main/images/student.jpg?raw=true"
-                    className="card-img-top"
-                    alt="student"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">FOR STUDENTS</h5>
-                    <p className="cardText">
-                      Browse through ongoing activities in school in one central
-                      portal, without reading event posters/emails
-                    </p>
-                  </div>
-                </div>
-                {/* card ends here */}
-              </div>
-
-              <div className="col d-flex justify-content-center">
-                {/* card starts here */}
-                <div
-                  className="card"
-                  style={{ width: "18rem", border: "none" }}
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/Jerrysuper123/eventfulSources/main/images/shopper.jpg"
-                    className="card-img-top"
-                    alt="shopper"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">FOR SHOPPER</h5>
-                    <p className="card-text">
-                      Scan all promotional activities nearby to get the best
-                      deals
-                    </p>
-                  </div>
-                </div>
-                {/* card ends here */}
-              </div>
-
-              <div className="col d-flex justify-content-center">
-                {/* card starts here */}
-                <div
-                  className="card"
-                  style={{ width: "18rem", border: "none" }}
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/Jerrysuper123/eventfulSources/main/images/tourist.jpg"
-                    className="card-img-top"
-                    alt="tourist"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">FOR TOURISTS</h5>
-                    <p className="card-text">
-                      Explore ongoing events onsite, without having to read
-                      through the information pamphlet
-                    </p>
-                  </div>
-                </div>
-                {/* card ends here */}
-              </div>
-
-              <div className="col d-flex justify-content-center">
-                {/* card starts here */}
-                <div
-                  className="card"
-                  style={{ width: "18rem", border: "none" }}
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/Jerrysuper123/eventfulSources/main/images/diner.jpg"
-                    className="card-img-top"
-                    alt="diner"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">FOR DINERS</h5>
-                    <p className="card-text">
-                      Grab the nearby cuisines with the offers from restaurants
-                      at tantalizing prices
-                    </p>
-                  </div>
-                </div>
-                {/* card ends here */}
-              </div>
-            </div>
-          </section>
-        </article>
-      </main>
     </React.Fragment>
   );
 }

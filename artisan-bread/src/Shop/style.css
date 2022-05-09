@@ -76,6 +76,15 @@
 .shopCard {
     border: none;
     background-color: transparent !important;
+    position: relative;
+}
+
+.productRating {
+    position: absolute;
+    margin-left: 9rem;
+    top: 0.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .shopImg {
@@ -83,6 +92,7 @@
     object-position: center;
     height: 19rem;
     overflow: hidden;
+    border-radius: 1rem !important;
 }
 
 .cartImg {
@@ -96,15 +106,18 @@
 .shopCartBtn {
     border-radius: 0rem !important;
     color: white;
-    background-color: #05a598;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
     /* border: 1px solid grey; */
-    font-weight: 900;
-    border: 1px solid #05a598 !important;
+    font-weight: 700;
+    border: 1px solid white !important;
+    margin-top: -6rem;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .shopCartBtn:hover {
-    color: #05a598;
-    background-color: white;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
     border: 1px solid white !important;
 }
 
@@ -114,8 +127,29 @@
 }
 
 .mainShopPage {
-    background-image: url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+    /* background-image: url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
+}
+/* 
+.card-title {
+    color: rgba(0, 0, 0, 0.8);
+} */
+.card-body {
+    background-color: rgba(255, 255, 255, 0.95);
+    /* height: 3rem !important; */
+}
+
+.cardTitle {
+    color: rgb(43, 43, 43);
+    font-weight: 500;
+    margin-top: -0.5rem;
+}
+
+.cardText {
+    margin-top: -0.4rem;
+    /* color: rgb(7, 6, 3) !important; */
+    font-size: 0.9rem;
+    font-style: italic;
 }

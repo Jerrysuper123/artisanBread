@@ -25,32 +25,33 @@ export default function Footer(props) {
                   width: "2.5rem",
                 }}
               /> */}
-              <h5 className="text-uppercase">eventful.com</h5>
+              <h1 className="accentThreeColor">Artisan BREAD</h1>
             </section>
 
             <p>
-              Automatically detects your current location and suggests events in
-              vicinity and updates events in real-time, suggesting ongoing
-              tantalizing events on a map near you
+              We marry good science with our artisanal skills to offer hand-made
+              wholemeal bread, using organic ingredients. Not only all our bread
+              contain zero transfat, they are also carbs guilt-free - our secret
+              recipe to half the carbs without losing the taste.
             </p>
           </div>
 
           <hr className="clearfix w-100 d-md-none pb-0" />
 
           <div className="col-md-2 mb-md-0 mb-3">
-            <h5 className="text-uppercase">Discover</h5>
+            <h5 className="text-uppercase">Shop</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#!">Events nearby</a>
+                <a href="#!">Toast</a>
               </li>
               <li>
-                <a href="#!">Organizer</a>
+                <a href="#!">Baguette</a>
               </li>
               <li>
-                <a href="#!">Giving back</a>
+                <a href="#!">Bread</a>
               </li>
               <li>
-                <a href="#!">Help & Support</a>
+                <a href="#!">Bun</a>
               </li>
             </ul>
           </div>
