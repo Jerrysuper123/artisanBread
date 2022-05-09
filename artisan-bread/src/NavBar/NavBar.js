@@ -19,17 +19,11 @@ export default function Navbar(props) {
         <div className="container">
           {/* icon */}
           <Link to="/">
-            {/* <div className="navbar-brand d-flex flex-column"> */}
-            {/* <i class="fa-solid fa-bath"></i> */}
             <img
               className="iconImage"
               src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
               alt="icon"
-              // style={{ width: "5rem" }}
             />
-            {/* <span className="accentThreeColor logoText">Artisan</span>
-              <span className="accentOneColor logoSubText">BREAD</span> */}
-            {/* </div> */}
           </Link>
 
           <button
@@ -49,62 +43,67 @@ export default function Navbar(props) {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {context.logInUserInfo.username ? (
                 <React.Fragment>
-                  <li className="nav-item nav-shop">
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
+                      <Link to="/">
+                        <span className="ms-1">Home</span>
+                      </Link>
+                    </div>
+                  </li>
+
+                  <li className="nav-item me-3 nav-shop">
                     <div className="nav-link" aria-current="page">
                       <Link to="/shop">
-                        <i class="fa-solid fa-shop"></i>
                         <span className="ms-1">Shop</span>
                       </Link>
                     </div>
                   </li>
-                </React.Fragment>
-              ) : null}
 
-              {/* start of my account */}
-              <li className="nav-item dropdown ms-auto me-2">
-                <div
-                  className="nav-link dropdown-toggle"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <span>
-                    {context.logInUserInfo.username
-                      ? context.logInUserInfo.username
-                      : null}
-                  </span>
-                  <i className="ms-1 fa-solid fa-user"></i>
-                </div>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <div className="dropdown-item">
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
+                      <Link to="/order">Orders</Link>
+                    </div>
+                  </li>
+
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
                       <Link to="/login">Login</Link>
                     </div>
                   </li>
-                  <li>
-                    <div className="dropdown-item">
+
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
                       <Link to="/register">Register</Link>
                     </div>
                   </li>
 
-                  <li>
-                    <div className="dropdown-item">
-                      <Link to="/order">My order</Link>
+                  <li className="nav-item">
+                    <div className="nav-link" aria-current="page">
+                      <span>
+                        <span className="me-1">Hi</span>
+
+                        {context.logInUserInfo.username
+                          ? context.logInUserInfo.username
+                          : null}
+                      </span>
+
+                      <i className="ms-1 fa-solid fa-user"></i>
                     </div>
                   </li>
-                </ul>
-              </li>
-              {/* my account ends here */}
 
-              {/* logout starts */}
-              {context.logInUserInfo.username ? (
-                <li className="nav-item mt-2 me-4" onClick={logOut}>
-                  {/* <i class="fa-solid fa-arrow-right-from-bracket"></i> */}
-                  Logout
-                </li>
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
+                      {/* logout starts */}
+                      {context.logInUserInfo.username ? (
+                        <li className="nav-item" onClick={logOut}>
+                          Logout
+                        </li>
+                      ) : null}
+                      {/* log out ends here */}
+                    </div>
+                  </li>
+                </React.Fragment>
               ) : null}
-              {/* log out ends here */}
 
               {/* cart starts here */}
 

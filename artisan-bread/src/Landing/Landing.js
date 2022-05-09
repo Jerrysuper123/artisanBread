@@ -33,12 +33,12 @@ export default function Landing(props) {
           >
             Artisan Bread offers the best bread in the world
           </h2>
-          <button className="btn btn-secondary mt-lg-4">Log in</button>
+          <button className="btn LoginBtn btn-secondary mt-lg-4">Log in</button>
           <button className="ms-2 btn btn-danger mt-lg-4">Shop now</button>
         </section>
       </div>
 
-      <main className="landingMainContainer p-3">
+      <main className="landingMainContainer p-2">
         {/* call to action on calendar */}
         <section className="p-5 text-center mb-4">
           <section>
@@ -48,8 +48,8 @@ export default function Landing(props) {
             </div>
           </section>
 
-          <h1>Healthier bread with better taste</h1>
-          <h5>
+          <h1 className="highlightText">Healthier bread with better taste</h1>
+          <h5 className="text-secondary">
             We marry good science with our artisanal skills to offer hand-made
             wholemeal bread, using organic ingredients. Not only all our bread
             contain zero transfat, they are also carbs guilt-free - our secret

@@ -235,7 +235,7 @@ export default function Shop() {
         ></lord-icon>
       </section>
       <main className="mainShopPage">
-        <section className="container-fluid p-3">
+        <section className="container p-3">
           <section className="container d-flex justify-content-between mb-3 mt-4">
             <div>
               <FilterPage setProducts={setProducts} />
