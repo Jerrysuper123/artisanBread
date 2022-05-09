@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchAllProducts } from "./util";
 
 import "./App.css";
-
 function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [products, setProducts] = useState([]);
@@ -25,6 +25,15 @@ function App() {
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
   };
+
+  const fetchProducts = async () => {
+    let products = await fetchAllProducts();
+    setProducts(products);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const context = {
     cartQuantity,
@@ -49,7 +58,17 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
-          <div class="CTAbanner p-1">CTA and promotion</div>
+          <div className="CTAbanner p-2 d-flex justify-content-between">
+            <span>
+              <i className="fa-solid fa-circle-check me-1 highlightText"></i>
+              100% better taste
+            </span>
+            <span>Wholemeal . Zero trans-fat . Organic</span>
+            <span>
+              <i className="fa-solid fa-truck-fast highlightText"></i>
+              <span className="ms-1">Free delivery or $5 for the next day</span>
+            </span>
+          </div>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />

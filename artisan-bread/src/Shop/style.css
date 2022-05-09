@@ -127,29 +127,31 @@
 }
 
 .mainShopPage {
-    /* background-image: url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+    background-image: url("https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/shopBG.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
+    background-size: contain;
+    background-position: center;
 }
 /* 
 .card-title {
     color: rgba(0, 0, 0, 0.8);
 } */
-.card-body {
+.cardBody {
     background-color: rgba(255, 255, 255, 0.95);
-    /* height: 3rem !important; */
+    height: 3.1rem !important;
+    border-radius: 0 0 1rem 1rem !important;
+    /* border: 1px solid black; */
 }
 
 .cardTitle {
-    color: rgb(43, 43, 43);
+    color: rgb(67, 67, 67);
     font-weight: 500;
-    margin-top: -0.5rem;
+    /* margin-top: -0.3rem; */
 }
 
 .cardText {
-    margin-top: -0.4rem;
-    /* color: rgb(7, 6, 3) !important; */
+    margin-top: -0.3rem;
+    color: rgb(62, 62, 61) !important;
     font-size: 0.9rem;
     font-style: italic;
 }

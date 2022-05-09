@@ -17,7 +17,7 @@
 
 .cta {
     position: absolute;
-    top: 23vh;
+    top: 15vh;
     left: 10vw;
     width: 80%;
     height: 20rem;
@@ -220,4 +220,38 @@
     display: block;
     height: 80vh;
     background-color: rgb(62, 62, 62);
+}
+
+#carouselExampleCaptions {
+    /* background-color: grey !important; */
+}
+
+#carouselExampleCaptions {
+    position: relative;
+    height: 27rem !important;
+    width: 80%;
+}
+
+.carousel-indicators {
+    position: absolute;
+    top: 25rem;
+}
+
+.slideControl {
+    color: rgba(0, 0, 0, 0.9) !important;
+    font-size: 2rem;
+    /* color: white; */
+    /* border-radius: 1.2rem;
+    padding: 0.2rem; */
+}
+
+.carousel-indicators {
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.landingMainContainer {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/landingBG2.jpg");
 }

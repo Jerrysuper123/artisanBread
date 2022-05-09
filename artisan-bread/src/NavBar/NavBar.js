@@ -19,12 +19,17 @@ export default function Navbar(props) {
         <div className="container">
           {/* icon */}
           <Link to="/">
-            <div className="navbar-brand d-flex flex-column">
-              {/* <i class="fa-solid fa-bath"></i> */}
-              {/* <img className="iconImage" src={grain} alt="icon" /> */}
-              <span className="accentThreeColor logoText">Artisan</span>
-              <span className="accentOneColor logoSubText">BREAD</span>
-            </div>
+            {/* <div className="navbar-brand d-flex flex-column"> */}
+            {/* <i class="fa-solid fa-bath"></i> */}
+            <img
+              className="iconImage"
+              src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
+              alt="icon"
+              // style={{ width: "5rem" }}
+            />
+            {/* <span className="accentThreeColor logoText">Artisan</span>
+              <span className="accentOneColor logoSubText">BREAD</span> */}
+            {/* </div> */}
           </Link>
 
           <button

@@ -1,3 +1,4 @@
+import axios from "axios";
 const BASE_URL = "https://artisanbread.herokuapp.com/api/";
 const getHTTPHeaders = (accessToken) => {
   return {
@@ -6,4 +7,12 @@ const getHTTPHeaders = (accessToken) => {
     },
   };
 };
-export { BASE_URL, getHTTPHeaders };
+
+const fetchAllProducts = async () => {
+  let response = await axios.get(BASE_URL + "products");
+  // console.log(response.data);
+
+  return response.data;
+};
+
+export { BASE_URL, getHTTPHeaders, fetchAllProducts };

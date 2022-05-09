@@ -6,6 +6,7 @@ import ProductContext from "../ProductContext";
 import FilterPage from "../FilterPage/FilterPage";
 import SortProduct from "../SortProduct/SortProduct";
 import SearchProduct from "../SearchProduct/SearchProduct";
+import ProductCard from "./ProductCard/ProductCard";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
 import "./style.css";
@@ -253,48 +254,11 @@ export default function Shop() {
           <div className="row d-flex justify-content-center gy-3 gx-3">
             {products.map((p) => {
               return (
-                <div
-                  key={p.id}
-                  className="card shopCard col-4"
-                  style={{ width: "18rem", height: "23rem" }}
-                >
-                  <span className="productRating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(40)</span>
-                  </span>
-                  {p.image_url ? (
-                    <img
-                      onClick={() => {
-                        fetchProductDetailsPage(p.id);
-                      }}
-                      src={p.image_url}
-                      className="card-img-top shopImg"
-                      alt={p.name}
-                    />
-                  ) : null}
-                  <button
-                    className="shopCartBtn customBtn py-2"
-                    onClick={() => {
-                      addToCart(p.id);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <div className="card-body text-center">
-                    <section
-                      onClick={() => {
-                        fetchProductDetailsPage(p.id);
-                      }}
-                    >
-                      <h6 className="cardTitle">{p.name}</h6>
-                      <p className="cardText">${p.price}.00</p>
-                    </section>
-                  </div>
-                </div>
+                <ProductCard
+                  p={p}
+                  addToCart={addToCart}
+                  fetchProductDetailsPage={fetchProductDetailsPage}
+                />
               );
             })}
           </div>

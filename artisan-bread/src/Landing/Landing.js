@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import making2mb from "../media/making2mb.mp4";
+import ProductContext from "../ProductContext";
+import ProductCard from "../Shop/ProductCard/ProductCard";
 
 export default function Landing(props) {
+  const context = useContext(ProductContext);
   return (
     <React.Fragment>
       {/* carousell starts here */}
@@ -35,88 +38,129 @@ export default function Landing(props) {
         </section>
       </div>
 
-      {/* call to action on calendar */}
-      <section className="p-5 text-center my-4">
-        <section>
-          <div className="border-bottom"></div>
-          <div className="d-flex justify-content-center">
-            <h3 className="orStatement px-2">Spendid</h3>
-          </div>
+      <main className="landingMainContainer p-3">
+        {/* call to action on calendar */}
+        <section className="p-5 text-center mb-4">
+          <section>
+            <div className="border-bottom"></div>
+            <div className="d-flex justify-content-center">
+              <h3 className="orStatement px-2">Spendid</h3>
+            </div>
+          </section>
+
+          <h1>Healthier bread with better taste</h1>
+          <h5>
+            We marry good science with our artisanal skills to offer hand-made
+            wholemeal bread, using organic ingredients. Not only all our bread
+            contain zero transfat, they are also carbs guilt-free - our secret
+            recipe to half the carbs without losing the taste.
+          </h5>
         </section>
 
-        <h1>Healthier bread with better taste</h1>
-        <h5>
-          We marry good science with our artisanal skills to offer hand-made
-          wholemeal bread, using organic ingredients. Not only all our bread
-          contain zero transfat, they are also carbs guilt-free - our secret
-          recipe to half the carbs without losing the taste.
-        </h5>
-      </section>
+        {/* carousell of products */}
+        <section className="d-flex justify-content-center mb-5">
+          <div
+            id="carouselExampleCaptions"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                className="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
 
-      {/* carousell of products */}
-      <div
-        id="productList"
-        className="carousel slide container"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#productList"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#productList"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#productList"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="..." className="d-block w-100" alt="..." />
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <section className="d-flex justify-content-center">
+                  {context.products
+                    ? context.products.slice(0, 3).map((p) => {
+                        return (
+                          <section className="p-3">
+                            <ProductCard
+                              p={p}
+                              addToCart={() => {}}
+                              fetchProductDetailsPage={() => {}}
+                            />
+                          </section>
+                        );
+                      })
+                    : null}
+                </section>
+              </div>
+              <div className="carousel-item">
+                <section className="d-flex justify-content-center">
+                  {context.products
+                    ? context.products.slice(3, 6).map((p) => {
+                        return (
+                          <section className="p-3">
+                            <ProductCard
+                              p={p}
+                              addToCart={() => {}}
+                              fetchProductDetailsPage={() => {}}
+                            />
+                          </section>
+                        );
+                      })
+                    : null}
+                </section>
+              </div>
+              <div className="carousel-item">
+                <section className="d-flex justify-content-center">
+                  {context.products
+                    ? context.products.slice(6, 9).map((p) => {
+                        return (
+                          <section className="p-3">
+                            <ProductCard
+                              p={p}
+                              addToCart={() => {}}
+                              fetchProductDetailsPage={() => {}}
+                            />
+                          </section>
+                        );
+                      })
+                    : null}
+                </section>
+              </div>
+            </div>
+
+            {/* previous and next button */}
+            <button
+              className="carousel-control-prev "
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <i className="slideControl fa-solid fa-circle-chevron-left"></i>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <i className="fa-solid fa-circle-chevron-right slideControl"></i>
+            </button>
           </div>
-          <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#productList"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#productList"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
+        </section>
+      </main>
 
       {/* carousell of products */}
     </React.Fragment>
