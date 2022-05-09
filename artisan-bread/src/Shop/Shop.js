@@ -234,7 +234,7 @@ export default function Shop() {
           style={{ width: "4rem", height: "4rem" }}
         ></lord-icon>
       </section>
-      <main className="mainShopPage">
+      <main className="mainShopPage mt-5">
         <section className="container p-3">
           <section className="container d-flex justify-content-between mb-3 mt-4">
             <div>

@@ -41,69 +41,66 @@ export default function Navbar(props) {
           {/* collapsable bar starts here */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              {context.logInUserInfo.username ? (
-                <React.Fragment>
-                  <li className="nav-item me-3">
-                    <div className="nav-link" aria-current="page">
-                      <Link to="/">
-                        <span className="ms-1">Home</span>
-                      </Link>
-                    </div>
-                  </li>
+              <React.Fragment>
+                <li className="nav-item me-3">
+                  <div className="nav-link" aria-current="page">
+                    <Link to="/">
+                      <span className="ms-1">Home</span>
+                    </Link>
+                  </div>
+                </li>
 
-                  <li className="nav-item me-3 nav-shop">
-                    <div className="nav-link" aria-current="page">
-                      <Link to="/shop">
-                        <span className="ms-1">Shop</span>
-                      </Link>
-                    </div>
-                  </li>
+                <li className="nav-item me-3 nav-shop">
+                  <div className="nav-link" aria-current="page">
+                    <Link to="/shop">
+                      <span className="ms-1">Shop</span>
+                    </Link>
+                  </div>
+                </li>
 
-                  <li className="nav-item me-3">
-                    <div className="nav-link" aria-current="page">
-                      <Link to="/order">Orders</Link>
-                    </div>
-                  </li>
+                <li className="nav-item me-3">
+                  <div className="nav-link" aria-current="page">
+                    <Link to="/order">Orders</Link>
+                  </div>
+                </li>
 
-                  <li className="nav-item me-3">
-                    <div className="nav-link" aria-current="page">
-                      <Link to="/login">Login</Link>
-                    </div>
-                  </li>
+                <li className="nav-item me-3">
+                  <div className="nav-link" aria-current="page">
+                    <Link to="/login">Login</Link>
+                  </div>
+                </li>
 
-                  <li className="nav-item me-3">
-                    <div className="nav-link" aria-current="page">
-                      <Link to="/register">Register</Link>
-                    </div>
-                  </li>
+                <li className="nav-item me-3">
+                  <div className="nav-link" aria-current="page">
+                    <Link to="/register">Register</Link>
+                  </div>
+                </li>
 
-                  <li className="nav-item">
-                    <div className="nav-link" aria-current="page">
-                      <span>
-                        <span className="me-1">Hi</span>
+                <li className="nav-item">
+                  <div className="nav-link " aria-current="page">
+                    <span className="userLogin">
+                      <span className="me-1">Hi</span>
+                      {context.logInUserInfo.username
+                        ? context.logInUserInfo.username
+                        : null}
+                    </span>
 
-                        {context.logInUserInfo.username
-                          ? context.logInUserInfo.username
-                          : null}
-                      </span>
+                    <i className="ms-1 fa-solid fa-user"></i>
+                  </div>
+                </li>
 
-                      <i className="ms-1 fa-solid fa-user"></i>
-                    </div>
-                  </li>
-
-                  <li className="nav-item me-3">
-                    <div className="nav-link" aria-current="page">
-                      {/* logout starts */}
-                      {context.logInUserInfo.username ? (
-                        <li className="nav-item" onClick={logOut}>
-                          Logout
-                        </li>
-                      ) : null}
-                      {/* log out ends here */}
-                    </div>
-                  </li>
-                </React.Fragment>
-              ) : null}
+                <li className="nav-item me-3">
+                  <div className="nav-link " aria-current="page">
+                    {/* logout starts */}
+                    {context.logInUserInfo.username ? (
+                      <li className="nav-item userLogout" onClick={logOut}>
+                        Logout
+                      </li>
+                    ) : null}
+                    {/* log out ends here */}
+                  </div>
+                </li>
+              </React.Fragment>
 
               {/* cart starts here */}
 

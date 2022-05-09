@@ -2,6 +2,31 @@
     background-color: white !important;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: rgb(69, 69, 69);
+    font-weight: 600;
+    /* font-size: 1.1rem; */
+}
+
+.navbar a:hover {
+    color: #e27d60;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e27d60;
+}
+
+.userLogin {
+    color: rgb(69, 69, 69) !important;
+    font-weight: 600;
+    /* font-size: 1.1rem; */
+}
+
+.userLogout {
+    color: rgb(69, 69, 69) !important;
+    font-weight: 600;
+    /* font-size: 1rem; */
+}
+
 .iconImage {
     width: 6rem;
     /* margin-bottom: -1.3rem; */
