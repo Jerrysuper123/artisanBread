@@ -30,7 +30,7 @@ export default function ProductDetailsPage(props) {
 
   const addToCart = (productId) => {
     context.setAddToCartProductId(productId);
-    navigate("/shop");
+    // navigate("/shop");
   };
 
   return (

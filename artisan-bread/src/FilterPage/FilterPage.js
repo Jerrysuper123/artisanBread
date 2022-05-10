@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductContext from "../ProductContext";
 import { BASE_URL } from "../util";
 import { useState } from "react";
+import "./style.css";
 
 export default function FilterPage(props) {
   const { searchString } = useContext(ProductContext);
@@ -110,7 +111,15 @@ export default function FilterPage(props) {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body d-flex flex-column justify-content-evenly">
+        <section className="d-flex justify-content-center">
+          <img
+            style={{ width: "40%" }}
+            src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
+            alt="icon"
+          />
+        </section>
+
+        <div className="offcanvas-body d-flex flex-column justify-content-around">
           <div>
             <h6>Type:</h6>
             <select
@@ -188,6 +197,10 @@ export default function FilterPage(props) {
             </div>
           </div>
         </div>
+        <img
+          src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/landingBG2.jpg"
+          alt="icon"
+        />
       </div>
     </React.Fragment>
   );

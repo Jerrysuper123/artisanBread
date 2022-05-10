@@ -9,6 +9,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
+import CartPage from "./CartPage/CartPage";
+import PaymentSuccess from "./PaymentSuccess/PaymentSuccess";
+import PaymentFail from "./PaymentFail/PaymentFail";
 import React, { useState, useEffect } from "react";
 import { fetchAllProducts, fetchProfileInfo } from "./util";
 
@@ -83,6 +86,7 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
+          <CartPage />
           <div className="CTAbanner p-2 d-flex justify-content-between">
             <span>
               <i className="fa-solid fa-circle-check me-1 highlightText"></i>
@@ -105,13 +109,8 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order" element={<MyOrder />} />
-            {/* 
-            {logInUserInfo.username ? (
-              <React.Fragment></React.Fragment>
-            ) : (
-              // if user is not log in trying to access above page, redirect to
-              <Route path="/:anything" element={<LoginPage />} />
-            )} */}
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+            <Route path="/paymentFail" element={<PaymentFail />} />
           </Routes>
 
           <Footer />
