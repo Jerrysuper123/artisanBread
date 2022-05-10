@@ -3,9 +3,14 @@ import "./style.css";
 import making2mb from "../media/making2mb.mp4";
 import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
+import { Link } from "react-router-dom";
 
 export default function Landing(props) {
   const context = useContext(ProductContext);
+  const addToCart = (productId) => {
+    context.setAddToCartProductId(productId);
+    // navigate("/shop");
+  };
   return (
     <React.Fragment>
       {/* carousell starts here */}
@@ -33,8 +38,14 @@ export default function Landing(props) {
           >
             Artisan Bread offers the best bread in the world
           </h2>
-          <button className="btn LoginBtn btn-secondary mt-lg-4">Log in</button>
-          <button className="ms-2 btn btn-danger mt-lg-4">Shop now</button>
+          <Link to="/login">
+            <button className="btn LoginBtn btn-secondary mt-lg-4">
+              Log in
+            </button>
+          </Link>
+          <Link to="/shop">
+            <button className="ms-2 btn btn-danger mt-lg-4">Shop now</button>
+          </Link>
         </section>
       </div>
 
@@ -96,7 +107,7 @@ export default function Landing(props) {
                           <section className="p-3">
                             <ProductCard
                               p={p}
-                              addToCart={() => {}}
+                              addToCart={addToCart}
                               fetchProductDetailsPage={() => {}}
                             />
                           </section>

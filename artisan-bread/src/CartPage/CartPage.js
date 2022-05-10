@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL, getHTTPHeaders } from "../util";
 import { useNavigate } from "react-router-dom";
 import Stripe from "../images/stripe.png";
+import "./style.css";
 
 export default function CartPage() {
   // cart info
@@ -204,6 +205,7 @@ export default function CartPage() {
           ></lord-icon>
         </div>
       </section>
+
       <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"
@@ -223,98 +225,108 @@ export default function CartPage() {
           ></button>
         </div>
 
-        <div className="offcanvas-body">
-          {/* <h1>cart page</h1> */}
-          <section className="container-fluid">
-            <div className="cartBody">
-              {cart.map((c) => {
-                return (
-                  <div
-                    key={c.id}
-                    className="cartCard card d-flex flex-row"
-                    style={{ width: "19rem" }}
-                  >
-                    <section className="mt-3" style={{ width: "7rem" }}>
-                      {c.product.image_url ? (
-                        <img
-                          // width={{ width: "5rem" }}
-                          src={c.product.image_url}
-                          className="card-img-top cartImg"
-                          alt={c.product.name}
-                        />
-                      ) : null}
-                    </section>
-
-                    <div className="card-body text-start">
-                      <section className="d-flex justify-content-between">
-                        <h5 className="card-title">{c.product.name}</h5>
-
-                        <span
-                          className=""
-                          onClick={() => {
-                            removeCart(c.product.id);
-                          }}
-                        >
-                          <i class="fa-solid fa-trash-can"></i>
-                        </span>
-                      </section>
-
-                      <section>
-                        {/* <label>Quantity:</label> */}
-                        <section className="d-flex justify-content-between">
-                          <p>{c.quantity} items</p>
-                          <p className="card-text">${c.product.price}</p>
-                        </section>
-
-                        {/* {c.quantity} */}
-
-                        <section className="d-flex justify-content-between">
-                          <div>
-                            <label>QTY:</label>
-                            <input
-                              className="form-control d-inline ms-1"
-                              type="text"
-                              style={{ width: "2.5rem" }}
-                              value={newCartQuantity[c.id]}
-                              // placeholder="QTY"
-                              name={c.id}
-                              onChange={updateFormField}
+        {subtotal.subQuantity === 0 ? (
+          <section className="cartNothing d-flex justify-content-center align-items-center">
+            <h3>You have nothing in your cart!</h3>
+          </section>
+        ) : (
+          <React.Fragment>
+            <div className="offcanvas-body">
+              {/* <h1>cart page</h1> */}
+              <section className="container-fluid">
+                <div className="cartBody">
+                  {cart.map((c) => {
+                    return (
+                      <div
+                        key={c.id}
+                        className="cartCard card d-flex flex-row"
+                        style={{ width: "19rem" }}
+                      >
+                        <section className="mt-3" style={{ width: "7rem" }}>
+                          {c.product.image_url ? (
+                            <img
+                              // width={{ width: "5rem" }}
+                              src={c.product.image_url}
+                              className="card-img-top cartImg"
+                              alt={c.product.name}
                             />
-                          </div>
-
-                          <button
-                            className="cartBtn"
-                            onClick={() => {
-                              updateCartQuantity(c.product.id, c.id);
-                            }}
-                          >
-                            update
-                          </button>
+                          ) : null}
                         </section>
-                      </section>
-                    </div>
-                  </div>
-                );
-              })}
-              <h3 className="text-start mt-4">
-                subtotal: ${subtotal.subTotalDollar}{" "}
-              </h3>
-            </div>
-          </section>
 
-          <section className="cartFooter mt-2 p-2">
-            <p>Taxes and shipping are calculated at checkout</p>
-            <button className="checkOutBtn" onClick={getStripeSessionInfo}>
-              check out - ${subtotal.subTotalDollar}
-            </button>
-            <p>All transactions are processed via Strip in a secure manners</p>
-            <img
-              style={{ width: "20rem" }}
-              src={Stripe}
-              alt="stripe payment methods"
-            />
-          </section>
-        </div>
+                        <div className="card-body text-start">
+                          <section className="d-flex justify-content-between">
+                            <h5 className="card-title">{c.product.name}</h5>
+
+                            <span
+                              className=""
+                              onClick={() => {
+                                removeCart(c.product.id);
+                              }}
+                            >
+                              <i class="fa-solid fa-trash-can"></i>
+                            </span>
+                          </section>
+
+                          <section>
+                            {/* <label>Quantity:</label> */}
+                            <section className="d-flex justify-content-between">
+                              <p>{c.quantity} items</p>
+                              <p className="card-text">${c.product.price}</p>
+                            </section>
+
+                            {/* {c.quantity} */}
+
+                            <section className="d-flex justify-content-between">
+                              <div>
+                                <label>QTY:</label>
+                                <input
+                                  className="form-control d-inline ms-1"
+                                  type="text"
+                                  style={{ width: "2.5rem" }}
+                                  value={newCartQuantity[c.id]}
+                                  // placeholder="QTY"
+                                  name={c.id}
+                                  onChange={updateFormField}
+                                />
+                              </div>
+
+                              <button
+                                className="cartBtn"
+                                onClick={() => {
+                                  updateCartQuantity(c.product.id, c.id);
+                                }}
+                              >
+                                update
+                              </button>
+                            </section>
+                          </section>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <h3 className="text-start mt-4">
+                    subtotal: ${subtotal.subTotalDollar}{" "}
+                  </h3>
+                </div>
+              </section>
+
+              <section className="cartFooter mt-2 p-2">
+                <p>Taxes and shipping are calculated at checkout</p>
+                <button className="checkOutBtn" onClick={getStripeSessionInfo}>
+                  check out - ${subtotal.subTotalDollar}
+                </button>
+                <p>
+                  All transactions are processed via Strip in a secure manners
+                </p>
+                <img
+                  style={{ width: "20rem" }}
+                  src={Stripe}
+                  alt="stripe payment methods"
+                />
+              </section>
+            </div>
+          </React.Fragment>
+        )}
       </div>
     </React.Fragment>
   );

@@ -64,18 +64,21 @@ export default function Navbar(props) {
                     <Link to="/order">Orders</Link>
                   </div>
                 </li>
+                {context.logInUserInfo.username ? null : (
+                  <React.Fragment>
+                    <li className="nav-item me-3">
+                      <div className="nav-link" aria-current="page">
+                        <Link to="/login">Login</Link>
+                      </div>
+                    </li>
 
-                <li className="nav-item me-3">
-                  <div className="nav-link" aria-current="page">
-                    <Link to="/login">Login</Link>
-                  </div>
-                </li>
-
-                <li className="nav-item me-3">
-                  <div className="nav-link" aria-current="page">
-                    <Link to="/register">Register</Link>
-                  </div>
-                </li>
+                    <li className="nav-item me-3">
+                      <div className="nav-link" aria-current="page">
+                        <Link to="/register">Register</Link>
+                      </div>
+                    </li>
+                  </React.Fragment>
+                )}
 
                 <li className="nav-item">
                   <div className="nav-link " aria-current="page">
@@ -116,10 +119,12 @@ export default function Navbar(props) {
                 {context.logInUserInfo.username ? (
                   <React.Fragment>
                     <i className="mt-2 fa-solid fa-basket-shopping"></i>
-                    <span className="start-100 translate-middle badge rounded-pill bg-danger">
-                      {context.cartQuantity}
-                      <span className="visually-hidden">unread messages</span>
-                    </span>
+                    {/* if cart is empty show nothing */}
+                    {context.cartQuantity === 0 ? null : (
+                      <span className="ms-1 start-100 translate-middle badge rounded-pill bg-danger">
+                        {context.cartQuantity}
+                      </span>
+                    )}
                   </React.Fragment>
                 ) : null}
               </li>
