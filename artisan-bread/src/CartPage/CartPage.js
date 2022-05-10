@@ -18,7 +18,7 @@ export default function CartPage() {
 
   useEffect(() => {
     context.setCartQuantity(subtotal.subQuantity);
-  }, [subtotal]);
+  }, [subtotal, context]);
 
   const calculateTotalCartQuantity = (cartItems) => {
     let subQuantity = 0;
@@ -209,7 +209,7 @@ export default function CartPage() {
       >
         <div className="offcanvas-header">
           <h3 id="offcanvasRightLabel">
-            <i class="fa-solid fa-basket-shopping"></i>
+            <i className="fa-solid fa-basket-shopping"></i>
             <span className="ms-2">Your Cart ({subtotal.subQuantity})</span>
           </h3>
           <button
@@ -258,7 +258,7 @@ export default function CartPage() {
                                 removeCart(c.product.id);
                               }}
                             >
-                              <i class="fa-solid fa-trash-can"></i>
+                              <i className="fa-solid fa-trash-can"></i>
                             </span>
                           </section>
 
@@ -278,7 +278,7 @@ export default function CartPage() {
                                   className="form-control d-inline ms-1"
                                   type="text"
                                   style={{ width: "2.5rem" }}
-                                  value={newCartQuantity[c.id]}
+                                  // value={newCartQuantity[c.id]}
                                   // placeholder="QTY"
                                   name={c.id}
                                   onChange={updateFormField}

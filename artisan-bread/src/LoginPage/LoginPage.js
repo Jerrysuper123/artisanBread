@@ -105,13 +105,13 @@ export default function LoginPage() {
             onChange={handleEmail}
           />
           <input
-            type="password"
+            type="text"
             placeholder="password"
             className="form-control mt-3"
             onChange={handlePassword}
           />
           <span className="validationError">{validationError}</span>
-          <div class="text-center">
+          <div className="text-center">
             <input
               type="submit"
               className="mt-3 userBtn"

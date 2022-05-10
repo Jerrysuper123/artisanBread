@@ -104,7 +104,7 @@ export default function Landing(props) {
                   {context.products
                     ? context.products.slice(0, 3).map((p) => {
                         return (
-                          <section className="p-3">
+                          <section className="p-3" key={p.id}>
                             <ProductCard
                               p={p}
                               addToCart={addToCart}
@@ -121,7 +121,7 @@ export default function Landing(props) {
                   {context.products
                     ? context.products.slice(3, 6).map((p) => {
                         return (
-                          <section className="p-3">
+                          <section className="p-3" key={p.id}>
                             <ProductCard
                               p={p}
                               addToCart={() => {}}
@@ -138,7 +138,7 @@ export default function Landing(props) {
                   {context.products
                     ? context.products.slice(6, 9).map((p) => {
                         return (
-                          <section className="p-3">
+                          <section className="p-3" key={p.id}>
                             <ProductCard
                               p={p}
                               addToCart={() => {}}

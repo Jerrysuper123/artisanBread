@@ -148,10 +148,10 @@ export default function RegisterPage() {
           <span className="validationError text-center">
             {confirmPasswordError}
           </span>
-          <div class="text-center mt-2">
+          <div className="text-center mt-2">
             <input
               type="submit"
-              class="mt-2 userBtn"
+              className="mt-2 userBtn"
               value="Register"
               onClick={registerUser}
             />

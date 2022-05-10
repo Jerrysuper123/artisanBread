@@ -42,7 +42,7 @@ export default function ToastMessage() {
           <section className="cartToastHeader d-flex justify-content-between p-2 border-bottom">
             {/* <h1>this is a toast</h1> */}
             <span>
-              <i class="fa-solid fa-circle-exclamation text-info"></i>
+              <i className="fa-solid fa-circle-exclamation text-info"></i>
               <span className="ms-1">notification</span>
             </span>
             <span>

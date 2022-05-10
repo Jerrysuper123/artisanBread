@@ -5,7 +5,7 @@ import Landing from "./Landing/Landing";
 import MyOrder from "./MyOrder/MyOrder";
 import CheckoutPage from "./CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
@@ -52,18 +52,24 @@ function App() {
 
   //if accessToken is updated, we retrieved user info
   useEffect(() => {
+    const getProfileInfo = async () => {
+      if (accessToken) {
+        let response = await fetchProfileInfo(accessToken);
+        setLogInUserInfo(response.data);
+      }
+    };
     if (accessToken) {
       getProfileInfo();
     }
   }, [accessToken]);
 
   //if there is accessToken, fetch user profile information
-  const getProfileInfo = async () => {
-    if (accessToken) {
-      let response = await fetchProfileInfo(accessToken);
-      setLogInUserInfo(response.data);
-    }
-  };
+  // const getProfileInfo = async () => {
+  //   if (accessToken) {
+  //     let response = await fetchProfileInfo(accessToken);
+  //     setLogInUserInfo(response.data);
+  //   }
+  // };
 
   //   import { Route, Redirect } from "react-router";
 

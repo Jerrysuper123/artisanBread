@@ -96,7 +96,7 @@ export default function FilterPage(props) {
 
       <div
         className="offcanvas offcanvas-start"
-        tabindex="-1"
+        tabIndex="-1"
         id="productFilterPage"
         aria-labelledby="offcanvasExampleLabel"
       >
@@ -123,7 +123,7 @@ export default function FilterPage(props) {
           <div>
             <h6>Type:</h6>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               value={selectedTypeId}
               onChange={handleSelectedType}
@@ -147,7 +147,7 @@ export default function FilterPage(props) {
           <div>
             <h6>Flavour:</h6>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               value={selectedFlavourId}
               onChange={handleSelectedFlavour}

@@ -1,6 +1,6 @@
 import React from "react";
-import ProductContext from "../ProductContext";
-import { useEffect, useState, useContext } from "react";
+// import ProductContext from "../ProductContext";
+import { useEffect, useState } from "react";
 
 export default function SortProduct({ products, setProducts }) {
   // const { products, setProducts } = useContext(ProductContext);
@@ -45,7 +45,7 @@ export default function SortProduct({ products, setProducts }) {
 
   return (
     <select
-      class="customShopBtn"
+      className="customShopBtn"
       aria-label="Default select example"
       onChange={handleSelection}
       selected={selectedOption}

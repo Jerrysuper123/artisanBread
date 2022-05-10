@@ -48,11 +48,11 @@ export default function ProductDetailsPage(props) {
 
             <section className="text-start col-12 col-md-6">
               <h1>{product.name}</h1>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
               <p className="mt-2">${product.price}</p>
               {product.type ? <p>Type: {product.type.type}</p> : null}
               {product.flavour ? (

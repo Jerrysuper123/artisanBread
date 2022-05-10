@@ -42,47 +42,47 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <React.Fragment>
-                <li className="nav-item me-3">
+                <section className="nav-item me-3">
                   <div className="nav-link" aria-current="page">
                     <Link to="/">
                       <span className="ms-1">Home</span>
                     </Link>
                   </div>
-                </li>
+                </section>
 
-                <li className="nav-item me-3 nav-shop">
+                <section className="nav-item me-3 nav-shop">
                   <div className="nav-link" aria-current="page">
                     <Link to="/shop">
                       <span>Shop</span>
                       <i className="fa-solid fa-shop ms-1"></i>
                     </Link>
                   </div>
-                </li>
+                </section>
                 {context.logInUserInfo.username ? (
-                  <li className="nav-item me-3">
+                  <section className="nav-item me-3">
                     <div className="nav-link" aria-current="page">
                       <Link to="/order">Orders</Link>
                     </div>
-                  </li>
+                  </section>
                 ) : null}
 
                 {context.logInUserInfo.username ? null : (
                   <React.Fragment>
-                    <li className="nav-item me-3">
+                    <section className="nav-item me-3">
                       <div className="nav-link" aria-current="page">
                         <Link to="/login">Login</Link>
                       </div>
-                    </li>
+                    </section>
 
-                    <li className="nav-item me-3">
+                    <section className="nav-item me-3">
                       <div className="nav-link" aria-current="page">
                         <Link to="/register">Register</Link>
                       </div>
-                    </li>
+                    </section>
                   </React.Fragment>
                 )}
 
-                <li className="nav-item">
+                <section className="nav-item">
                   <div className="nav-link " aria-current="page">
                     <span className="userLogin">
                       {context.logInUserInfo.username ? (
@@ -95,9 +95,9 @@ export default function Navbar(props) {
                       ) : null}
                     </span>
                   </div>
-                </li>
+                </section>
 
-                <li className="nav-item me-3">
+                <section className="nav-item me-3">
                   <div className="nav-link" aria-current="page">
                     {/* logout starts */}
                     {context.logInUserInfo.username ? (
@@ -107,12 +107,12 @@ export default function Navbar(props) {
                     ) : null}
                     {/* log out ends here */}
                   </div>
-                </li>
+                </section>
               </React.Fragment>
 
               {/* cart starts here */}
 
-              <li
+              <section
                 className="nav-item mt-1"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasRight"
@@ -130,7 +130,7 @@ export default function Navbar(props) {
                     )}
                   </React.Fragment>
                 ) : null}
-              </li>
+              </section>
 
               {/* cart ends here */}
             </ul>

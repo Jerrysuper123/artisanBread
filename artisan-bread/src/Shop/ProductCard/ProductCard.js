@@ -10,11 +10,11 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
       style={{ width: "18rem", height: "23rem", borderRadius: "1rem" }}
     >
       <span className="productRating">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
         <span>(40)</span>
       </span>
       {p.image_url ? (

@@ -227,11 +227,13 @@ export default function Shop() {
           <div className="row d-flex justify-content-center gy-3 gx-3">
             {products.map((p) => {
               return (
-                <ProductCard
-                  p={p}
-                  addToCart={addToCart}
-                  fetchProductDetailsPage={fetchProductDetailsPage}
-                />
+                <React.Fragment key={p.id}>
+                  <ProductCard
+                    p={p}
+                    addToCart={addToCart}
+                    fetchProductDetailsPage={fetchProductDetailsPage}
+                  />
+                </React.Fragment>
               );
             })}
           </div>
