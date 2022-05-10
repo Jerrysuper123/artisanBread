@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useContext } from "react";
 
 export default function SortProduct({ products, setProducts }) {
-  //   const { products, setProducts } = useContext(ProductContext);
+  // const { products, setProducts } = useContext(ProductContext);
 
   const [selectedOption, setSelectedOption] = useState("");
   const handleSelection = (e) => {
@@ -42,15 +42,15 @@ export default function SortProduct({ products, setProducts }) {
 
   return (
     <select
-      class="form-select sortByOption"
+      class="customShopBtn"
       aria-label="Default select example"
       onChange={handleSelection}
       selected={selectedOption}
     >
       <option value="">Sort by</option>
-      <option value="1">Alphabetically, A-Z</option>
-      <option value="2">Price, low to high</option>
-      <option value="3">Price, high to low</option>
+      <option value="1">name, A-Z</option>
+      <option value="2">Price,low to high</option>
+      <option value="3">Price,high to low</option>
     </select>
   );
 }

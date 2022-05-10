@@ -4,11 +4,39 @@
     color: black;
 }
 
+.searchInput:focus {
+    outline: none;
+    /* padding: 1rem; */
+}
+
 .searchInputContainer {
-    border-bottom: 2px solid #d98e04;
+    border-bottom: 2px solid #ffa3ba;
     color: rgb(69, 69, 69);
 }
 
-.sortByOption {
-    background-color: #bfd2e1;
+.customShopBtn {
+    /* background-color: #ffa3ba; */
+    color: white;
+    border: none;
+    padding: 0.6rem 0.5rem;
+    border-radius: 0.6rem;
+    background-image: linear-gradient(to right, #ffa3ba, #fa3d6d);
+}
+.sortByOption:focus {
+    outline: none;
+}
+
+.searchGlass {
+    font-size: 1.5rem;
+    color: #ffa3ba;
+}
+
+.clickableSearch {
+    color: white;
+    border: none;
+    /* padding: 0.6rem 0.5rem; */
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.3rem;
+    background-image: linear-gradient(to right, #ffa3ba, #fa3d6d);
 }

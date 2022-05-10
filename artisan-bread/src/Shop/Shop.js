@@ -220,7 +220,10 @@ export default function Shop() {
 
             <div>
               {/* <span>Sort by</span> */}
-              <SortProduct products={products} setProducts={setProducts} />
+              <SortProduct
+                products={context.products}
+                setProducts={context.setProducts}
+              />
             </div>
           </section>
 
