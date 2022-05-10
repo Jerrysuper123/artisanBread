@@ -258,3 +258,7 @@
 .LoginBtn {
     width: 6.4rem;
 }
+
+.orderContainer {
+    min-height: 75vh;
+}

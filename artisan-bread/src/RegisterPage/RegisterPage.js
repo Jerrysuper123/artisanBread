@@ -46,7 +46,7 @@ export default function RegisterPage() {
   return (
     <React.Fragment>
       <main className="p-3 d-flex justify-content-center adminFormContainer align-items-center">
-        <section className="p-3 m-5 text-light d-none d-md-block text-center">
+        <section className="userText p-3 m-5 text-light d-none d-md-block text-center">
           <h1>
             <span>Wholemeal </span>
             <span>. Zero trans-fat</span>
