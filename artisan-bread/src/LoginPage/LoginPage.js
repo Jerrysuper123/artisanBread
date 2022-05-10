@@ -8,11 +8,14 @@ import { useNavigate, Link } from "react-router-dom";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [validationError, setValidationError] = useState("");
   const handleEmail = (e) => {
+    setValidationError("");
     setEmail(e.target.value);
   };
 
   const handlePassword = (e) => {
+    setValidationError("");
     setPassword(e.target.value);
   };
 
@@ -53,7 +56,10 @@ export default function LoginPage() {
         email: email,
         password: password,
       });
-      console.log(response.data.accessToken);
+      console.log(response.data);
+      if (response.data.error) {
+        setValidationError("Invalid email or password");
+      }
       setAccessToken(response.data.accessToken);
     } catch (e) {
       console.log(e);
@@ -104,6 +110,7 @@ export default function LoginPage() {
             className="form-control mt-3"
             onChange={handlePassword}
           />
+          <span className="validationError">{validationError}</span>
           <div class="text-center">
             <input
               type="submit"
@@ -112,6 +119,7 @@ export default function LoginPage() {
               onClick={fetchAccessToken}
             />
           </div>
+
           <section>
             <div className="mt-2 userFormFooter">
               New Users? <Link to="/register">Sign up</Link>
