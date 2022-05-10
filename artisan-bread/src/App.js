@@ -128,7 +128,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
 
             {/* redirect to login if user did not login */}
-            {context.logInUserInfo.username ? (
+            {logInUserInfo.username ? (
               <React.Fragment>
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/order" element={<MyOrder />} />
