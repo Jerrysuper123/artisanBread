@@ -1,8 +1,9 @@
 import React from "react";
+import ProductContext from "../ProductContext";
 import { useEffect, useState, useContext } from "react";
 
-export default function SortProduct({ products, setProducts }) {
-  // const { products, setProducts } = useContext(ProductContext);
+export default function SortProduct() {
+  const { products, setProducts } = useContext(ProductContext);
 
   const [selectedOption, setSelectedOption] = useState("");
   const handleSelection = (e) => {
