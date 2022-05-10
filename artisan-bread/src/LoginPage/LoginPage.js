@@ -51,6 +51,9 @@ export default function LoginPage() {
 
   //fetch user accessToken when user clicked Login button
   const fetchAccessToken = async () => {
+    if (email === "" || password === "") {
+      setValidationError("email or password must not be empty");
+    }
     try {
       let response = await axios.post(BASE_URL + "users/login", {
         email: email,
