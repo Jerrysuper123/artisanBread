@@ -209,8 +209,8 @@ export default function Shop() {
     <React.Fragment>
       <main className="mainShopPage mt-5">
         <section className="container p-3">
-          <section className="container d-flex justify-content-between mb-3 mt-4">
-            <div>
+          <section className="container d-flex justify-content-sm-between justify-content-center mb-3 mt-4">
+            <div className="d-sm-block d-none">
               <FilterPage setProducts={setProducts} />
             </div>
 
@@ -218,7 +218,7 @@ export default function Shop() {
               <SearchProduct />
             </div>
 
-            <div>
+            <div className="d-sm-block d-none">
               {/* <span>Sort by</span> */}
               <SortProduct
                 products={context.products}
