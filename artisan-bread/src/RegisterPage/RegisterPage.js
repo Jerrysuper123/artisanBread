@@ -9,39 +9,95 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPW, setConfirmedPW] = useState("");
+  // const [validationError, setValidationError] = useState([]);
+  const [usernameError, setUsernameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const handleUsername = (e) => {
+    setUsernameError("");
     setUsername(e.target.value);
   };
   const handleEmail = (e) => {
+    setEmailError("");
     setEmail(e.target.value);
   };
 
   const handlePassword = (e) => {
+    setPasswordError("");
     setPassword(e.target.value);
   };
 
   const handleConfirmedPW = (e) => {
+    setConfirmPasswordError("");
     setConfirmedPW(e.target.value);
   };
 
   const navigate = useNavigate();
   const registerUser = async () => {
     //only after validation
-    let response = await axios.post(BASE_URL + "users/register", {
-      username: username,
-      password: password,
-      email: email,
-    });
+    if (validationRegistration(username, email, password, confirmedPW)) {
+      let response = await axios.post(BASE_URL + "users/register", {
+        username: username,
+        password: password,
+        email: email,
+      });
 
-    //notify users that it has been successful, before redirect
+      //notify users that it has been successful, before redirect
+      //success register, redirect to login page
+      if (response.status === 200) {
+        navigate("/login");
+      }
+    }
+  };
 
-    if (response.status === 200) {
-      navigate("/login");
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  //validate registration
+  const validationRegistration = (
+    usernameInput,
+    emailInput,
+    passwordInput,
+    confirmPasswordInput
+  ) => {
+    let noValidateError = true;
+    // console.log("username", typeof username);
+
+    if (usernameInput === "") {
+      setUsernameError("username must not be empty");
+      noValidateError = false;
     }
 
-    //success register, redirect to login page
+    if (emailInput === "" || !validateEmail(emailInput)) {
+      setEmailError("invalid email string");
+
+      noValidateError = false;
+    }
+
+    let passw = /^[A-Za-z]\w{7,14}$/;
+    if (passwordInput === "" || !passwordInput.match(passw)) {
+      setPasswordError(
+        "password must be 7 to 16 characters, contain only characters, numeric digits, underscore, and first character must be a letter"
+      );
+      noValidateError = false;
+    }
+
+    if (confirmPasswordInput === "" || confirmPasswordInput !== passwordInput) {
+      setConfirmPasswordError("password and confirm password is not the same");
+      noValidateError = false;
+    }
+
+    return noValidateError;
   };
+
+  // To check a password between 7 to 16 characters which contain only characters, numeric digits, underscore and first character must be a letter
 
   return (
     <React.Fragment>
@@ -68,24 +124,30 @@ export default function RegisterPage() {
             className="form-control mt-3"
             onChange={handleUsername}
           />
+          <span className="validationError text-center">{usernameError}</span>
           <input
             type="text"
             placeholder="email"
             className="form-control mt-3"
             onChange={handleEmail}
           />
+          <span className="validationError text-center">{emailError}</span>
           <input
             type="text"
             placeholder="password"
             className="form-control mt-3"
             onChange={handlePassword}
           />
+          <span className="validationError text-center">{passwordError}</span>
           <input
             type="text"
             placeholder="confirm password"
             className="form-control mt-3"
             onChange={handleConfirmedPW}
           />
+          <span className="validationError text-center">
+            {confirmPasswordError}
+          </span>
           <div class="text-center mt-2">
             <input
               type="submit"

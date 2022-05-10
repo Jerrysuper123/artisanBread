@@ -53,8 +53,8 @@ export default function Navbar(props) {
                 <li className="nav-item me-3 nav-shop">
                   <div className="nav-link" aria-current="page">
                     <Link to="/shop">
-                      <i className="fa-solid fa-shop"></i>
-                      <span className="ms-1">Shop</span>
+                      <span>Shop</span>
+                      <i className="fa-solid fa-shop ms-1"></i>
                     </Link>
                   </div>
                 </li>
@@ -120,6 +120,7 @@ export default function Navbar(props) {
               >
                 {context.logInUserInfo.username ? (
                   <React.Fragment>
+                    {/* <span className="userLogout me-1">Cart</span> */}
                     <i className="mt-2 fa-solid fa-basket-shopping"></i>
                     {/* if cart is empty show nothing */}
                     {context.cartQuantity === 0 ? null : (
