@@ -72,21 +72,34 @@ export default function LoginPage() {
   return (
     <React.Fragment>
       <main className="d-flex justify-content-center adminFormContainer align-items-center">
-        <img
+        {/* <img
           className="formImage d-none d-md-block"
           src="https://images.unsplash.com/photo-1635341814289-55cf1490024c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-        />
+        /> */}
+        <section className="p-3 m-5 text-light d-none d-md-block text-center">
+          <h1>
+            <span>Wholemeal </span>
+            <span>. Zero trans-fat</span>
+            <span>. Organic</span>
+          </h1>
+          <h3 className="mt-3">But 100% better taste!</h3>
+        </section>
 
-        <div className="d-flex flex-column justify-content-center adminForm px-3">
-          <h3 className="text-center mb-3 mt-5">Welcome Back!</h3>
+        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3 py-5 m-4">
+          <img
+            className="loginIcon"
+            src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
+            alt="icon"
+          />
+          <h3 className="text-center mb-3 mt-4">Welcome Back!</h3>
           <input
             type="text"
             placeholder="email"
-            className="form-control mt-3"
+            className="form-control mt-1"
             onChange={handleEmail}
           />
           <input
-            type="text"
+            type="password"
             placeholder="password"
             className="form-control mt-3"
             onChange={handlePassword}
@@ -94,15 +107,14 @@ export default function LoginPage() {
           <div class="text-center">
             <input
               type="submit"
-              class="mt-3 customBtn customBtnPrimary formBtn"
+              className="mt-3 userBtn"
               value="Login"
               onClick={fetchAccessToken}
             />
           </div>
           <section>
-            <div>New Users?</div>
-            <div>
-              <Link to="/register">Sign up</Link>
+            <div className="mt-2 userFormFooter">
+              New Users? <Link to="/register">Sign up</Link>
             </div>
           </section>
         </div>

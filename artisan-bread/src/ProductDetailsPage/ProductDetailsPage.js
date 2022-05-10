@@ -72,7 +72,7 @@ export default function ProductDetailsPage(props) {
                     // props.addToCart(product.id);
                     addToCart(product.id);
                   }}
-                  className="shopCartBtn customBtn detailBtn p-2"
+                  className="detailBtn p-2"
                 >
                   Add to cart
                 </button>

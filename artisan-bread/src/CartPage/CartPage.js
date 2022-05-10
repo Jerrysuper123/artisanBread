@@ -193,15 +193,16 @@ export default function CartPage() {
           </span>
         </section>
 
-        <span style={{ fontSize: "0.9rem" }}>
+        <span className="p-2" style={{ fontSize: "0.9rem" }}>
           Successfully added to your cart
         </span>
-
-        <lord-icon
-          src="https://cdn.lordicon.com/rmzhcgbh.json"
-          trigger="loop"
-          style={{ width: "4rem", height: "4rem" }}
-        ></lord-icon>
+        <div className="d-flex justify-content-center">
+          <lord-icon
+            src="https://cdn.lordicon.com/rmzhcgbh.json"
+            trigger="loop"
+            style={{ width: "4rem", height: "4rem" }}
+          ></lord-icon>
+        </div>
       </section>
       <div
         className="offcanvas offcanvas-end"

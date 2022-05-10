@@ -80,21 +80,23 @@ export default function Navbar(props) {
                 <li className="nav-item">
                   <div className="nav-link " aria-current="page">
                     <span className="userLogin">
-                      <span className="me-1">Hi</span>
-                      {context.logInUserInfo.username !== undefined
-                        ? context.logInUserInfo.username
-                        : null}
+                      {context.logInUserInfo.username ? (
+                        <span>
+                          <span className=" highlightText">
+                            Hi {context.logInUserInfo.username}
+                            <i className="ms-1 fa-solid fa-user"></i>
+                          </span>
+                        </span>
+                      ) : null}
                     </span>
-
-                    <i className="ms-1 fa-solid fa-user"></i>
                   </div>
                 </li>
 
                 <li className="nav-item me-3">
-                  <div className="nav-link " aria-current="page">
+                  <div className="nav-link" aria-current="page">
                     {/* logout starts */}
                     {context.logInUserInfo.username ? (
-                      <li className="nav-item userLogout" onClick={logOut}>
+                      <li className="nav-item userLogout " onClick={logOut}>
                         Logout
                       </li>
                     ) : null}

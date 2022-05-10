@@ -45,14 +45,23 @@ export default function RegisterPage() {
 
   return (
     <React.Fragment>
-      <main className="d-flex justify-content-center adminFormContainer align-items-center">
-        <img
-          className="formImage d-none d-md-block"
-          src="https://images.unsplash.com/photo-1635341814289-55cf1490024c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-        />
+      <main className="p-3 d-flex justify-content-center adminFormContainer align-items-center">
+        <section className="p-3 m-5 text-light d-none d-md-block text-center">
+          <h1>
+            <span>Wholemeal </span>
+            <span>. Zero trans-fat</span>
+            <span>. Organic</span>
+          </h1>
+          <h3 className="mt-3">But 100% better taste!</h3>
+        </section>
 
-        <div className="d-flex flex-column justify-content-center adminForm px-3">
-          <h3 className="text-center mb-3 mt-5">Register!</h3>
+        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3">
+          <img
+            className="loginIcon mt-5"
+            src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
+            alt="icon"
+          />
+          <h3 className="text-center mb-3 mt-2">Register!</h3>
           <input
             type="text"
             placeholder="username"
@@ -77,16 +86,17 @@ export default function RegisterPage() {
             className="form-control mt-3"
             onChange={handleConfirmedPW}
           />
-          <div class="text-center">
+          <div class="text-center mt-2">
             <input
               type="submit"
-              class="mt-3 customBtn customBtnPrimary formBtn"
+              class="mt-2 userBtn"
               value="Register"
               onClick={registerUser}
             />
           </div>
-          <section>Already have an account?</section>
-          <Link to="/login">Log in here</Link>
+          <section className="userFormFooter mb-5 mt-3">
+            Already have an account? <Link to="/login">Log in here</Link>
+          </section>
         </div>
       </main>
     </React.Fragment>
