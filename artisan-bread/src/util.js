@@ -15,4 +15,14 @@ const fetchAllProducts = async () => {
   return response.data;
 };
 
-export { BASE_URL, getHTTPHeaders, fetchAllProducts };
+const fetchProfileInfo = async (accessToken) => {
+  if (accessToken !== "") {
+    let response = await axios.get(
+      BASE_URL + "users/profile",
+      getHTTPHeaders(accessToken)
+    );
+    return response;
+  }
+};
+
+export { BASE_URL, getHTTPHeaders, fetchAllProducts, fetchProfileInfo };

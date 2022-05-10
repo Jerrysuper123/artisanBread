@@ -53,6 +53,7 @@ export default function Navbar(props) {
                 <li className="nav-item me-3 nav-shop">
                   <div className="nav-link" aria-current="page">
                     <Link to="/shop">
+                      <i className="fa-solid fa-shop"></i>
                       <span className="ms-1">Shop</span>
                     </Link>
                   </div>
@@ -80,7 +81,7 @@ export default function Navbar(props) {
                   <div className="nav-link " aria-current="page">
                     <span className="userLogin">
                       <span className="me-1">Hi</span>
-                      {context.logInUserInfo.username
+                      {context.logInUserInfo.username !== undefined
                         ? context.logInUserInfo.username
                         : null}
                     </span>

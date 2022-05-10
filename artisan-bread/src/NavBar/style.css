@@ -11,8 +11,6 @@
 
 .navbar a:hover {
     color: #e27d60;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #e27d60;
 }
 
 .userLogin {

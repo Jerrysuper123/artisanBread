@@ -10,7 +10,7 @@ import ProductContext from "./ProductContext";
 import LoginPage from "./LoginPage/LoginPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
 import React, { useState, useEffect } from "react";
-import { fetchAllProducts } from "./util";
+import { fetchAllProducts, fetchProfileInfo } from "./util";
 
 import "./App.css";
 function App() {
@@ -31,9 +31,34 @@ function App() {
     setProducts(products);
   };
 
+  //fetch all products when first intialized
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  //when first load, get the accessToken in localStorage if available
+  useEffect(() => {
+    const accessTokenStored = JSON.parse(localStorage.getItem("accessToken"));
+    if (accessTokenStored) {
+      setAccessToken(accessTokenStored);
+    }
+    // getProfileInfo();
+  }, []);
+
+  //if accessToken is updated, we retrieved user info
+  useEffect(() => {
+    if (accessToken) {
+      getProfileInfo();
+    }
+  }, [accessToken]);
+
+  //if there is accessToken, fetch user profile information
+  const getProfileInfo = async () => {
+    if (accessToken) {
+      let response = await fetchProfileInfo(accessToken);
+      setLogInUserInfo(response.data);
+    }
+  };
 
   const context = {
     cartQuantity,
@@ -80,13 +105,13 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order" element={<MyOrder />} />
-
+            {/* 
             {logInUserInfo.username ? (
               <React.Fragment></React.Fragment>
             ) : (
               // if user is not log in trying to access above page, redirect to
               <Route path="/:anything" element={<LoginPage />} />
-            )}
+            )} */}
           </Routes>
 
           <Footer />

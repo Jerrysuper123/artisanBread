@@ -252,7 +252,7 @@ export default function Shop() {
           </section>
 
           <div className="row d-flex justify-content-center gy-3 gx-3">
-            {products.map((p) => {
+            {context.products.map((p) => {
               return (
                 <ProductCard
                   p={p}

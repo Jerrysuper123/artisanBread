@@ -21,12 +21,12 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   //when first load, get the accessToken in localStorage if available
-  useEffect(() => {
-    const accessTokenStored = JSON.parse(localStorage.getItem("accessToken"));
-    if (accessTokenStored) {
-      setAccessToken(accessTokenStored);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const accessTokenStored = JSON.parse(localStorage.getItem("accessToken"));
+  //   if (accessTokenStored) {
+  //     setAccessToken(accessTokenStored);
+  //   }
+  // }, []);
 
   //if there is accessToken, fetch user profile information
   const fetchProfileInfo = async () => {
