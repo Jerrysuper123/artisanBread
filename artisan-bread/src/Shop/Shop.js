@@ -34,15 +34,15 @@ export default function Shop() {
 
   let context = useContext(ProductContext);
 
-  useEffect(() => {
-    if (context.products.length) {
-      setProducts(context.products);
-    }
-  }, [context.products]);
+  // useEffect(() => {
+  //   if (context.products.length) {
+  //     setProducts(context.products);
+  //   }
+  // }, [context.products]);
 
-  useEffect(() => {
-    context.setProducts(products);
-  }, [products]);
+  // useEffect(() => {
+  //   context.setProducts(products);
+  // }, [products]);
 
   // cart info
   // const [cart, setCart] = useState([]);
@@ -220,15 +220,12 @@ export default function Shop() {
 
             <div className="d-sm-block d-none">
               {/* <span>Sort by</span> */}
-              <SortProduct
-                products={context.products}
-                setProducts={context.setProducts}
-              />
+              <SortProduct products={products} setProducts={setProducts} />
             </div>
           </section>
 
           <div className="row d-flex justify-content-center gy-3 gx-3">
-            {context.products.map((p) => {
+            {products.map((p) => {
               return (
                 <ProductCard
                   p={p}

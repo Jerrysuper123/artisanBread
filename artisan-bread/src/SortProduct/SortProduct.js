@@ -2,8 +2,8 @@ import React from "react";
 import ProductContext from "../ProductContext";
 import { useEffect, useState, useContext } from "react";
 
-export default function SortProduct() {
-  const { products, setProducts } = useContext(ProductContext);
+export default function SortProduct({ products, setProducts }) {
+  // const { products, setProducts } = useContext(ProductContext);
 
   const [selectedOption, setSelectedOption] = useState("");
   const handleSelection = (e) => {
@@ -19,11 +19,13 @@ export default function SortProduct() {
   const sortLTH = () => {
     let clone = products.slice();
     let sortedProducts = clone.sort((a, b) => a.price - b.price);
+    console.log(sortedProducts);
     setProducts(sortedProducts);
   };
   const sortHTL = () => {
     let clone = products.slice();
     let sortedProducts = clone.sort((a, b) => b.price - a.price);
+    console.log(sortedProducts);
     setProducts(sortedProducts);
   };
 
