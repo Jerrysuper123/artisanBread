@@ -36,15 +36,20 @@ export default function ProductDetailsPage(props) {
   return (
     <React.Fragment>
       {product ? (
-        <main className="container-fluid mb-5">
+        <main className="productDetailContainer mt-5 container mb-5">
           <div className="row align-items-center">
-            <img
-              className="col-12 col-md-6 productDetailImg"
-              src={product.image_url}
-              alt={product.id}
-            />
+            <section className="col-12 col-md-6 ">
+              <img
+                className="productDetailImg"
+                src={product.image_url}
+                alt={product.id}
+              />
+            </section>
+
             <section className="text-start col-12 col-md-6">
               <h1>{product.name}</h1>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>

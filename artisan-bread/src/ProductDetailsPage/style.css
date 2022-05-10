@@ -1,9 +1,9 @@
 .productDetailImg {
-    /* object-fit: cover;
+    object-fit: cover;
     object-position: center;
-    height: 35rem;
-    width: 30rem;
-    overflow: hidden; */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 .productDescription {
@@ -23,4 +23,8 @@
     background-color: white;
     color: #04bdad;
     border: 2px solid #04bdad;
+}
+
+.productDetailContainer {
+    /* min-height: 65vh; */
 }
