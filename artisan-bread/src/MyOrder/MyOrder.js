@@ -28,47 +28,8 @@ export default function MyAccount() {
   return (
     <React.Fragment>
       <main className="container-fluid orderContainer p-5 d-flex flex-column align-items-center landingMainContainer">
-        <section className="container">
+        <section className="container orderInner shadow p-3">
           <h1 className="text-center">My orders</h1>
-          {/* {orders.map((o) => {
-          return (
-            <div
-              className="card orderCard mb-3 shadow"
-              style={{ width: "380px" }}
-            >
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={o.product.image_url}
-                    alt={o.product.name}
-                    className="img-fluid rounded-start"
-                    style={{ width: "100%" }}
-                    // alt="..."
-                  />
-                </div>
-                <div className="col-md-8 pb-5">
-                  <div className="card-body py-3">
-                    <section className="d-flex justify-content-between">
-                      <h5 className="card-title">{o.product.name}</h5>
-                      <h5 className="secondaryColor">
-                        {o.order_status === "unattended"
-                          ? "dispatching"
-                          : o.order_status}
-                      </h5>
-                    </section>
-
-                    <p className="card-text">{o.order_date}</p>
-                    <section className="d-flex justify-content-between secondaryColor">
-                      <h5>${o.product.price}</h5>
-                      <h5>X{o.quantity}</h5>
-                    </section>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })} */}
-
           <table className="table">
             <thead>
               <tr>

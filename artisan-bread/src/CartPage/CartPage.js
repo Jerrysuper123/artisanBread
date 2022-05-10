@@ -11,7 +11,6 @@ export default function CartPage() {
   const context = useContext(ProductContext);
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
-
   const [subtotal, setsubtotal] = useState({
     subQuantity: 0,
     subTotalDollar: 0,
@@ -83,11 +82,13 @@ export default function CartPage() {
           changedCart();
           setTimeout(() => {
             setAddedCartNotification("none");
-          }, 1000);
+          }, 2000);
         }
       } catch (e) {
         console.log(e);
       }
+    } else {
+      context.setToastMessageStatus(true);
     }
   };
 
@@ -174,18 +175,12 @@ export default function CartPage() {
       <section
         className="shadow cartToast"
         style={{ display: addedCartNotification }}
+        // style={{ display: "block" }}
       >
-        <section
-          style={{
-            fontSize: "0.9rem",
-            backgroundColor: "white",
-            color: "grey",
-          }}
-          className="cartToastHeader d-flex justify-content-between p-2 border-bottom"
-        >
+        <section className="cartToastHeader d-flex justify-content-between p-2 border-bottom">
           {/* <h1>this is a toast</h1> */}
           <span>
-            <i className="fa-solid fa-bell accentThreeColor"></i>
+            <i className="fa-solid fa-bell"></i>
             <span className="ms-1">notification</span>
           </span>
           <span>
@@ -194,14 +189,14 @@ export default function CartPage() {
           </span>
         </section>
 
-        <span className="p-2" style={{ fontSize: "0.9rem" }}>
+        <span className="p-3" style={{ fontSize: "1.1rem" }}>
           Successfully added to your cart
         </span>
         <div className="d-flex justify-content-center">
           <lord-icon
             src="https://cdn.lordicon.com/rmzhcgbh.json"
             trigger="loop"
-            style={{ width: "4rem", height: "4rem" }}
+            style={{ width: "7rem", height: "7rem" }}
           ></lord-icon>
         </div>
       </section>

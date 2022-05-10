@@ -12,6 +12,7 @@ import RegisterPage from "./RegisterPage/RegisterPage";
 import CartPage from "./CartPage/CartPage";
 import PaymentSuccess from "./PaymentSuccess/PaymentSuccess";
 import PaymentFail from "./PaymentFail/PaymentFail";
+import ToastMessage from "./ToastMessage/ToastMessage";
 import React, { useState, useEffect } from "react";
 import { fetchAllProducts, fetchProfileInfo } from "./util";
 
@@ -24,6 +25,7 @@ function App() {
   const [logInUserInfo, setLogInUserInfo] = useState({});
   const [accessToken, setAccessToken] = useState("");
   const [addToCartProductId, setAddToCartProductId] = useState("");
+  const [toastMessageStatus, setToastMessageStatus] = useState(false);
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -63,6 +65,14 @@ function App() {
     }
   };
 
+  //   import { Route, Redirect } from "react-router";
+
+  // <Route
+  //   exact
+  //   path="/"
+  //   render={() => (loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />)}
+  // />;
+
   const context = {
     cartQuantity,
     setCartQuantity,
@@ -79,6 +89,8 @@ function App() {
     setAccessToken,
     addToCartProductId,
     setAddToCartProductId,
+    toastMessageStatus,
+    setToastMessageStatus,
   };
 
   return (
@@ -86,6 +98,7 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
+          <ToastMessage />
           <CartPage />
           <div className="CTAbanner p-2 d-flex justify-content-between">
             <span>
@@ -107,10 +120,18 @@ function App() {
               element={<ProductDetailsPage />}
             />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/order" element={<MyOrder />} />
-            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-            <Route path="/paymentFail" element={<PaymentFail />} />
+
+            {/* redirect to login if user did not login */}
+            {context.logInUserInfo.username ? (
+              <React.Fragment>
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/order" element={<MyOrder />} />
+                <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+                <Route path="/paymentFail" element={<PaymentFail />} />
+              </React.Fragment>
+            ) : (
+              <Route path="/:anything" element={<LoginPage />} />
+            )}
           </Routes>
 
           <Footer />

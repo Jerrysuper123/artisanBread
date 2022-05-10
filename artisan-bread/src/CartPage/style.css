@@ -2,3 +2,22 @@
     height: 100%;
     /* margin-top: 13rem !important; */
 }
+
+.cartToastHeader {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    /* background-image: linear-gradient(to right, #d98e04, #f15e1a); */
+    font-size: "0.9rem";
+    /* backgroundColor: "white", */
+    color: white !important;
+    border-radius: 0.7rem 0.7rem 0 0;
+}
+
+.cartToast {
+    width: 18rem;
+    background-color: white;
+    position: fixed;
+    top: 5rem;
+    right: 3rem;
+    z-index: 3;
+    border-radius: 0.7rem;
+}

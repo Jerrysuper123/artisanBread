@@ -58,12 +58,14 @@ export default function Navbar(props) {
                     </Link>
                   </div>
                 </li>
+                {context.logInUserInfo.username ? (
+                  <li className="nav-item me-3">
+                    <div className="nav-link" aria-current="page">
+                      <Link to="/order">Orders</Link>
+                    </div>
+                  </li>
+                ) : null}
 
-                <li className="nav-item me-3">
-                  <div className="nav-link" aria-current="page">
-                    <Link to="/order">Orders</Link>
-                  </div>
-                </li>
                 {context.logInUserInfo.username ? null : (
                   <React.Fragment>
                     <li className="nav-item me-3">

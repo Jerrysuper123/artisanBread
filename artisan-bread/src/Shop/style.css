@@ -44,19 +44,6 @@
     /* color: white; */
 }
 
-.cartToastHeader {
-    background-color: rgb(252, 252, 252) !important;
-}
-
-.cartToast {
-    width: 16rem;
-    background-color: white;
-    position: fixed;
-    top: 5rem;
-    right: 3rem;
-    z-index: 3;
-}
-
 .filterSearchInput {
     background-color: rgb(255, 255, 255);
     padding: 1rem;
