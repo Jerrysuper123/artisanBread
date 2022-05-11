@@ -1,4 +1,4 @@
-# Artisan Bread
+# Artisan BREAD
 
 Artisan BREAD is an e-commerce website selling high-quality bread made of organic ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js. The database is built on mysql.
 
