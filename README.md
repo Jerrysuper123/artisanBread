@@ -5,11 +5,12 @@ Artisan BREAD is an e-commerce website selling breads made of high-quality natur
 - Access the live React front-end demo [here](https://chic-crostata-11c4b4.netlify.app).
 - Access the live back-end admin page [here](https://artisanbread.herokuapp.com).
 
-## disclaimer
+## Disclaimer
 
 The website is designed for school project purpose, not for commercial use. The brand and its products are all frictious.
 
-display of the e-commerce site (front-end);
+### Display of the e-commerce site (front-end);
+
 ![brand](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/webScreenShot.png?raw=true)
 
 ## Summary
@@ -22,7 +23,7 @@ Not sure of the reasons behind, most bakery shops do not invest heavily in build
 
 ### Value proposition
 
-Through design and engineering, we will attempt to craft a beautifully-designed website for a ficitious bakery shop Artisan BREAD.
+Through design and engineering, we will attempt to craft a beautifully-designed website for a fictitious bakery shop Artisan BREAD.
 
 ## 1. Strategy
 
@@ -83,9 +84,9 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ## 5. Surface - visual design
 
-### Colors
+### Colours
 
-- The first colour below (orange "#E27D60") is the primary colour used. The bright orange color gives a feel of liveliness, resembling the liveliness of events. Brand logo and icons are designed with this color.
+- The first colour below (orange "#E27D60") is the primary colour used. The bright orange colour gives a feel of liveliness, resembling the liveliness of events. Brand logo and icons are designed with this color.
 
 - The fourth colour (purple "#C38D9E) and the fifth colour (dark green "#41B3A3") are cold colours, which are in contrast with the warm. High contrast is used to bring out key information on the app e.g. event listing.
 
@@ -103,13 +104,16 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ### Stack used:
 
-| Tech                                       | Usage                               |
-| ------------------------------------------ | ----------------------------------- |
-| HTML, CSS , Bootstrap 5                    | Build the main frame of the website |
-| React, react-router-dom, useContext        | Build single page application       |
-| Express, db-migrate, mysql                 | Build restful API                   |
-| [Axios](https://axios-http.com/docs/intro) | Call APIs                           |
-| Fontawesome                                | Use icons throughout the site       |
+| Tech                                       | Usage                                 |
+| ------------------------------------------ | ------------------------------------- |
+| HTML, CSS , Bootstrap 5                    | Build the main frame of the website   |
+| React, react-router-dom, useContext        | Build single page application         |
+| Express                                    | Build restful API                     |
+| db-migrate                                 | Build mysql database using db-migrate |
+| mysql                                      | App was initialized on mysql database |
+| Stripe                                     | for checkout/payment                  |
+| [Axios](https://axios-http.com/docs/intro) | Call APIs                             |
+| Fontawesome                                | Use icons throughout the site         |
 
 ## 7. testing
 
