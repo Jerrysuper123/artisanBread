@@ -126,14 +126,13 @@ function App() {
               element={<ProductDetailsPage />}
             />
             <Route path="/shop" element={<Shop />} />
-
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+            <Route path="/paymentfail" element={<PaymentFail />} />
             {/* redirect to login if user did not login */}
             {logInUserInfo.username ? (
               <React.Fragment>
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/order" element={<MyOrder />} />
-                <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-                <Route path="/paymentfail" element={<PaymentFail />} />
               </React.Fragment>
             ) : (
               <Route path="/:anything" element={<LoginPage />} />
