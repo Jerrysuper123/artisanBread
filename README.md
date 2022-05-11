@@ -1,13 +1,13 @@
 # Artisan Bread
 
-Artisan BREAD is an e-commerce website selling breads made of high-quality natural ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js.
+Artisan BREAD is an e-commerce website selling high-quality bread made of organic ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js. The database is built on mysql.
 
-- Access the live React front-end demo [here](https://chic-crostata-11c4b4.netlify.app).
-- Access the live back-end admin page [here](https://artisanbread.herokuapp.com).
+- Access the live React front-end ecommerce page [here](https://chic-crostata-11c4b4.netlify.app).
+- Access the live back-end admin page [here](https://artisanbread.herokuapp.com)
 
 ## Disclaimer
 
-The website is designed for school project purpose, not for commercial use. The brand and its products are all frictious.
+The website is designed for school project only, not for any commercial use. The brand and its products are all frictious.
 
 ### Display of the e-commerce site (front-end);
 
@@ -17,7 +17,7 @@ The website is designed for school project purpose, not for commercial use. The 
 
 ### Project Context
 
-Overall, Singaporeans were placing a high priority on making healthier choices, allocating the highest portion of the living expenses (34%) on healthier meal [choices](https://www.aia.com.sg/en/about-aia/media-centre/press-releases/2020/singaporeans-doubled-down-on-keeping-healthy-amid-covid19.html). However, we do not see the sales of healthy-choice bread take off, especially on the e-commerce front.
+Overall, Singaporeans increasingly place a high priority on making healthier choices, allocating the highest portion of the living expenses (34%) on healthier meal [choices](https://www.aia.com.sg/en/about-aia/media-centre/press-releases/2020/singaporeans-doubled-down-on-keeping-healthy-amid-covid19.html). However, we do not see the sales of healthy-choice bread take off, especially on the e-commerce front.
 
 Not sure of the reasons behind, most bakery shops do not invest heavily in building an online presence. As such, we do not see many beautifully designed bakery websites around.
 
@@ -49,10 +49,10 @@ Back-end admin site
 1. Admin user log in/register
 2. Create, update, delete product catalogue
 3. Manage order
-4. tiered access for different admin users
+4. Tiered access for different admin users
 
-- owner is able to access page on the admin site
-- manager is restricted on product deletion, order deletion and register new admin user
+- owner is able to access all pages on the admin site
+- manager is restricted on product deletion, order deletion and registering new admin user
 
 ## 2. Scope
 
@@ -62,7 +62,7 @@ In addition, the e-commerce site should be mobile responsive.
 
 ## 3. Structure
 
-- Below is the front end site map
+According to above scope, below is the front end site map
 
 ![site map](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/frontEndSiteMap.png?raw=true)
 
@@ -70,7 +70,7 @@ In addition, the e-commerce site should be mobile responsive.
 
 A restful API built using express and hosted on Heroku is deployed as the backend.
 
-The detailed implementation can be found [here](https://github.com/Jerrysuper123/eventfulAPI).
+The detailed implementation can be found [here](https://github.com/Jerrysuper123/artisan-bread-backend).
 
 <em>Data schema design</em>
 
@@ -86,17 +86,13 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ### Colours
 
-- The first colour below (orange "#E27D60") is the primary colour used. The bright orange colour gives a feel of liveliness, resembling the liveliness of events. Brand logo and icons are designed with this color.
-
-- The fourth colour (purple "#C38D9E) and the fifth colour (dark green "#41B3A3") are cold colours, which are in contrast with the warm. High contrast is used to bring out key information on the app e.g. event listing.
-
-- The rest of the colours are used mostly as the support hues.
+- We have chosen very vibrant and contrasting colours to bring out the modern design of the website.
 
 ![Color](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/color.png?raw=true)
 
 ### Font pair - Roboto and Montserrat
 
-- These two simple sans-serif typefaces offer a clean, modern font pairing, giving a cool feel for the healthy bread listed on the app.
+- These two simple sans-serif typefaces offer a clean, modern font pairing, giving a pleasant feel for the healthy bread on the website.
 
 ![font](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/fontEvent.png?raw=true)
 
@@ -104,16 +100,16 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ### Stack used:
 
-| Tech                                       | Usage                                 |
-| ------------------------------------------ | ------------------------------------- |
-| HTML, CSS , Bootstrap 5                    | Build the main frame of the website   |
-| React, react-router-dom, useContext        | Build single page application         |
-| Express                                    | Build restful API                     |
-| db-migrate                                 | Build mysql database using db-migrate |
-| mysql                                      | App was initialized on mysql database |
-| Stripe                                     | for checkout/payment                  |
-| [Axios](https://axios-http.com/docs/intro) | Call APIs                             |
-| Fontawesome                                | Use icons throughout the site         |
+| Tech                                       | Usage                                         |
+| ------------------------------------------ | --------------------------------------------- |
+| HTML, CSS , Bootstrap 5                    | Build the main frame of the website           |
+| React, react-router-dom, useContext        | Build single page application                 |
+| Express                                    | Build restful and API and back-end admin page |
+| db-migrate                                 | Build mysql database using db-migrate         |
+| mysql                                      | App was initialized on mysql database         |
+| Stripe                                     | for checkout/payment                          |
+| [Axios](https://axios-http.com/docs/intro) | Call APIs                                     |
+| Fontawesome                                | Use icons throughout the site                 |
 
 ## 7. testing
 
