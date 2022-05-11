@@ -82,9 +82,9 @@ export default function RegisterPage() {
     }
 
     let passw = /^[A-Za-z]\w{7,14}$/;
-    if (passwordInput === "" || !passwordInput.match(passw)) {
+    if (passwordInput === "" || !String(passwordInput).match(passw)) {
       setPasswordError(
-        "password must be 7 to 16 characters, contain only characters, numeric digits, underscore, and first character must be a letter"
+        "8 to 16 characters which contain only characters, numeric digits, underscore and first character must be a letter"
       );
       noValidateError = false;
     }
