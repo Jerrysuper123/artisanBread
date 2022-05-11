@@ -61,9 +61,9 @@ In addition, the e-commerce site should be mobile responsive.
 
 ## 3. Structure
 
-- Used as a reference, the final app is more complicated with multitude of components, in order to reuse the components
+- Below is the front end site map
 
-![site map](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/siteMap.png?raw=true)
+![site map](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/frontEndSiteMap.png?raw=true)
 
 ### back-end implementation
 
