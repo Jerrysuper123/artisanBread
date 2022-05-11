@@ -89,7 +89,7 @@ export default function Navbar(props) {
                         <span>
                           <span className=" highlightText">
                             Hi {context.logInUserInfo.username}
-                            <i className="ms-1 fa-solid fa-user"></i>
+                            <i className="ms-1 fa-solid fa-circle-user"></i>
                           </span>
                         </span>
                       ) : null}

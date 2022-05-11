@@ -133,7 +133,7 @@ function App() {
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/order" element={<MyOrder />} />
                 <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-                <Route path="/paymentFail" element={<PaymentFail />} />
+                <Route path="/paymentfail" element={<PaymentFail />} />
               </React.Fragment>
             ) : (
               <Route path="/:anything" element={<LoginPage />} />

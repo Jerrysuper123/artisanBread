@@ -1,5 +1,8 @@
 # Artisan Bread
 
+Link for artisan bread
+https://chic-crostata-11c4b4.netlify.app
+
 Artisan Bread is an e-commerce website selling breads made of high-quality natural ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js.
 
 The landing page below summarizes everything about this app.
@@ -17,6 +20,7 @@ Singapore are spending more on healthy food
 But this has not changed for the bread industry esp on the ecommerce scene
 
 2 reasons for this:
+
 1. delivery service is exp in Singapore, buying bread online mini purchase amount is 50 dollar
 2. most singaporean still wont buy so much bread online, prefering to buy in shops where they could see
 3. that is why most online website for bread shop, most wont invest so much in building a good website.
@@ -30,8 +34,7 @@ bread talk and duke bakery
 Can we start a new culture, allows ingaproean to access to affordable, but high quality ingredeint breads?
 
 1. that is what this website is about
-Design a beautfiy e commerce website for 
-
+   Design a beautfiy e commerce website for
 
 ## 1. Strategy
 
@@ -58,6 +61,7 @@ Design a beautfiy e commerce website for
 5. notification of add to card, payment completed
 
 Admin site
+
 1. Register and log in
 2. add new product (CRUD)
 
@@ -90,7 +94,7 @@ react component design
 
 A restful API built using express and hosted on Mongo Atlas Database is deployed as the backend.
 
-The detailed implementation can be found [here](https://github.com/Jerrysuper123/eventfulAPI). 
+The detailed implementation can be found [here](https://github.com/Jerrysuper123/eventfulAPI).
 
 <em>Data schema design</em>
 
