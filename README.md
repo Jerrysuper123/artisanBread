@@ -1,110 +1,85 @@
 # Artisan Bread
 
-Link for artisan bread
-https://chic-crostata-11c4b4.netlify.app
+Artisan BREAD is an e-commerce website selling breads made of high-quality natural ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js.
 
-Artisan Bread is an e-commerce website selling breads made of high-quality natural ingredients. The front-end is built using React connecting to the restful API powered by Express and Node Js.
+- Access the live React front-end demo [here](https://chic-crostata-11c4b4.netlify.app).
+- Access the live back-end admin page [here](https://artisanbread.herokuapp.com).
 
-The landing page below summarizes everything about this app.
+## disclaimer
 
-- Access the live React front-end demo [here](https://thunderous-pixie-be41eb.netlify.app/).
-- Access the back-end API implementation [here](https://github.com/Jerrysuper123/eventfulAPI).
+The website is designed for school project purpose, not for commercial use. The brand and its products are all frictious.
 
-![brand](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/landPage.png?raw=true)
+display of the e-commerce site (front-end);
+![brand](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/webScreenShot.png?raw=true)
 
 ## Summary
 
 ### Project Context
 
-Singapore are spending more on healthy food
-But this has not changed for the bread industry esp on the ecommerce scene
+Overall, Singaporeans were placing a high priority on making healthier choices, allocating the highest portion of the living expenses (34%) on healthier meal [choices](https://www.aia.com.sg/en/about-aia/media-centre/press-releases/2020/singaporeans-doubled-down-on-keeping-healthy-amid-covid19.html). However, we do not see the sales of healthy-choice bread take off, especially on the e-commerce front.
 
-2 reasons for this:
-
-1. delivery service is exp in Singapore, buying bread online mini purchase amount is 50 dollar
-2. most singaporean still wont buy so much bread online, prefering to buy in shops where they could see
-3. that is why most online website for bread shop, most wont invest so much in building a good website.
-
-Overall, Singaporeans were placing a high priority on making healthier choices, allocating the highest portion of the living expenses (34%) on healthier meal [choices](https://www.aia.com.sg/en/about-aia/media-centre/press-releases/2020/singaporeans-doubled-down-on-keeping-healthy-amid-covid19.html).
-
-bread talk and duke bakery
+Not sure of the reasons behind, most bakery shops do not invest heavily in building an online presence. As such, we do not see many beautifully designed bakery websites around.
 
 ### Value proposition
 
-Can we start a new culture, allows ingaproean to access to affordable, but high quality ingredeint breads?
-
-1. that is what this website is about
-   Design a beautfiy e commerce website for
+Through design and engineering, we will attempt to craft a beautifully-designed website for a ficitious bakery shop Artisan BREAD.
 
 ## 1. Strategy
 
 ### target market
 
-- bread lovers -
-- family mother of the family unit
+Artisan BREAD targets:
 
-### Needs and pain points
+- Millennials who are online savvy and are willing to spend more on healthy choices
+- Females aged 20-40 who loves artisanal bread and would like to try breads of unique flavours
 
-- like to have good bread, but not limited to order limit of $50
-- would like it to be delivered to my home, because i am busy
+### Key features
 
-### User stories
+Front-end e-commerce site
 
-- As a mothers, i want healthy fodo to deliver to my house so that my children could have healthy bread.
+1. Display key products on the home page
+2. Customer register and log in
+3. Add, delete, update the cart
+4. Checkout and payment
+5. Notification on payment success
 
-### Key features based on user story
+Back-end admin site
 
-1. Display key bread products on the home page
-2. user register and user log in
-3. add to cart
-4. Check out
-5. notification of add to card, payment completed
+1. Admin user log in/register
+2. Create, update, delete product catalogue
+3. Manage order
+4. tiered access for different admin users
 
-Admin site
-
-1. Register and log in
-2. add new product (CRUD)
+- owner is able to access page on the admin site
+- manager is restricted on product deletion, order deletion and register new admin user
 
 ## 2. Scope
 
-### Functional specification
+The website must be fully functional for the business owner to manage its online business. Customers are able to register and log in as users, adding to cart and checking out. On the admin site, the business owner is able to manage the order and notify customers when the order is ready to dispatch.
 
-- buyers could order and add to cart for payment
-
-### Content
-
-- list of products listed on the bread
-- allow users to filer
-
-### Non-functional
-
-- The app should be mobile responsive for instant access to event info on users' mobiles
+In addition, the e-commerce site should be mobile responsive.
 
 ## 3. Structure
-
-site map
-
-react component design
 
 - Used as a reference, the final app is more complicated with multitude of components, in order to reuse the components
 
 ![site map](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/siteMap.png?raw=true)
 
-### Restful API
+### back-end implementation
 
-A restful API built using express and hosted on Mongo Atlas Database is deployed as the backend.
+A restful API built using express and hosted on Heroku is deployed as the backend.
 
 The detailed implementation can be found [here](https://github.com/Jerrysuper123/eventfulAPI).
 
 <em>Data schema design</em>
 
-![data schema](https://github.com/Jerrysuper123/eventfulAPI/raw/main/images/dataBaseDesign.png)
+![data schema](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/artisan_bread.png?raw=true)
 
 ## 4. Skeleton
 
-The original conceptual design is found below.
+The front-end ecommerce conceptual design is found below.
 
-Click [wireframe](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/wireframeEvent.pdf) to see the draft design.
+Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/frontEndSkeleton.pdf) to see the draft design.
 
 ## 5. Surface - visual design
 
@@ -116,13 +91,11 @@ Click [wireframe](https://github.com/Jerrysuper123/eventfulSources/blob/main/ima
 
 - The rest of the colours are used mostly as the support hues.
 
-![Color](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/colorEvent.png?raw=true)
+![Color](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/color.png?raw=true)
 
 ### Font pair - Roboto and Montserrat
 
-- These two simple sans-serif typefaces offer a clean, modern font pairing, giving a cool feel for the events listed on the app.
-
-- Roboto combines geometric forms with friendly, open curves, designed to facilitate a natural reading rhythm. The Roboto is mostly used in the event description page's text for better reading experience.
+- These two simple sans-serif typefaces offer a clean, modern font pairing, giving a cool feel for the healthy bread listed on the app.
 
 ![font](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/fontEvent.png?raw=true)
 
@@ -130,29 +103,23 @@ Click [wireframe](https://github.com/Jerrysuper123/eventfulSources/blob/main/ima
 
 ### Stack used:
 
-| Tech                                                                        | Usage                               |
-| --------------------------------------------------------------------------- | ----------------------------------- |
-| HTML, CSS, React, Bootstrap 5                                               | Build the main frame of the website |
-| Express                                                                     | Build restful API                   |
-| [Axios](https://axios-http.com/docs/intro)                                  | Call APIs                           |
-| Material UI components                                                      | Build front end react components    |
-| [Leaflet](https://leafletjs.com/)                                           | Create map and markers              |
-| [Leaflet routing machine](https://www.liedman.net/leaflet-routing-machine/) | Draw routes on the map              |
-| Fontawesome                                                                 | Use icons throughout the site       |
+| Tech                                       | Usage                               |
+| ------------------------------------------ | ----------------------------------- |
+| HTML, CSS , Bootstrap 5                    | Build the main frame of the website |
+| React, react-router-dom, useContext        | Build single page application       |
+| Express, db-migrate, mysql                 | Build restful API                   |
+| [Axios](https://axios-http.com/docs/intro) | Call APIs                           |
+| Fontawesome                                | Use icons throughout the site       |
 
 ## 7. testing
 
-Click [here](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/eventfulTestCases.pdf) for the detailed test list.
+Click [here]() for the detailed test list.
 
 ## 8. deployment
 
 The deployment is done through Netifly with the instructions [here](https://www.youtube.com/watch?v=OPalwvWO63U&t=39s&ab_channel=SanskarTiwari).
 
-## 9. Limitations and future implementations
-
-- xx
-
-## 10. Credits
+## 9. Credits
 
 1. [Fontawesome icon](https://fontawesome.com/) - to embelish the website with icons throughout for better UI UX
 
@@ -160,35 +127,4 @@ The deployment is done through Netifly with the instructions [here](https://www.
 
 3. [Unsplash images](https://unsplash.com/) - to use it as the landing page background image
 
-4. [Flaticon icons](https://www.flaticon.com/) - to customize the map markers
-
-5. [spinner](https://loading.io/css/) - to inform users that the app is loading
-
-6. [timeline](https://www.w3schools.com/howto/howto_css_timeline.asp) from W3School - used for the landing page
-
-7. [footer template](https://gist.github.com/Luke-zhang-04/7cb523899ca4044f805f0d0909e4c5c1) - to customize and use for various pages
-
-8. [Material UI](https://mui.com/) - to use the rating form and auto-complete checkboxes
-
-9. [Singapor One Map API](https://www.onemap.gov.sg/docs/) - to return latitude and longitude based on postal code for plotting markers on the map
-
-10. [Kalend - calendar component for React](https://www.npmjs.com/package/kalend) - to use for the display of events on a calendar
-
-## Additional notes for developers
-
-- Due to some prevent default error triggered by Kalend Calendar, went into React Node Modules to remove the preventDefault line from "react-dom.development.js"
-
-```
-if (event.preventDefault) {
-//remove preventDefaul due to error triggered by calendar clicking
-// event.preventDefault(); // $FlowFixMe - flow is not aware of `unknown` in IE
-} else if (typeof event.returnValue !== 'unknown') {
-event.returnValue = false;
-}
-```
-
-- In order to fix below error, we have downgrade to React 17, instead of 18, because React 18 could not render the React LeafLet Map properly using createRoot.
-
-```
-react-dom.development.js:86 Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
-```
+4. [footer template](https://gist.github.com/Luke-zhang-04/7cb523899ca4044f805f0d0909e4c5c1) - to customize and use for various pages
