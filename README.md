@@ -7,7 +7,7 @@ Artisan BREAD is an e-commerce website selling high-quality bread made of organi
 
 ## Disclaimer
 
-The website is designed for school project only, not for any commercial use. The brand and its products are all frictious.
+The website is designed for school project only, not for any commercial use. The brand and its products are all fictitious.
 
 ### Display of the e-commerce site (front-end);
 
@@ -27,7 +27,7 @@ Through design and engineering, we will attempt to craft a beautifully-designed 
 
 ## 1. Strategy
 
-### target market
+### Target market
 
 Artisan BREAD targets:
 
@@ -52,7 +52,7 @@ Back-end admin site
 4. Tiered access for different admin users
 
 - owner is able to access all pages on the admin site
-- manager is restricted on product deletion, order deletion and registering new admin user
+- manager is granted access to all, but restricted on product deletion, order deletion and registering new admin user
 
 ## 2. Scope
 
@@ -96,7 +96,7 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ![font](https://github.com/Jerrysuper123/eventfulSources/blob/main/images/sources/fontEvent.png?raw=true)
 
-## 6. technology stack
+## 6. Technology stack
 
 ### Stack used:
 
@@ -111,11 +111,11 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 | [Axios](https://axios-http.com/docs/intro) | Call APIs                                     |
 | Fontawesome                                | Use icons throughout the site                 |
 
-## 7. testing
+## 7. Testing
 
 Click [here]() for the detailed test list.
 
-## 8. deployment
+## 8. Deployment
 
 The deployment is done through Netifly with the instructions [here](https://www.youtube.com/watch?v=OPalwvWO63U&t=39s&ab_channel=SanskarTiwari).
 
