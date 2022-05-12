@@ -9,7 +9,7 @@ export default function PaymentSuccess() {
         better product & services
       </h3>
       <img
-        style={{ width: "40%" }}
+        style={{ width: "30%" }}
         src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
         alt="icon"
       />
