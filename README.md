@@ -113,7 +113,7 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 
 ## 7. Testing
 
-Click [here]() for the detailed test list.
+Click [here](https://github.com/Jerrysuper123/artisanbreadsources/blob/main/artisanBread%20test%20cases.pdf) for the detailed test list.
 
 ## 8. Deployment
 
