@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../util";
 import axios from "axios";
+import ProductContext from "../ProductContext";
 
 export default function RegisterPage() {
+  const context = useContext(ProductContext);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,6 +50,8 @@ export default function RegisterPage() {
       //success register, redirect to login page
       if (response.status === 200) {
         navigate("/login");
+        context.setToastMessage("Registration sucesss, please sign in now!");
+        context.setToastMessageStatus(true);
       }
     }
   };

@@ -88,7 +88,7 @@ export default function CartPage() {
         console.log(e);
       }
     } else {
-      context.setToastMessage("Please register/login before add to cart!");
+      context.setToastMessage("Please register/login before adding to cart!");
       context.setToastMessageStatus(true);
     }
   };
