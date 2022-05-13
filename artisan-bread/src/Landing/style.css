@@ -29,11 +29,12 @@
     .banner {
         position: static;
     }
+    .carousel-inner {
+        width: 100% !important;
+    }
 
     /* .cta {
-        position: static;
         width: 100%;
-        border-radius: 0;
     } */
 }
 
