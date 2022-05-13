@@ -43,10 +43,7 @@ export default function ToastMessage() {
             ></section>
 
             <section className="p-2 animate__animated">
-              <span style={{ fontSize: "1rem" }}>
-                {/* Please register/login before add to cart! */}
-                {toastMessage}
-              </span>
+              <span style={{ fontSize: "1rem" }}>{toastMessage}</span>
             </section>
           </section>
         </React.Fragment>

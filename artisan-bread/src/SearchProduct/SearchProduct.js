@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ProductContext from "../ProductContext";
 import "./style.css";
 export default function SearchProduct() {
@@ -9,11 +9,20 @@ export default function SearchProduct() {
 
   const [showSearchBar, setShowSearchBar] = useState("none");
   const [showSearchBtn, setShowSearchBtn] = useState("block");
+  const [autoFocus, setAutoFocus] = useState(false);
+  const inputRef = React.useRef();
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [autoFocus]);
   const toggleBtweenBtnBar = () => {
     if (showSearchBar === "none") {
       setShowSearchBar("block");
+      setAutoFocus(true);
     } else {
       setShowSearchBar("none");
+      setAutoFocus(false);
     }
 
     if (showSearchBtn === "none") {
@@ -40,7 +49,7 @@ export default function SearchProduct() {
               aria-label="Search"
               name="searchString"
               value={searchString}
-              autoFocus
+              ref={inputRef}
               onChange={handleSearchString}
               onBlur={toggleBtweenBtnBar}
             />
