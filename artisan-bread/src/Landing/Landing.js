@@ -29,7 +29,9 @@ export default function Landing(props) {
             <span>. Zero trans-fat</span>
             <span>. Organic</span>
           </section>
-          <h1 className="mt-3">But 100% better taste!</h1>
+          <h1 className="mt-3 animate__animated animate__jello">
+            But 100% better taste!
+          </h1>
           <h2
             className="my-3"
             style={{
