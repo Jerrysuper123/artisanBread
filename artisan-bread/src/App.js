@@ -3,6 +3,7 @@ import Navbar from "./NavBar/NavBar";
 import Shop from "./Shop/Shop";
 import Landing from "./Landing/Landing";
 import MyOrder from "./MyOrder/MyOrder";
+import "animate.css";
 import CheckoutPage from "./CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -106,6 +107,7 @@ function App() {
           <Navbar />
           <ToastMessage />
           <CartPage />
+          {/* <h1 className="animate__animated animate__lightSpeedInRight">haha</h1> */}
           <div className="CTAbanner p-2 d-flex justify-content-between">
             <span>
               <i className="fa-solid fa-circle-check me-1 highlightText"></i>

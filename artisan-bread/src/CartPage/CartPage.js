@@ -82,7 +82,7 @@ export default function CartPage() {
           changedCart();
           setTimeout(() => {
             setAddedCartNotification("none");
-          }, 2000);
+          }, 2600);
         }
       } catch (e) {
         console.log(e);
@@ -189,7 +189,10 @@ export default function CartPage() {
           </span>
         </section>
 
-        <span className="p-3" style={{ fontSize: "1.1rem" }}>
+        <span
+          className="p-3 animate__animated animate__flash"
+          style={{ fontSize: "1.1rem" }}
+        >
           Successfully added to your cart
         </span>
         <div className="d-flex justify-content-center">
@@ -200,7 +203,6 @@ export default function CartPage() {
           ></lord-icon>
         </div>
       </section>
-
       <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"

@@ -3,7 +3,6 @@ import axios from "axios";
 import { BASE_URL, getHTTPHeaders } from "../util";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
-import { useNavigate, Link } from "react-router-dom";
 
 export default function MyAccount() {
   const context = useContext(ProductContext);
@@ -18,13 +17,15 @@ export default function MyAccount() {
         BASE_URL + "order",
         getHTTPHeaders(context.accessToken)
       );
-      console.log(response.data.orders);
       await setOrders(response.data.orders);
     }
   };
   useEffect(() => {
-    fetchOrders();
-  }, []);
+    if (context.accessToken) {
+      fetchOrders();
+    }
+  }, [context.accessToken]);
+
   return (
     <React.Fragment>
       <main className="container-fluid orderContainer p-5 d-flex flex-column align-items-center landingMainContainer">
