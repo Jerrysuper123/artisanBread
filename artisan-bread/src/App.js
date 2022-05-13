@@ -27,6 +27,7 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [addToCartProductId, setAddToCartProductId] = useState("");
   const [toastMessageStatus, setToastMessageStatus] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -98,6 +99,8 @@ function App() {
     setAddToCartProductId,
     toastMessageStatus,
     setToastMessageStatus,
+    toastMessage,
+    setToastMessage,
   };
 
   return (

@@ -23,15 +23,13 @@ export default function Landing(props) {
         </section>
 
         {/* call to action on a map*/}
-        <section className="cta p-5 text-center">
+        <section className="cta p-5 text-center animate__animated animate__slideInDown">
           <section className="ctaHeader">
             <span>Wholemeal </span>
             <span>. Zero trans-fat</span>
             <span>. Organic</span>
           </section>
-          <h1 className="mt-3 animate__animated animate__jello">
-            But 100% better taste!
-          </h1>
+          <h1 className="mt-3">But 100% better taste!</h1>
           <h2
             className="my-3"
             style={{

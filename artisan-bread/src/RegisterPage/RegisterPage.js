@@ -111,7 +111,7 @@ export default function RegisterPage() {
           <h2 className="mt-3">But 100% better taste!</h2>
         </section>
 
-        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3">
+        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3 animate__animated animate__bounce">
           <img
             className="loginIcon mt-5"
             src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"

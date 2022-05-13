@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
 import "./style.css";
 
 export default function ToastMessage() {
-  const { toastMessageStatus, setToastMessageStatus } =
+  const { toastMessageStatus, setToastMessageStatus, toastMessage } =
     useContext(ProductContext);
 
   //   const [count, setCount] = useState(0);
@@ -45,7 +44,8 @@ export default function ToastMessage() {
 
             <section className="p-2 animate__animated">
               <span style={{ fontSize: "1rem" }}>
-                Please register/login before add to cart!
+                {/* Please register/login before add to cart! */}
+                {toastMessage}
               </span>
             </section>
           </section>

@@ -94,7 +94,7 @@ export default function LoginPage() {
           <h2 className="mt-3">But 100% better taste!</h2>
         </section>
 
-        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3 py-5 m-4">
+        <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3 py-5 m-4 animate__animated animate__bounce">
           <img
             className="loginIcon"
             src="https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/brandLogo.jpg"
