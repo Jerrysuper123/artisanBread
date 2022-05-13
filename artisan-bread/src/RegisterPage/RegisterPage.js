@@ -103,12 +103,12 @@ export default function RegisterPage() {
     <React.Fragment>
       <main className="p-3 d-flex justify-content-center adminFormContainer align-items-center">
         <section className="userText p-3 m-5 text-light d-none d-md-block text-center">
-          <h1>
+          <h1 className="loginCTA">
             <span>Wholemeal </span>
             <span>. Zero trans-fat</span>
             <span>. Organic</span>
           </h1>
-          <h3 className="mt-3">But 100% better taste!</h3>
+          <h2 className="mt-3">But 100% better taste!</h2>
         </section>
 
         <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3">

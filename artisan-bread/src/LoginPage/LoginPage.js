@@ -86,12 +86,12 @@ export default function LoginPage() {
           src="https://images.unsplash.com/photo-1635341814289-55cf1490024c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
         /> */}
         <section className="userText p-3 m-5 d-none d-md-block text-center">
-          <h1>
+          <h1 className="loginCTA">
             <span>Wholemeal </span>
             <span>. Zero trans-fat</span>
             <span>. Organic</span>
           </h1>
-          <h3 className="mt-3">But 100% better taste!</h3>
+          <h2 className="mt-3">But 100% better taste!</h2>
         </section>
 
         <div className="m-5 d-flex flex-column justify-content-center align-items-center adminForm px-3 py-5 m-4">
