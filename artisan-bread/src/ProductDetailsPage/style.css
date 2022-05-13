@@ -8,7 +8,7 @@
 
 .productDescription {
     background-color: rgb(218, 236, 240);
-    border-radius: 0/3rem;
+    border-radius: 0.3rem;
 }
 .detailBtn {
     width: 100%;
@@ -16,15 +16,13 @@
     font-size: 1.5rem;
     border: none;
     color: white;
-    background-color: #04bdad;
+    /* background-color: #04bdad; */
+    background-image: linear-gradient(to right, #d98e04, #f15e1a);
 }
 
 .detailBtn:hover {
-    background-color: white;
+    /* background-color: white;
     color: #04bdad;
-    border: 2px solid #04bdad;
-}
-
-.productDetailContainer {
-    /* min-height: 65vh; */
+    border: 2px solid #04bdad; */
+    background-image: linear-gradient(to right, #ac750d, #9c3d10);
 }
