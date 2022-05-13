@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import making2mb from "../media/making2mb.mp4";
 import ProductContext from "../ProductContext";
@@ -11,6 +11,15 @@ export default function Landing(props) {
     context.setAddToCartProductId(productId);
     // navigate("/shop");
   };
+
+  const [animationClass, setAnimationClass] = useState("");
+  const handMouseEnter = () => {
+    setAnimationClass("animate__animated animate__lightSpeedInRight");
+    setTimeout(() => {
+      setAnimationClass("");
+    }, 2000);
+  };
+
   return (
     <React.Fragment>
       {/* carousell starts here */}
@@ -58,17 +67,19 @@ export default function Landing(props) {
               <h3 className="orStatement px-2">Spendid</h3>
             </div>
           </section>
-
-          <h1 className="highlightText">Healthier bread with better taste</h1>
-          <h5 className="text-secondary">
-            We marry good science with our artisanal skills to offer hand-made
-            wholemeal bread, using organic ingredients. Not only all our bread
-            contain zero transfat, they are also carbs guilt-free - our secret
-            recipe to half the carbs without losing the taste.
-          </h5>
+          <article onMouseEnter={handMouseEnter} className={animationClass}>
+            <h1 className="highlightText">Healthier bread with better taste</h1>
+            <h5 className="text-secondary">
+              We marry good science with our artisanal skills to offer hand-made
+              wholemeal bread, using organic ingredients. Not only all our bread
+              contain zero transfat, they are also carbs guilt-free - our secret
+              recipe to half the carbs without losing the taste.
+            </h5>
+          </article>
         </section>
 
         {/* carousell of products */}
+
         <section className="d-flex justify-content-center mb-5">
           <div
             id="carouselExampleCaptions"
