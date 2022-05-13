@@ -12,9 +12,19 @@ export default function SortProduct({ products, setProducts }) {
 
   const sortATZ = () => {
     let clone = products.slice();
-    let sortedProducts = clone.sort((a, b) => a.name - b.name);
+    let sortedProducts = clone.sort(compare);
     setProducts(sortedProducts);
   };
+
+  function compare(a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
 
   const sortLTH = () => {
     let clone = products.slice();

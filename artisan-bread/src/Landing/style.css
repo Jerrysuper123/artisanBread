@@ -29,9 +29,6 @@
     .banner {
         position: static;
     }
-    .carousel-inner {
-        width: 100% !important;
-    }
 
     /* .cta {
         width: 100%;
@@ -221,10 +218,6 @@
     display: block;
     height: 80vh;
     background-color: rgb(62, 62, 62);
-}
-
-#carouselExampleCaptions {
-    /* background-color: grey !important; */
 }
 
 #carouselExampleCaptions {
