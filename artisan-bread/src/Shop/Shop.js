@@ -24,15 +24,17 @@ export default function Shop() {
 
     await setProducts(response.data);
   };
-
+  let context = useContext(ProductContext);
   /*for local development only */
   useEffect(() => {
+    context.setSpinnerShow(true);
     fetchAllProducts();
+    setTimeout(() => {
+      context.setSpinnerShow(false);
+    }, 500);
   }, []);
 
   const [products, setProducts] = useState([]);
-
-  let context = useContext(ProductContext);
 
   const addToCart = (productId) => {
     context.setAddToCartProductId(productId);

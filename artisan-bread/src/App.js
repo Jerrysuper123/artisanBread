@@ -14,6 +14,7 @@ import CartPage from "./CartPage/CartPage";
 import PaymentSuccess from "./PaymentSuccess/PaymentSuccess";
 import PaymentFail from "./PaymentFail/PaymentFail";
 import ToastMessage from "./ToastMessage/ToastMessage";
+import Spinner from "./Spinner/Spinner";
 import React, { useState, useEffect } from "react";
 import { fetchAllProducts, fetchProfileInfo } from "./util";
 
@@ -28,6 +29,7 @@ function App() {
   const [addToCartProductId, setAddToCartProductId] = useState("");
   const [toastMessageStatus, setToastMessageStatus] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [spinnerShow, setSpinnerShow] = useState(false);
 
   const getProductByID = (productID) => {
     return products.filter((p) => p.id === parseInt(productID))[0];
@@ -40,7 +42,11 @@ function App() {
 
   //fetch all products when first intialized
   useEffect(() => {
+    setSpinnerShow(true);
     fetchProducts();
+    setTimeout(() => {
+      setSpinnerShow(false);
+    }, 500);
   }, []);
 
   //when first load, get the accessToken in localStorage if available
@@ -101,6 +107,8 @@ function App() {
     setToastMessageStatus,
     toastMessage,
     setToastMessage,
+    spinnerShow,
+    setSpinnerShow,
   };
 
   return (
@@ -110,7 +118,6 @@ function App() {
           <Navbar />
           <ToastMessage />
           <CartPage />
-          {/* <h1 className="animate__animated animate__lightSpeedInRight">haha</h1> */}
           <div className="CTAbanner p-2 d-flex justify-content-between">
             <span>
               <i className="fa-solid fa-circle-check me-1 highlightText"></i>
@@ -122,6 +129,15 @@ function App() {
               <span className="ms-1">Free delivery or $5 for the next day</span>
             </span>
           </div>
+          <Spinner />
+          {/* {spinnerShow ? (
+            <Spinner />
+          ) : (
+            
+          )} */}
+
+          {/* <h1 className="animate__animated animate__lightSpeedInRight">haha</h1> */}
+
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />

@@ -22,7 +22,11 @@ export default function MyAccount() {
   };
   useEffect(() => {
     if (context.accessToken) {
+      context.setSpinnerShow(true);
       fetchOrders();
+      setTimeout(() => {
+        context.setSpinnerShow(false);
+      }, 500);
     }
   }, [context.accessToken]);
 

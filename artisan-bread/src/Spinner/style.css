@@ -1,0 +1,62 @@
+.loaderIcon {
+    width: 8rem;
+}
+
+.spinnerBg {
+    background-color: rgb(38, 38, 38);
+    min-height: 90vh;
+}
+.loader {
+    margin-top: -8.9rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: rgb(250, 109, 22) rgb(199, 141, 14) transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+/* .loader::after,
+.loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #5ee48f #57e957;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+} */
+/* .loader::before {
+    width: 12rem;
+    height: 12rem;
+    border-color: #fff rgb(248, 134, 63) transparent transparent;
+    animation: rotation 1.5s linear infinite;
+} */
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}

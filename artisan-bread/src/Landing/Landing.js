@@ -4,6 +4,7 @@ import making2mb from "../media/making2mb.mp4";
 import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Landing(props) {
   const context = useContext(ProductContext);
@@ -19,6 +20,13 @@ export default function Landing(props) {
       setAnimationClass("");
     }, 2000);
   };
+
+  useEffect(() => {
+    context.setSpinnerShow(true);
+    setTimeout(() => {
+      context.setSpinnerShow(false);
+    }, 500);
+  }, []);
 
   return (
     <React.Fragment>
