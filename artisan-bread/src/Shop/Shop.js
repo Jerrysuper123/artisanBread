@@ -18,11 +18,31 @@ export default function Shop() {
     navigate(`/productdetails/${productId}`);
   };
 
-  const fetchAllProducts = async () => {
-    let response = await axios.get(BASE_URL + "products");
-    // console.log(response.data);
+  // const [pageNumber, setPageNumber] = useState(1);
+  const [totalPageNumber, setTotalPageNumber] = useState(0);
+  const [totalPageArray, setTotalPageArray] = useState([]);
 
-    await setProducts(response.data);
+  const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  const handlePageNumber = (value) => {
+    setCurrentPageNumber(value);
+  };
+
+  useEffect(() => {
+    let clone = [];
+    for (let i = 1; i <= totalPageNumber; i++) {
+      clone.push(i);
+    }
+    setTotalPageArray(clone);
+  }, [totalPageNumber]);
+
+  const fetchAllProducts = async () => {
+    let response = await axios.get(BASE_URL + "products", {
+      params: { page: currentPageNumber },
+    });
+    console.log(response);
+    // setCurrentPageNumber(response.data.pagination.page);
+    setTotalPageNumber(response.data.pagination.pageCount);
+    await setProducts(response.data.pageResult);
   };
   let context = useContext(ProductContext);
   /*for local development only */
@@ -32,7 +52,7 @@ export default function Shop() {
     setTimeout(() => {
       context.setSpinnerShow(false);
     }, 600);
-  }, []);
+  }, [currentPageNumber]);
 
   const [products, setProducts] = useState([]);
 
@@ -73,6 +93,25 @@ export default function Shop() {
               );
             })}
           </div>
+          <section className="d-flex justify-content-center">
+            {totalPageArray.map((page) => {
+              return (
+                <div
+                  key={page}
+                  className={
+                    currentPageNumber === page
+                      ? `pagination active`
+                      : `pagination`
+                  }
+                  onClick={() => {
+                    handlePageNumber(page);
+                  }}
+                >
+                  {page}
+                </div>
+              );
+            })}
+          </section>
         </section>
       </main>
     </React.Fragment>

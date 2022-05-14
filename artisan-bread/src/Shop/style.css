@@ -143,3 +143,27 @@
     font-size: 0.9rem;
     font-style: italic;
 }
+
+.pagination {
+    /* background-image: linear-gradient(to right, #ffa3ba, #fc7698); */
+    border: 1px solid #ffa3ba;
+    padding: 0 7px;
+    margin: 2px;
+    color: #ffa3ba;
+    font-weight: 600;
+}
+
+.pagination:hover {
+    background-image: linear-gradient(to right, #ffa3ba, #fc7698);
+    color: white;
+}
+
+.pagination:active {
+    background-image: linear-gradient(to right, #ffa3ba, #fc7698);
+    color: white;
+}
+
+.active {
+    background-image: linear-gradient(to right, #ffa3ba, #fc7698);
+    color: white;
+}
