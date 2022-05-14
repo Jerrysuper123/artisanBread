@@ -6,7 +6,7 @@ import { useState } from "react";
 import "./style.css";
 
 export default function FilterPage(props) {
-  const { searchString } = useContext(ProductContext);
+  const { searchString, setSpinnerShow } = useContext(ProductContext);
   const [allTypes, setAllTypes] = useState([]);
   const [allFlavours, setAllFlavours] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
@@ -47,14 +47,19 @@ export default function FilterPage(props) {
 
   const search = async () => {
     // console.log("set type id", selectedTypeId);
+    // setSpinnerShow(true);
     let response = await axios.post(BASE_URL + "search", {
       name: searchString === "" ? null : searchString,
       typeId: selectedTypeId,
       flavourId: selectedFlavourId,
       ingredientIds: ingredientIds.length === 0 ? null : ingredientIds,
     });
-    // console.log(response.data.products);
+    // console.log(response.data);
+    props.setTotalPageNumber(response.data.pagination.pageCount);
     props.setProducts(response.data.products);
+    // setTimeout(() => {
+    //   setSpinnerShow(false);
+    // }, 600);
   };
 
   const fetchAllTypes = async () => {

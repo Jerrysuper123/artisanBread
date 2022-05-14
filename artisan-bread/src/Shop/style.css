@@ -147,7 +147,8 @@
 .pagination {
     /* background-image: linear-gradient(to right, #ffa3ba, #fc7698); */
     border: 1px solid #ffa3ba;
-    padding: 0 7px;
+    padding: 0 0.7rem;
+    font-size: 1.1rem;
     margin: 2px;
     color: #ffa3ba;
     font-weight: 600;
@@ -163,7 +164,7 @@
     color: white;
 }
 
-.active {
+.activePagination {
     background-image: linear-gradient(to right, #ffa3ba, #fc7698);
     color: white;
 }

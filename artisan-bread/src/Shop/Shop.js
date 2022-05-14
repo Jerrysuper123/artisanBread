@@ -28,11 +28,15 @@ export default function Shop() {
   };
 
   useEffect(() => {
-    let clone = [];
-    for (let i = 1; i <= totalPageNumber; i++) {
-      clone.push(i);
+    if (totalPageNumber === 0) {
+      setTotalPageArray([]);
+    } else {
+      let clone = [];
+      for (let i = 1; i <= totalPageNumber; i++) {
+        clone.push(i);
+      }
+      setTotalPageArray(clone);
     }
-    setTotalPageArray(clone);
   }, [totalPageNumber]);
 
   const fetchAllProducts = async () => {
@@ -67,7 +71,10 @@ export default function Shop() {
         <section className="container p-3">
           <section className="container d-flex justify-content-sm-between justify-content-center mb-3 mt-4">
             <div className="d-sm-block d-none">
-              <FilterPage setProducts={setProducts} />
+              <FilterPage
+                setProducts={setProducts}
+                setTotalPageNumber={setTotalPageNumber}
+              />
             </div>
 
             <div>
@@ -100,7 +107,7 @@ export default function Shop() {
                   key={page}
                   className={
                     currentPageNumber === page
-                      ? `pagination active`
+                      ? `pagination activePagination`
                       : `pagination`
                   }
                   onClick={() => {
