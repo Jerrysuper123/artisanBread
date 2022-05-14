@@ -40,3 +40,7 @@
     border-radius: 1.3rem;
     background-image: linear-gradient(to right, #ffa3ba, #fa3d6d);
 }
+
+.sortBtn:focus {
+    outline: none;
+}

@@ -84,7 +84,7 @@ export default function FilterPage(props) {
   return (
     <React.Fragment>
       <button
-        className="customShopBtn"
+        className="customShopBtn filterBtn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#productFilterPage"

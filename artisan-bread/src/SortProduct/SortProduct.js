@@ -55,15 +55,15 @@ export default function SortProduct({ products, setProducts }) {
 
   return (
     <select
-      className="customShopBtn"
+      className="customShopBtn sortBtn"
       aria-label="Default select example"
       onChange={handleSelection}
       selected={selectedOption}
     >
       <option value="">Sort by</option>
-      <option value="1">name, A-Z</option>
-      <option value="2">Price,low to high</option>
-      <option value="3">Price,high to low</option>
+      <option value="1">Name (A-Z)</option>
+      <option value="2">Price (L-H)</option>
+      <option value="3">Price (H-L)</option>
     </select>
   );
 }
