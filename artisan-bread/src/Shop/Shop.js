@@ -31,7 +31,7 @@ export default function Shop() {
     fetchAllProducts();
     setTimeout(() => {
       context.setSpinnerShow(false);
-    }, 500);
+    }, 600);
   }, []);
 
   const [products, setProducts] = useState([]);

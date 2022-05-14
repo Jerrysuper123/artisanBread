@@ -26,7 +26,7 @@ export default function MyAccount() {
       fetchOrders();
       setTimeout(() => {
         context.setSpinnerShow(false);
-      }, 500);
+      }, 600);
     }
   }, [context.accessToken]);
 

@@ -25,7 +25,7 @@ export default function Landing(props) {
     context.setSpinnerShow(true);
     setTimeout(() => {
       context.setSpinnerShow(false);
-    }, 500);
+    }, 600);
   }, []);
 
   return (
