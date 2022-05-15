@@ -6,7 +6,7 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
     <div
       key={p.id}
       id="shopCardContainer"
-      className="card shopCard"
+      className="card shopCard thumbnail"
       style={{ width: "18rem", height: "23rem", borderRadius: "1rem" }}
     >
       <span className="productRating">
@@ -23,7 +23,7 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
             fetchProductDetailsPage(p.id);
           }}
           src={p.image_url}
-          className="card-img-top shopImg"
+          className="card-img-top shopImg "
           alt={p.name}
         />
       ) : null}

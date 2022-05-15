@@ -168,3 +168,13 @@
     background-image: linear-gradient(to right, #ffa3ba, #fc7698);
     color: white;
 }
+
+/* .thumbnail:hover {
+    position: relative;
+    top: -25px;
+    left: -35px;
+    width: 23rem;
+    height: 18rem;
+    display: block;
+    z-index: 999;
+} */
