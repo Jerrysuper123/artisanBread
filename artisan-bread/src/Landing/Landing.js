@@ -5,21 +5,29 @@ import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Landing(props) {
+  useEffect(() => {
+    //give global animation to aos
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
   const context = useContext(ProductContext);
   const addToCart = (productId) => {
     context.setAddToCartProductId(productId);
     // navigate("/shop");
   };
 
-  const [animationClass, setAnimationClass] = useState("");
-  const handMouseEnter = () => {
-    setAnimationClass("animate__animated animate__lightSpeedInRight");
-    setTimeout(() => {
-      setAnimationClass("");
-    }, 2000);
-  };
+  // const [animationClass, setAnimationClass] = useState("");
+  // const handMouseEnter = () => {
+  //   setAnimationClass("animate__animated animate__lightSpeedInRight");
+  //   setTimeout(() => {
+  //     setAnimationClass("");
+  //   }, 2000);
+  // };
 
   useEffect(() => {
     context.setSpinnerShow(true);
@@ -75,7 +83,7 @@ export default function Landing(props) {
               <h3 className="orStatement px-2">Spendid</h3>
             </div>
           </section>
-          <article onMouseEnter={handMouseEnter} className={animationClass}>
+          <article data-aos="fade-left">
             <h1 className="highlightText">Healthier bread with better taste</h1>
             <h5 className="text-secondary">
               We marry good science with our artisanal skills to offer hand-made
@@ -117,7 +125,7 @@ export default function Landing(props) {
               ></button>
             </div>
 
-            <div className="carousel-inner">
+            <div className="carousel-inner" data-aos="fade-up">
               <div className="carousel-item active">
                 <section className="d-flex justify-content-center">
                   {context.products
