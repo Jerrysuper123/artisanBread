@@ -6,5 +6,6 @@
 }
 
 .appMain {
-  position: relative;
+  /* position: relative; */
+  /* min-height: 70vh; */
 }

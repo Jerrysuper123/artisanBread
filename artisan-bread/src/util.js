@@ -1,6 +1,6 @@
 import axios from "axios";
-// const BASE_URL = "https://artisanbread.herokuapp.com/api/";
-const BASE_URL = "https://f3a2-138-75-0-108.ap.ngrok.io/api/";
+const BASE_URL = "https://artisanbread.herokuapp.com/api/";
+// const BASE_URL = "https://f3a2-138-75-0-108.ap.ngrok.io/api/";
 const getHTTPHeaders = (accessToken) => {
   return {
     headers: {

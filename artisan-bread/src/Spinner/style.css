@@ -10,8 +10,8 @@
     background-repeat: no-repeat;
     background-size: cover;
      */
-    position: absolute;
-    z-index: 3;
+    /* position: absolute; */
+    /* z-index: 3; */
 }
 .loader {
     margin-top: -8.9rem;
