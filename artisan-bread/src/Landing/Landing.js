@@ -45,14 +45,14 @@ export default function Landing(props) {
         <Html fullscreen>
           <div
             className="d-flex justify-content-center"
-            style={{ marginTop: "15rem", color: "white" }}
+            style={{ marginTop: "10rem", color: "white" }}
           >
-            <section className="text-center animationText">
-              <h1 className="naturalCTA">Directly from Nature</h1>
-              <h2>fresh out of our farm</h2>
+            <section className="naturalCTA text-center animationText p-2">
+              <h1 className="">Directly from Nature</h1>
+              <h2 style={{ fontStyle: "italic" }}>fresh out of our farm</h2>
               <h5 className="location">
-                Our Farm is an award-winning wheat patch and produce farm owned
-                and operated by the Chen family. Located just in Yio Chu Kang.
+                Our Farm is an award-winning wheat patch and operated by the
+                Chen family. Located just in Yio Chu Kang.
               </h5>
             </section>
           </div>
