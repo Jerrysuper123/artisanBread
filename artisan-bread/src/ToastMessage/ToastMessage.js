@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useCallback } from "react";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
 import "./style.css";

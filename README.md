@@ -104,6 +104,8 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 | ------------------------------------------ | --------------------------------------------- |
 | HTML, CSS , Bootstrap 5                    | Build the main frame of the website           |
 | React, react-router-dom, useContext        | Build single page application                 |
+| Aos                                        | Animation                                     |
+| Animation css                              | Animation                                     |
 | Express                                    | Build restful and API and back-end admin page |
 | db-migrate                                 | Build mysql database using db-migrate         |
 | mysql                                      | App was initialized on mysql database         |

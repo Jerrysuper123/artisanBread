@@ -45,7 +45,7 @@ export default function Navbar(props) {
                 <section className="nav-item me-3">
                   <div className="nav-link" aria-current="page">
                     <Link to="/">
-                      <span className="ms-1">Home</span>
+                      <span>Home</span>
                     </Link>
                   </div>
                 </section>

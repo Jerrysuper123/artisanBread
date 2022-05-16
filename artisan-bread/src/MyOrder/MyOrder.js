@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL, getHTTPHeaders } from "../util";
 import { useEffect } from "react";
 import ProductContext from "../ProductContext";
+import "./style.css";
 
 export default function MyAccount() {
   const context = useContext(ProductContext);
@@ -33,7 +34,7 @@ export default function MyAccount() {
   return (
     <React.Fragment>
       <main className="container-fluid orderContainer p-5 d-flex flex-column align-items-center landingMainContainer">
-        <section className="container orderInner shadow p-3">
+        <section className="container orderTableContainer orderInner shadow p-3">
           <h1 className="text-center">My orders</h1>
           <table className="table">
             <thead>
