@@ -262,3 +262,31 @@
     border-radius: 1rem;
     min-height: 65vh;
 }
+
+/* animation */
+
+.animationContainer {
+    height: 35rem;
+    /* background-color: #41b3a3; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/farm.avif");
+}
+
+.naturalCTA {
+    border: 2px solid white;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.animationText {
+    width: 70%;
+}
+
+.animeTextContainer {
+    width: 60rem;
+    margin-left: -30rem;
+    margin-top: -6rem;
+    color: white;
+}

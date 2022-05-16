@@ -4,9 +4,17 @@ import making2mb from "../media/making2mb.mp4";
 import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, useRef } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+
+//3d animation
+import Bread from "../Components/Bread";
+// animation starts here
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+//drei is a helper for three.js, Html allows us to write html into animation
+import { Html } from "@react-three/drei";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default function Landing(props) {
   useEffect(() => {
@@ -35,6 +43,43 @@ export default function Landing(props) {
       context.setSpinnerShow(false);
     }, 600);
   }, []);
+
+  //animation
+  const ref = useRef();
+  const HTMLContent = () => {
+    // rotate the 3d object
+    useFrame(() => (ref.current.rotation.y -= 0.01));
+    return (
+      <React.Fragment>
+        <Html>
+          <div className="d-flex justify-content-center animeTextContainer">
+            <section className="naturalCTA text-center animationText p-2">
+              <h1>Directly from Nature</h1>
+              <h5 style={{ fontStyle: "italic" }}>fresh out of our farm</h5>
+              <h6 className="location">
+                Our Farm is an award-winning wheat patch and operated by the
+                Chen family. Located just in Yio Chu Kang.
+              </h6>
+            </section>
+          </div>
+        </Html>
+      </React.Fragment>
+    );
+  };
+
+  const CameraController = () => {
+    const { camera, gl } = useThree();
+    useEffect(() => {
+      const controls = new OrbitControls(camera, gl.domElement);
+
+      controls.minDistance = 3;
+      controls.maxDistance = 20;
+      return () => {
+        controls.dispose();
+      };
+    }, [camera, gl]);
+    return null;
+  };
 
   return (
     <React.Fragment>
@@ -199,6 +244,19 @@ export default function Landing(props) {
           </div>
         </section>
       </main>
+      {/* 3d animation starts here */}
+      <section className="animationContainer">
+        <Canvas>
+          <Suspense fallback={null}>
+            <CameraController />
+            <HTMLContent />
+            <mesh ref={ref} position={[0, -1, 0]}>
+              <Bread />
+            </mesh>
+          </Suspense>
+        </Canvas>
+      </section>
+      {/* animation ends here */}
 
       {/* carousell of products */}
     </React.Fragment>
