@@ -48,6 +48,7 @@ export default function Shop() {
     setTotalPageNumber(response.data.pagination.pageCount);
     await setProducts(response.data.pageResult);
   };
+
   let context = useContext(ProductContext);
   /*for local development only */
   useEffect(() => {
