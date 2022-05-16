@@ -116,49 +116,47 @@ function App() {
       <ProductContext.Provider value={context}>
         <Router>
           <Navbar />
-          <ToastMessage />
-          <CartPage />
-          <div className="CTAbanner p-2 d-flex justify-content-between">
-            <span>
-              <i className="fa-solid fa-circle-check me-1 highlightText"></i>
-              100% better taste
-            </span>
-            <span>Wholemeal . Zero trans-fat . Organic</span>
-            <span>
-              <i className="fa-solid fa-truck-fast highlightText"></i>
-              <span className="ms-1">Free delivery or $5 for the next day</span>
-            </span>
-          </div>
-          <Spinner />
-          {/* {spinnerShow ? (
+
+          <main className="appMain">
+            <ToastMessage />
+            <CartPage />
+            <div className="CTAbanner p-2 d-flex justify-content-between">
+              <span>
+                <i className="fa-solid fa-circle-check me-1 highlightText"></i>
+                100% better taste
+              </span>
+              <span>Wholemeal . Zero trans-fat . Organic</span>
+              <span>
+                <i className="fa-solid fa-truck-fast highlightText"></i>
+                <span className="ms-1">
+                  Free delivery or $5 for the next day
+                </span>
+              </span>
+            </div>
             <Spinner />
-          ) : (
-            
-          )} */}
 
-          {/* <h1 className="animate__animated animate__lightSpeedInRight">haha</h1> */}
-
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route
-              path="/productdetails/:productID"
-              element={<ProductDetailsPage />}
-            />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-            <Route path="/paymentfail" element={<PaymentFail />} />
-            {/* redirect to login if user did not login */}
-            {logInUserInfo.username ? (
-              <React.Fragment>
-                <Route path="/checkout" element={<CheckoutPage />} />
-                <Route path="/order" element={<MyOrder />} />
-              </React.Fragment>
-            ) : (
-              <Route path="/:anything" element={<LoginPage />} />
-            )}
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route
+                path="/productdetails/:productID"
+                element={<ProductDetailsPage />}
+              />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+              <Route path="/paymentfail" element={<PaymentFail />} />
+              {/* redirect to login if user did not login */}
+              {logInUserInfo.username ? (
+                <React.Fragment>
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="/order" element={<MyOrder />} />
+                </React.Fragment>
+              ) : (
+                <Route path="/:anything" element={<LoginPage />} />
+              )}
+            </Routes>
+          </main>
 
           <Footer />
         </Router>

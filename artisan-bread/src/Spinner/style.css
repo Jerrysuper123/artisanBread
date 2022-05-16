@@ -3,12 +3,15 @@
 }
 
 .spinnerBg {
-    background-color: rgb(11, 11, 11);
+    background-color: rgb(24, 24, 24);
     min-height: 90vh;
+    width: 100vw;
     /* background-image: url("https://raw.githubusercontent.com/Jerrysuper123/artisanbreadsources/main/kneadingBG.avif");
     background-repeat: no-repeat;
     background-size: cover;
      */
+    position: absolute;
+    z-index: 3;
 }
 .loader {
     margin-top: -8.9rem;
