@@ -4,7 +4,11 @@ import making2mb from "../media/making2mb.mp4";
 import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, useRef } from "react";
+import Bread from "../Components/Bread";
+import { Canvas, useFrame } from "@react-three/fiber";
+//drei is a helper for three.js, Html allows us to write html into animation
+import { Html } from "@react-three/drei";
 
 export default function Landing(props) {
   const context = useContext(ProductContext);
@@ -27,6 +31,35 @@ export default function Landing(props) {
       context.setSpinnerShow(false);
     }, 500);
   }, []);
+
+  // const [hovered, hover] = useState(false)
+  const [clicked, click] = useState(false);
+  // bloe html content is for the
+  const AnimationContent = () => {
+    const ref = useRef();
+    // rotate the 3d object
+    useFrame(() => (ref.current.rotation.y -= 0.01));
+    return (
+      // <Section factor={1.5} offset={1}>
+      <React.Fragment>
+        <Html fullscreen>
+          <div className="d-flex justify-content-center mt-2">
+            {/* <h3>Grab now!</h3> */}
+          </div>
+        </Html>
+        <mesh
+          ref={ref}
+          // scale={clicked ? 1.5 : 1}
+          // onClick={(event) => click(!clicked)}
+          // onPointerOver={(event) => hover(true)}
+          // onPointerOut={(event) => hover(false)}
+        >
+          <Bread />
+        </mesh>
+      </React.Fragment>
+      // </Section>
+    );
+  };
 
   return (
     <React.Fragment>
@@ -72,11 +105,29 @@ export default function Landing(props) {
           <section>
             <div className="border-bottom"></div>
             <div className="d-flex justify-content-center">
-              <h3 className="orStatement px-2">Spendid</h3>
+              <h3 className="orStatement px-2">Grab now!</h3>
             </div>
           </section>
+          {/* 3d animation starts here */}
+          <section
+            style={
+              {
+                // height: "20rem",
+                // backgroundColor: "orange",
+              }
+            }
+          >
+            <Canvas id="modelContainer">
+              <Suspense fallback={null}>
+                <AnimationContent />
+              </Suspense>
+            </Canvas>
+          </section>
+          {/* 3d animation ends here */}
+
           <article onMouseEnter={handMouseEnter} className={animationClass}>
             <h1 className="highlightText">Healthier bread with better taste</h1>
+
             <h5 className="text-secondary">
               We marry good science with our artisanal skills to offer hand-made
               wholemeal bread, using organic ingredients. Not only all our bread
