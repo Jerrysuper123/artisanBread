@@ -8,7 +8,7 @@ import { useEffect, Suspense, useRef } from "react";
 import Bread from "../Components/Bread";
 import { Canvas, useFrame } from "@react-three/fiber";
 //drei is a helper for three.js, Html allows us to write html into animation
-import { Html } from "@react-three/drei";
+import { Html, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 
 export default function Landing(props) {
   const context = useContext(ProductContext);
@@ -47,11 +47,21 @@ export default function Landing(props) {
             className="d-flex justify-content-center"
             style={{ marginTop: "15rem", color: "white" }}
           >
-            <h1>Wholemeal . Zero-transfat . Organic</h1>
+            <section className="text-center animationText">
+              <h1 className="naturalCTA">Directly from Nature</h1>
+              <h2>fresh out of our farm</h2>
+              <h5 className="location">
+                Our Farm is an award-winning wheat patch and produce farm owned
+                and operated by the Chen family. Located just in Yio Chu Kang.
+              </h5>
+            </section>
           </div>
         </Html>
+        {/* <PerspectiveCamera makeDefault position={[0, 0, 0]} /> */}
+        {/* <OrbitControls /> */}
         <mesh
           ref={ref}
+          position={[0, -1, 0]}
           // scale={clicked ? 1.5 : 1}
           // onClick={(event) => click(!clicked)}
           // onPointerOver={(event) => hover(true)}
@@ -59,6 +69,7 @@ export default function Landing(props) {
         >
           <Bread />
         </mesh>
+        {/* </PerspectiveCamera> */}
       </React.Fragment>
       // </Section>
     );
@@ -101,20 +112,6 @@ export default function Landing(props) {
           </Link>
         </section>
       </div>
-      {/* 3d animation starts here */}
-      <section
-        style={{
-          height: "35rem",
-          backgroundColor: "#d98e04",
-        }}
-      >
-        <Canvas id="modelContainer">
-          <Suspense fallback={null}>
-            <AnimationContent />
-          </Suspense>
-        </Canvas>
-      </section>
-      {/* 3d animation ends here */}
 
       <main className="landingMainContainer p-2">
         {/* call to action on calendar */}
@@ -245,6 +242,21 @@ export default function Landing(props) {
       </main>
 
       {/* carousell of products */}
+      {/* 3d animation starts here */}
+      <section
+        className="animationContainer"
+        // style={{
+        //   height: "30rem",
+        //   backgroundColor: "#DEDEDE",
+        // }}
+      >
+        <Canvas>
+          <Suspense fallback={null}>
+            <AnimationContent />
+          </Suspense>
+        </Canvas>
+      </section>
+      {/* 3d animation ends here */}
     </React.Fragment>
   );
 }
