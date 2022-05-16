@@ -43,8 +43,11 @@ export default function Landing(props) {
       // <Section factor={1.5} offset={1}>
       <React.Fragment>
         <Html fullscreen>
-          <div className="d-flex justify-content-center mt-2">
-            {/* <h3>Grab now!</h3> */}
+          <div
+            className="d-flex justify-content-center"
+            style={{ marginTop: "15rem", color: "white" }}
+          >
+            <h1>Wholemeal . Zero-transfat . Organic</h1>
           </div>
         </Html>
         <mesh
@@ -98,6 +101,20 @@ export default function Landing(props) {
           </Link>
         </section>
       </div>
+      {/* 3d animation starts here */}
+      <section
+        style={{
+          height: "35rem",
+          backgroundColor: "#d98e04",
+        }}
+      >
+        <Canvas id="modelContainer">
+          <Suspense fallback={null}>
+            <AnimationContent />
+          </Suspense>
+        </Canvas>
+      </section>
+      {/* 3d animation ends here */}
 
       <main className="landingMainContainer p-2">
         {/* call to action on calendar */}
@@ -108,22 +125,6 @@ export default function Landing(props) {
               <h3 className="orStatement px-2">Grab now!</h3>
             </div>
           </section>
-          {/* 3d animation starts here */}
-          <section
-            style={
-              {
-                // height: "20rem",
-                // backgroundColor: "orange",
-              }
-            }
-          >
-            <Canvas id="modelContainer">
-              <Suspense fallback={null}>
-                <AnimationContent />
-              </Suspense>
-            </Canvas>
-          </section>
-          {/* 3d animation ends here */}
 
           <article onMouseEnter={handMouseEnter} className={animationClass}>
             <h1 className="highlightText">Healthier bread with better taste</h1>

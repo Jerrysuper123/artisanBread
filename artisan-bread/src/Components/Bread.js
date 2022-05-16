@@ -15,7 +15,7 @@ export default function Model({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]} scale={0.5}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.4}>
           <group position={[-0.71, 0.11, 0]} rotation={[-0.09, -0.27, -0.31]}>
             <mesh
               geometry={nodes.Bag_low_lambert1_0.geometry}
