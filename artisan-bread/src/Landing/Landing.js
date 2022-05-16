@@ -5,10 +5,13 @@ import ProductContext from "../ProductContext";
 import ProductCard from "../Shop/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import { useEffect, Suspense, useRef } from "react";
+
+// animation starts here
 import Bread from "../Components/Bread";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 //drei is a helper for three.js, Html allows us to write html into animation
-import { Html, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Html } from "@react-three/drei";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default function Landing(props) {
   const context = useContext(ProductContext);
@@ -32,47 +35,41 @@ export default function Landing(props) {
     }, 500);
   }, []);
 
-  // const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false);
-  // bloe html content is for the
-  const AnimationContent = () => {
-    const ref = useRef();
+  //animation
+  const ref = useRef();
+  const HTMLContent = () => {
     // rotate the 3d object
     useFrame(() => (ref.current.rotation.y -= 0.01));
     return (
-      // <Section factor={1.5} offset={1}>
       <React.Fragment>
-        <Html fullscreen>
-          <div
-            className="d-flex justify-content-center"
-            style={{ marginTop: "10rem", color: "white" }}
-          >
+        <Html>
+          <div className="d-flex justify-content-center animeTextContainer">
             <section className="naturalCTA text-center animationText p-2">
-              <h1 className="">Directly from Nature</h1>
-              <h2 style={{ fontStyle: "italic" }}>fresh out of our farm</h2>
-              <h5 className="location">
+              <h1>Directly from Nature</h1>
+              <h5 style={{ fontStyle: "italic" }}>fresh out of our farm</h5>
+              <h6 className="location">
                 Our Farm is an award-winning wheat patch and operated by the
                 Chen family. Located just in Yio Chu Kang.
-              </h5>
+              </h6>
             </section>
           </div>
         </Html>
-        {/* <PerspectiveCamera makeDefault position={[0, 0, 0]} /> */}
-        {/* <OrbitControls /> */}
-        <mesh
-          ref={ref}
-          position={[0, -1, 0]}
-          // scale={clicked ? 1.5 : 1}
-          // onClick={(event) => click(!clicked)}
-          // onPointerOver={(event) => hover(true)}
-          // onPointerOut={(event) => hover(false)}
-        >
-          <Bread />
-        </mesh>
-        {/* </PerspectiveCamera> */}
       </React.Fragment>
-      // </Section>
     );
+  };
+
+  const CameraController = () => {
+    const { camera, gl } = useThree();
+    useEffect(() => {
+      const controls = new OrbitControls(camera, gl.domElement);
+
+      controls.minDistance = 3;
+      controls.maxDistance = 20;
+      return () => {
+        controls.dispose();
+      };
+    }, [camera, gl]);
+    return null;
   };
 
   return (
@@ -242,21 +239,20 @@ export default function Landing(props) {
       </main>
 
       {/* carousell of products */}
+
       {/* 3d animation starts here */}
-      <section
-        className="animationContainer"
-        // style={{
-        //   height: "30rem",
-        //   backgroundColor: "#DEDEDE",
-        // }}
-      >
+      <section className="animationContainer">
         <Canvas>
           <Suspense fallback={null}>
-            <AnimationContent />
+            <CameraController />
+            <HTMLContent />
+            <mesh ref={ref} position={[0, -1, 0]}>
+              <Bread />
+            </mesh>
           </Suspense>
         </Canvas>
       </section>
-      {/* 3d animation ends here */}
+      {/* animation ends here */}
     </React.Fragment>
   );
 }
