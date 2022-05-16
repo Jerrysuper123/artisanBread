@@ -106,6 +106,7 @@ Click [wireframe](https://github.com/Jerrysuper123/artisanbreadsources/blob/main
 | React, react-router-dom, useContext        | Build single page application                 |
 | Aos                                        | Animation                                     |
 | Animation css                              | Animation                                     |
+| Three.js, drei, fiber                      | 3d Animation                                  |
 | Express                                    | Build restful and API and back-end admin page |
 | db-migrate                                 | Build mysql database using db-migrate         |
 | mysql                                      | App was initialized on mysql database         |
@@ -130,3 +131,5 @@ The deployment is done through Netifly with the instructions [here](https://www.
 3. [Unsplash images](https://unsplash.com/) - to use it as the landing page background image
 
 4. [footer template](https://gist.github.com/Luke-zhang-04/7cb523899ca4044f805f0d0909e4c5c1) - to customize and use for various pages
+
+5. [SketchFab](https://sketchfab.com/) - to get the free 3D animation template
