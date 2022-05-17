@@ -108,13 +108,14 @@ export default function Landing(props) {
           >
             Artisan Bread offers the best bread in the world
           </h2>
+
           <Link to="/login">
-            <button className="btn LoginBtn btn-secondary mt-lg-4">
+            <button className="m-1 btn LoginBtn btn-secondary mt-lg-4">
               Log in
             </button>
           </Link>
           <Link to="/shop">
-            <button className="ms-2 btn btn-danger mt-lg-4">Shop now</button>
+            <button className="m-1 btn btn-danger mt-lg-4">Shop now</button>
           </Link>
         </section>
       </div>
