@@ -2,7 +2,8 @@
 .ribbon-wrapper {
     position: relative;
     z-index: 998;
-    bottom: 54px;
+    margin-top: -6rem;
+    /* bottom: 54px; */
     left: 5px;
 }
 
@@ -12,10 +13,14 @@
     border: 1px solid white !important;
 }
 .ribbon-front {
-    background-color: rgba(0, 0, 0, 0.4);
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: rgba(154, 87, 87, 0.4); */
     height: 50px;
-    width: 280px;
+    width: 103%;
     position: relative;
+    border-top: 1px solid rgb(255, 255, 255) !important;
+    border-bottom: 1px solid white !important;
     left: -10px;
     z-index: 2;
     font: 20px/50px bold Verdana, Geneva, sans-serif;
@@ -69,7 +74,7 @@
 
 .ribbon-edge-topright,
 .ribbon-edge-bottomright {
-    left: 266px;
+    left: 98%;
     border-color: transparent transparent transparent #282424;
 }
 
@@ -161,4 +166,13 @@
     ); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
     border-left: 1px solid #fff;
+}
+
+.basket {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.55);
+    padding: 0.3rem;
+    font-size: 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0px 1px 2px #dedede;
 }

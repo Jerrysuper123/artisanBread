@@ -24,12 +24,12 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
             fetchProductDetailsPage(p.id);
           }}
           src={p.image_url}
-          className="card-img-top shopImg "
+          className="card-img-top shopImg"
           alt={p.name}
         />
       ) : null}
 
-      <button
+      {/* <button
         className="shopCartBtn customBtn py-2"
         // className="banner"
         onClick={() => {
@@ -37,9 +37,16 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
         }}
       >
         Add to Cart
-      </button>
+      </button> */}
       {/* ribbon css */}
-      {/* <AddToCartBtn /> */}
+      <section
+        className="shadow"
+        onClick={() => {
+          addToCart(p.id);
+        }}
+      >
+        <AddToCartBtn />
+      </section>
 
       <div className="cardBody text-center">
         <section

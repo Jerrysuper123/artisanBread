@@ -63,7 +63,7 @@
 .shopCard {
     border: none;
     background-color: transparent !important;
-    position: relative;
+    /* position: relative; */
 }
 
 .productRating {
@@ -107,23 +107,29 @@
     color: rgba(0, 0, 0, 0.8);
 } */
 .cardBody {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.7);
     height: 3.1rem !important;
     border-radius: 0 0 1rem 1rem !important;
+    margin-top: -2.8rem;
     /* border: 1px solid black; */
 }
 
 .cardTitle {
-    color: rgb(67, 67, 67);
+    color: rgb(0, 0, 0);
+    text-align: center;
     font-weight: 500;
     /* margin-top: -0.3rem; */
+    text-shadow: 0px 3px 3px #ffffff;
+    font-weight: 600;
 }
 
 .cardText {
     margin-top: -0.3rem;
-    color: rgb(62, 62, 61) !important;
+    color: rgb(0, 0, 0) !important;
     font-size: 0.9rem;
     font-style: italic;
+    text-shadow: 0px 3px 3px #ffffff;
+    font-weight: 400;
 }
 
 .pagination {
@@ -175,6 +181,6 @@
 
 .shopCartBtn:hover {
     color: black;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid white !important;
 }
