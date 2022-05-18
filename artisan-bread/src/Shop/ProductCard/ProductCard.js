@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import AddToCartBtn from "../../AddToCartBtn/AddToCartBtn";
 
 export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
   return (
@@ -27,14 +28,19 @@ export default function ProductCard({ p, fetchProductDetailsPage, addToCart }) {
           alt={p.name}
         />
       ) : null}
+
       <button
         className="shopCartBtn customBtn py-2"
+        // className="banner"
         onClick={() => {
           addToCart(p.id);
         }}
       >
         Add to Cart
       </button>
+      {/* ribbon css */}
+      {/* <AddToCartBtn /> */}
+
       <div className="cardBody text-center">
         <section
           onClick={() => {

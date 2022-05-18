@@ -8,6 +8,7 @@ import SortProduct from "../SortProduct/SortProduct";
 import SearchProduct from "../SearchProduct/SearchProduct";
 import ProductCard from "./ProductCard/ProductCard";
 import { useNavigate } from "react-router-dom";
+import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
 // import Stripe from "../images/stripe.png";
 import "./style.css";
 // import CartPage from "../CartPage/CartPage";
@@ -101,7 +102,7 @@ export default function Shop() {
               );
             })}
           </div>
-          <section className="d-flex justify-content-center" data-aos="fade-up">
+          <section className="d-flex justify-content-center">
             {totalPageArray.map((page) => {
               return (
                 <div

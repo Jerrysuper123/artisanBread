@@ -90,24 +90,6 @@
     overflow: hidden;
 }
 
-.shopCartBtn {
-    border-radius: 0rem !important;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
-    font-size: 1.2rem;
-    /* border: 1px solid grey; */
-    font-weight: 700;
-    border: 1px solid white !important;
-    margin-top: -6rem;
-    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-.shopCartBtn:hover {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid white !important;
-}
-
 .card-body {
     /* background-color: rgb(235, 240, 244); */
     height: 6rem !important;
@@ -178,3 +160,21 @@
     display: block;
     z-index: 999;
 } */
+
+.shopCartBtn {
+    border-radius: 0rem !important;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
+    /* border: 1px solid grey; */
+    font-weight: 700;
+    border: 1px solid white !important;
+    margin-top: -6rem;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.shopCartBtn:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid white !important;
+}
