@@ -245,19 +245,25 @@ export default function Landing(props) {
           </div>
         </section>
       </main>
-      {/* 3d animation starts here */}
-      <section className="animationContainer">
-        <Canvas>
-          <Suspense fallback={null}>
-            <CameraController />
-            <HTMLContent />
-            <mesh ref={ref} position={[0, -1, 0]}>
-              <Bread />
-            </mesh>
-          </Suspense>
-        </Canvas>
-      </section>
-      {/* animation ends here */}
+
+      <main data-aos="fade-up">
+        <h1 className="text-center heritageFarm">
+          Our heritage farm since 1997
+        </h1>
+        {/* 3d animation starts here */}
+        <section className="animationContainer">
+          <Canvas>
+            <Suspense fallback={null}>
+              <CameraController />
+              <HTMLContent />
+              <mesh ref={ref} position={[0, -1, 0]}>
+                <Bread />
+              </mesh>
+            </Suspense>
+          </Canvas>
+        </section>
+        {/* animation ends here */}
+      </main>
 
       {/* carousell of products */}
     </React.Fragment>

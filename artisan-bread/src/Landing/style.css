@@ -295,3 +295,16 @@
     margin-top: -6rem;
     color: white;
 }
+
+.heritageFarm {
+    /* color: rgb(51, 204, 206); */
+    /* background: -webkit-linear-gradient(rgb(58, 255, 153), rgb(109, 235, 212));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    background: -webkit-linear-gradient(#eee, rgb(30, 166, 169));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-style: italic;
+}
