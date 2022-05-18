@@ -130,9 +130,7 @@ export default function Landing(props) {
             </div>
           </section>
           <article data-aos="fade-left">
-            <h1 className="highlightText" data-aos="zoom-in">
-              Healthier bread with better taste
-            </h1>
+            <h1 className="highlightText">Healthier bread with better taste</h1>
             <h5 className="text-secondary">
               We marry good science with our artisanal skills to offer hand-made
               wholemeal bread, using organic ingredients. Not only all our bread
