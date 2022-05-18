@@ -101,7 +101,7 @@ export default function Shop() {
               );
             })}
           </div>
-          <section className="d-flex justify-content-center">
+          <section className="d-flex justify-content-center" data-aos="fade-up">
             {totalPageArray.map((page) => {
               return (
                 <div
