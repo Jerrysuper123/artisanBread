@@ -256,7 +256,7 @@ export default function CartPage() {
                             <h5 className="card-title">{c.product.name}</h5>
 
                             <span
-                              className=""
+                              className="deleteCartItem"
                               onClick={() => {
                                 removeCart(c.product.id);
                               }}
