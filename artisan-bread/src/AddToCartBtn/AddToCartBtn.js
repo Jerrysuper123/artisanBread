@@ -7,7 +7,7 @@ export default function AddToCartBtn() {
       <div className="ribbon-wrapper">
         <div className="glow"></div>
         <div className="ribbon-front">
-          <span> Add to Cart</span>
+          Add to Cart
           <span className="ms-2 basket">
             <i className=" fa-solid fa-basket-shopping"></i>
           </span>
