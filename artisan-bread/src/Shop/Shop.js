@@ -71,7 +71,7 @@ export default function Shop() {
     <React.Fragment>
       <main className="mainShopPage mt-5">
         <section className="container p-3">
-          <section className="container d-flex justify-content-sm-between justify-content-center mb-3 mt-4">
+          <section className="container d-flex justify-content-sm-between justify-content-center mb-5 mt-4">
             <div className="d-sm-block d-none">
               <FilterPage
                 setProducts={setProducts}
@@ -89,7 +89,7 @@ export default function Shop() {
             </div>
           </section>
 
-          <div className="row d-flex justify-content-center gy-3 gx-3">
+          <div className="row d-flex justify-content-around">
             {products.map((p) => {
               return (
                 <React.Fragment key={p.id}>
@@ -102,7 +102,7 @@ export default function Shop() {
               );
             })}
           </div>
-          <section className="d-flex justify-content-center">
+          <section className="d-flex justify-content-center mb-5">
             {totalPageArray.map((page) => {
               return (
                 <div

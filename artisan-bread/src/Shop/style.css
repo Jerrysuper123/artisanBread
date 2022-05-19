@@ -68,8 +68,8 @@
 
 .productRating {
     position: absolute;
-    margin-left: 9rem;
-    top: 0.3rem;
+    margin-left: 8rem;
+    top: 0.7rem;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -79,7 +79,7 @@
     object-position: center;
     height: 19rem;
     overflow: hidden;
-    border-radius: 1rem !important;
+    border-radius: 3rem !important;
 }
 
 .cartImg {
