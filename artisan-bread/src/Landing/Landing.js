@@ -148,7 +148,7 @@ export default function Landing(props) {
             className="carousel slide"
             data-bs-ride="carousel"
           >
-            <div className="carousel-indicators">
+            <div className="carousel-indicators mt-5">
               <button
                 type="button"
                 data-bs-target="#carouselExampleCaptions"
